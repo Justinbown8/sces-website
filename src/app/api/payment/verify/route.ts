@@ -80,7 +80,10 @@ export async function POST(request: NextRequest) {
 }
 
 // Placeholder function for sending confirmation email
-async function sendDonationConfirmationEmail(donor: any, donation: any) {
+async function sendDonationConfirmationEmail(
+  donor: { email: string; name?: string }, 
+  donation: { amount: number; id: string; created_at: string }
+) {
   // In production, integrate with email service (SendGrid, AWS SES, etc.)
   console.log('Sending confirmation email to:', donor.email);
   console.log('Donation details:', {

@@ -14,11 +14,11 @@ export default function ImpactPage() {
       <section className="py-20 bg-gradient-to-br from-blue-800 via-blue-600 to-yellow-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-            Stories of Hope & Transformation
+            Stories of Hope &amp; Transformation
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Every child has a story. Every family has dreams. Through education and community support, 
-            we're helping write new chapters filled with hope, opportunity, and success.
+            we&apos;re helping write new chapters filled with hope, opportunity, and success.
           </p>
         </div>
       </section>

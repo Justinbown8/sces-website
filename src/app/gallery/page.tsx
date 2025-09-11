@@ -57,7 +57,7 @@ export default function GalleryPage() {
             Be Part of Our Story
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join us in creating more beautiful memories and making a difference in children's lives
+            Join us in creating more beautiful memories and making a difference in children&apos;s lives
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
