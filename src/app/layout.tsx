@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Poppins } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import { Header, Footer } from "@/components/layout";
 import { siteConfig } from "@/config/site";
@@ -57,7 +58,9 @@ export default function RootLayout({
       <head>
         <StructuredData data={organizationData} />
         <StructuredData data={websiteData} />
-        <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+        </Suspense>
       </head>
       <body className="font-body antialiased min-h-screen flex flex-col">
         {/* Skip Links */}
@@ -83,8 +86,10 @@ export default function RootLayout({
             </main>
             <Footer />
           </PayPalWrapper>
-          <PerformanceMonitor />
-          <AnalyticsDashboard />
+          <Suspense fallback={null}>
+            <PerformanceMonitor />
+            <AnalyticsDashboard />
+          </Suspense>
         </PerformanceProvider>
         
         {/* Screen reader live region for announcements */}
