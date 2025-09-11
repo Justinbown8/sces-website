@@ -5,23 +5,49 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next out dist",
+    "optimize-images": "node scripts/optimize-images.js",
+    "validate-config": "node scripts/validate-config.js",
+    "config-report": "node -e \"const { generateConfigReport } = require('./dist/lib/config-validator.js'); console.log(generateConfigReport());\"",
+    "perf:audit": "node scripts/performance-audit.js",
+    "perf:lighthouse": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html",
+    "monitoring:setup": "node scripts/monitoring-setup.js",
+    "test:integration": "node tests/simple-test.js",
+    "test:full": "node tests/run-integration-tests.js"
   },
   "dependencies": {
+    "@paypal/paypal-js": "^8.4.2",
+    "@paypal/react-paypal-js": "^8.9.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.542.0",
+    "next": "15.5.2",
+    "razorpay": "^2.9.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.2"
+    "tailwind-merge": "^3.3.1",
+    "web-vitals": "^4.2.4"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
-    "@eslint/eslintrc": "^3"
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^24.0.0",
+    "lighthouse": "^12.2.1",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }

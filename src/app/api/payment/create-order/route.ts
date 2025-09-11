@@ -1,0 +1,51 @@
+import { NextRequest, NextResponse } from 'next/server';
+import Razorpay from 'razorpay';
+
+// Initialize Razorpay instance
+const razorpay = new Razorpay({
+  key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
+  key_secret: process.env.RAZORPAY_KEY_SECRET!,
+});
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const { amount, currency = 'INR', receipt, notes } = body;
+
+    // Validate required fields
+    if (!amount || amount < 100) {
+      return NextResponse.json(
+        { error: 'Amount must be at least ₹1 (100 paise)' },
+        { status: 400 }
+      );
+    }
+
+    // Create Razorpay order
+    const options = {
+      amount: Math.round(amount), // Amount in paise
+      currency,
+      receipt: receipt || `donation_${Date.now()}`,
+      notes: notes || {},
+    };
+
+    const order = await razorpay.orders.create(options);
+
+    return NextResponse.json({
+      id: order.id,
+      amount: order.amount,
+      currency: order.currency,
+      receipt: order.receipt,
+      status: order.status,
+    });
+  } catch (error) {
+    console.error('Error creating Razorpay order:', error);
+    
+    return NextResponse.json(
+      { 
+        error: 'Failed to create payment order',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      },
+      { status: 500 }
+    );
+  }
+}
