@@ -269,7 +269,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     excerpt: post.excerpt,
     slug: post.id,
     publishedAt: post.publishDate.toISOString(),
-    updatedAt: post.updatedAt?.toISOString(),
+    updatedAt: post.publishDate.toISOString(), // Use publishDate as fallback
     author: post.author,
     tags: post.tags,
     featuredImage: post.featuredImage,
