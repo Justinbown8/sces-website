@@ -78,6 +78,7 @@ export interface BlogPost {
   content: string;
   author: string;
   publishDate: Date;
+  updatedAt?: Date;
   tags: string[];
   featuredImage?: string;
 }
