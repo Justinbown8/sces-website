@@ -11,7 +11,7 @@ export interface PresidentInfo {
 export const presidentInfo: PresidentInfo = {
   name: "Rajni Chawla",
   title: "President & Founder",
-  image: "/rajni chawla - president.jpg",
+  image: "/Rajni Chawla - President.jpg",
   bio: [
     "Rajni Chawla has dedicated over 15 years of her life to transforming educational opportunities for underprivileged children across India. With a background in education and social work, she founded Sunrise Children Educational Society with a vision to ensure that every child, regardless of their economic background, has access to quality education.",
     "Before establishing SCES, Ms. Chawla worked as an educator in rural schools where she witnessed firsthand the challenges faced by children from disadvantaged communities. This experience ignited her passion for creating systemic change in the education sector.",
