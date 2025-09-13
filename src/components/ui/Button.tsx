@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn, buttonBase } from '@/lib/utils';
-import { MotionAccessibility } from '@/lib/accessibility';
+import accessibility from '@/lib/accessibility';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';

@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Enable static export for easy deployment
+  // Enable static export for easy deployment (API routes will be disabled)
   output: 'export',
   trailingSlash: true,
   
