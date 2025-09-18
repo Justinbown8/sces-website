@@ -169,6 +169,17 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               <p className="text-gray-400 text-sm">
                 © {currentYear} Sunrise Children Educational Society. All rights reserved.
               </p>
+              <p className="text-gray-500 text-xs mt-1">
+                Built by{' '}
+                <a 
+                  href="https://itwelvetech.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 transition-colors duration-200 hover:underline focus:outline-none focus:text-blue-300"
+                >
+                  iTwelve Tech
+                </a>
+              </p>
             </div>
 
             {/* Legal Links */}
