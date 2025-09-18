@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
       } ${className}`}
       role="banner"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo and Site Name */}
           <Link
@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
 
           {/* Desktop Navigation */}
           <nav 
-            className="hidden lg:flex items-center space-x-8"
+            className="hidden lg:flex items-center space-x-4 xl:space-x-8"
             role="navigation"
             aria-label="Main navigation"
             id="main-navigation"
@@ -95,7 +95,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md ${
+                className={`relative px-2 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md ${
                   isActiveLink(link.href)
                     ? 'text-blue-600'
                     : 'text-gray-700 hover:text-blue-600'
