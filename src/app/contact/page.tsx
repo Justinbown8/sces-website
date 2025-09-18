@@ -1,116 +1,102 @@
-import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Breadcrumb } from '@/components/seo/Breadcrumb';
-import { StructuredData } from '@/components/seo/StructuredData';
-import { pageMetadata } from '@/lib/seo';
-import { siteConfig } from '@/config/site';
-
-export const metadata = pageMetadata.contact();
-
-const breadcrumbItems = [
-  { name: 'Home', url: '/' },
-  { name: 'Contact Us', url: '/contact' },
-];
-
-const organizationStructuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
-  name: 'Contact SCES NGO',
-  description: 'Get in touch with Sunrise Children Education Society for inquiries, donations, or volunteer opportunities',
-  url: `${siteConfig.url}/contact`,
-};
 
 export default function ContactPage() {
   return (
-    <>
-      <StructuredData data={organizationStructuredData} />
-      
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-        <div className="container mx-auto px-4 py-8">
-          <Breadcrumb items={breadcrumbItems} />
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+            Contact Us
+          </h1>
           
-          {/* Hero Section */}
-          <section className="text-center py-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Contact <span className="text-blue-600">SCES</span>
-            </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-              We&apos;d love to hear from you. Whether you want to donate, volunteer, or learn more about our programs, 
-              we&apos;re here to help make a difference together.
-            </p>
-          </section>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div>
+              <Card className="p-8 h-full">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-6">Get in Touch</h2>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-blue-600 text-xl">📍</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-2">Address</h3>
+                      <p className="text-gray-700">
+                        877/10 Ward No. 6<br />
+                        Mehrauli, New Delhi – 110030<br />
+                        India
+                      </p>
+                    </div>
+                  </div>
 
-          {/* Contact Information */}
-          <section className="py-16">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {/* Address */}
-              <Card className="p-8 text-center hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Visit Us</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Mehrauli, New Delhi<br />
-                  Delhi, India<br />
-                  110030
-                </p>
-              </Card>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-green-600 text-xl">📞</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
+                      <p className="text-gray-700">
+                        <a href="tel:09953665620" className="hover:text-blue-600 transition-colors">
+                          099536 65620
+                        </a>
+                      </p>
+                    </div>
+                  </div>
 
-              {/* Phone */}
-              <Card className="p-8 text-center hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Call Us</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  <a href="tel:+919876543210" className="hover:text-blue-600 transition-colors">
-                    +91 98765 43210
-                  </a><br />
-                  <span className="text-sm text-gray-600">Mon - Fri, 9:00 AM - 6:00 PM</span>
-                </p>
-              </Card>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-orange-600 text-xl">✉️</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
+                      <p className="text-gray-700">
+                        <a href="mailto:info@sces.org.in" className="hover:text-blue-600 transition-colors">
+                          info@sces.org.in
+                        </a>
+                      </p>
+                    </div>
+                  </div>
 
-              {/* Email */}
-              <Card className="p-8 text-center hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-1">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-purple-600 text-xl">🕒</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-2">Office Hours</h3>
+                      <p className="text-gray-700">
+                        Monday - Friday: 9:00 AM - 6:00 PM<br />
+                        Saturday: 10:00 AM - 4:00 PM<br />
+                        Sunday: Closed
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Email Us</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  <a href="mailto:info@scesngo.org" className="hover:text-blue-600 transition-colors">
-                    info@scesngo.org
-                  </a><br />
-                  <a href="mailto:support@scesngo.org" className="hover:text-blue-600 transition-colors">
-                    support@scesngo.org
-                  </a>
-                </p>
+
+                <div className="mt-8 pt-6 border-t border-gray-200">
+                  <h3 className="font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button variant="primary" asChild>
+                      <a href="/donate">Make a Donation</a>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <a href="/volunteer">Become a Volunteer</a>
+                    </Button>
+                  </div>
+                </div>
               </Card>
             </div>
-          </section>
 
-          {/* Contact Form */}
-          <section className="py-16">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Send Us a Message</h2>
-                <p className="text-lg text-gray-700">
-                  Have a question or want to get involved? We&apos;d love to hear from you.
-                </p>
-              </div>
-
+            {/* Contact Form */}
+            <div>
               <Card className="p-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-6">Send us a Message</h2>
+                
                 <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="firstName" className="block text-sm font-medium text-gray-900 mb-2">
+                      <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
                         First Name *
                       </label>
                       <input
@@ -118,12 +104,12 @@ export default function ContactPage() {
                         id="firstName"
                         name="firstName"
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-gray-900 bg-white placeholder-gray-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="Enter your first name"
                       />
                     </div>
                     <div>
-                      <label htmlFor="lastName" className="block text-sm font-medium text-gray-900 mb-2">
+                      <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
                         Last Name *
                       </label>
                       <input
@@ -131,116 +117,131 @@ export default function ContactPage() {
                         id="lastName"
                         name="lastName"
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-gray-900 bg-white placeholder-gray-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="Enter your last name"
                       />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-gray-900 bg-white placeholder-gray-500"
-                        placeholder="Enter your email address"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-900 mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-gray-900 bg-white placeholder-gray-500"
-                        placeholder="Enter your phone number"
-                      />
-                    </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Enter your email address"
+                    />
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Enter your phone number"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                       Subject *
                     </label>
                     <select
                       id="subject"
                       name="subject"
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-gray-900 bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     >
                       <option value="">Select a subject</option>
-                      <option value="donation">Donation Inquiry</option>
-                      <option value="volunteer">Volunteer Opportunity</option>
-                      <option value="partnership">Partnership</option>
                       <option value="general">General Inquiry</option>
-                      <option value="support">Support Request</option>
+                      <option value="donation">Donation Related</option>
+                      <option value="volunteer">Volunteer Opportunities</option>
+                      <option value="partnership">Partnership</option>
+                      <option value="media">Media Inquiry</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                       Message *
                     </label>
                     <textarea
                       id="message"
                       name="message"
-                      rows={6}
+                      rows={5}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical text-gray-900 bg-white placeholder-gray-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                       placeholder="Tell us how we can help you..."
                     ></textarea>
                   </div>
 
-                  <div className="text-center">
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      size="lg"
-                      className="min-w-[200px]"
-                    >
-                      Send Message
-                    </Button>
+                  <div className="flex items-start">
+                    <input
+                      type="checkbox"
+                      id="newsletter"
+                      name="newsletter"
+                      className="mt-1 mr-3 text-blue-600 focus:ring-blue-500"
+                    />
+                    <label htmlFor="newsletter" className="text-sm text-gray-700">
+                      I would like to receive updates about SCES programs and activities
+                    </label>
                   </div>
+
+                  <Button type="submit" variant="primary" size="lg" className="w-full">
+                    Send Message
+                  </Button>
                 </form>
+
+                <p className="text-sm text-gray-600 mt-4 text-center">
+                  We typically respond within 24-48 hours during business days.
+                </p>
               </Card>
             </div>
-          </section>
+          </div>
 
-          {/* Quick Actions */}
-          <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl text-white">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4">Ready to Make a Difference?</h2>
-              <p className="text-xl text-blue-100">
-                Join us in transforming lives through education
+          {/* Additional Information */}
+          <div className="mt-12 grid md:grid-cols-3 gap-8">
+            <Card className="p-6 text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-600 text-2xl">🎓</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Educational Programs</h3>
+              <p className="text-gray-600 text-sm">
+                Learn about our various educational initiatives and how you can get involved.
               </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-white text-blue-600 border-white hover:bg-blue-50 min-w-[200px]"
-              >
-                <a href="/donate">Donate Now</a>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-transparent text-white border-white hover:bg-white hover:text-blue-600 min-w-[200px]"
-              >
-                <a href="/volunteer">Become a Volunteer</a>
-              </Button>
-            </div>
-          </section>
+            </Card>
+
+            <Card className="p-6 text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-green-600 text-2xl">🤝</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Partnerships</h3>
+              <p className="text-gray-600 text-sm">
+                Interested in partnering with us? We welcome collaborations with like-minded organizations.
+              </p>
+            </Card>
+
+            <Card className="p-6 text-center">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-orange-600 text-2xl">📰</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Media Inquiries</h3>
+              <p className="text-gray-600 text-sm">
+                Press and media representatives can reach out for interviews and information.
+              </p>
+            </Card>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

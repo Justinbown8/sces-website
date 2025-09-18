@@ -172,7 +172,7 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             </div>
 
             {/* Legal Links */}
-            <div className="flex items-center space-x-6 text-sm">
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 text-sm">
               <Link
                 href="/privacy"
                 className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:text-white"
@@ -183,7 +183,25 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                 href="/terms"
                 className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:text-white"
               >
-                Terms of Service
+                Terms & Conditions
+              </Link>
+              <Link
+                href="/cancellation-refunds"
+                className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:text-white"
+              >
+                Cancellation & Refunds
+              </Link>
+              <Link
+                href="/shipping"
+                className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:text-white"
+              >
+                Shipping
+              </Link>
+              <Link
+                href="/contact"
+                className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:text-white"
+              >
+                Contact Us
               </Link>
             </div>
 
