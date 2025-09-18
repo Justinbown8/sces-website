@@ -38,11 +38,19 @@ export const metadata: Metadata = {
     initialScale: 1,
     maximumScale: 5,
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
+  icons: [
+    {
+      rel: 'icon',
+      url: '/favicon.svg',
+      type: 'image/svg+xml',
+    },
+    {
+      rel: 'icon',
+      url: '/favicon.ico',
+      type: 'image/x-icon',
+      sizes: '16x16',
+    },
+  ],
   manifest: "/site.webmanifest",
   other: {
     "msapplication-TileColor": "#FFD700",
