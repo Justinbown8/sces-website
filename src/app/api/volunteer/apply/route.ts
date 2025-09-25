@@ -1,15 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createBrowserClient } from '@supabase/ssr';
 
 export async function POST(request: NextRequest) {
   try {
-    // Add CORS headers
-    const headers = {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    };
-
     const body = await request.json();
     console.log('Received volunteer application:', body);
     
@@ -17,11 +10,15 @@ export async function POST(request: NextRequest) {
     if (!body.name || !body.email || !body.phone) {
       return NextResponse.json(
         { success: false, message: 'Missing required fields' },
-        { status: 400, headers }
+        { status: 400 }
       );
     }
 
-    const supabase = await createClient();
+    // Create Supabase client directly
+    const supabase = createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
     
     // Save to Supabase
     const { data, error } = await supabase
@@ -41,7 +38,7 @@ export async function POST(request: NextRequest) {
       console.error('Supabase error:', error);
       return NextResponse.json(
         { success: false, message: `Database error: ${error.message}` },
-        { status: 500, headers }
+        { status: 500 }
       );
     }
     
@@ -49,7 +46,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ 
       success: true, 
       message: 'Application submitted successfully' 
-    }, { headers });
+    });
   } catch (error) {
     console.error('Error processing volunteer application:', error);
     return NextResponse.json(
@@ -57,15 +54,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
-
-export async function OPTIONS(request: NextRequest) {
-  return new NextResponse(null, {
-    status: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    },
-  });
 }
