@@ -227,21 +227,14 @@ export default function DonationForm() {
 
   const createRazorpayOrder = async (amount: number) => {
     try {
-      const response = await fetch('/api/payment/create-order', {
+      const response = await fetch('/api/razorpay', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          amount: amount * 100, // Convert to paise
+          amount: amount, // API will convert to paise
           currency: 'INR',
-          receipt: `donation_${Date.now()}`,
-          notes: {
-            donor_name: formState.donor.name,
-            donor_email: formState.donor.email,
-            recurring: formState.recurring,
-            frequency: formState.frequency,
-          },
         }),
       });
 
@@ -268,12 +261,12 @@ export default function DonationForm() {
       const order = await createRazorpayOrder(amount);
 
       const options = {
-        key: PAYMENT_CONFIG.razorpay.keyId,
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
         amount: order.amount,
         currency: order.currency,
-        name: PAYMENT_CONFIG.razorpay.name,
-        description: `${PAYMENT_CONFIG.razorpay.description} - ${formState.recurring ? 'Recurring' : 'One-time'}`,
-        order_id: order.id,
+        name: 'SCES - Sunrise Children Educational Society',
+        description: `Donation - ${formState.recurring ? 'Recurring' : 'One-time'}`,
+        order_id: order.order_id,
         handler: async (response: RazorpayResponse) => {
           try {
             setPaymentStatus({ status: 'processing', message: 'Verifying payment...' });
@@ -339,7 +332,9 @@ export default function DonationForm() {
         notes: {
           address: 'SCES Donation',
         },
-        theme: PAYMENT_CONFIG.razorpay.theme,
+        theme: {
+          color: '#3B82F6'
+        },
         modal: {
           ondismiss: (): void => {
             setPaymentStatus({
