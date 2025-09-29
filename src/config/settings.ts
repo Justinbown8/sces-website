@@ -322,11 +322,11 @@ export const defaultSettings: SiteSettings = {
   },
   social: {
     facebook: {
-      url: process.env.NEXT_PUBLIC_FACEBOOK_URL || "https://facebook.com/sces-ngo",
+      url: process.env.NEXT_PUBLIC_FACEBOOK_URL || "https://www.facebook.com/profile.php?id=100069227013249",
       enabled: true
     },
     instagram: {
-      url: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/sces-ngo",
+      url: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/sces0808/",
       enabled: true
     },
     twitter: {
