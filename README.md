@@ -148,8 +148,7 @@ Use Razorpay test cards for testing:
 
 - **Phone**: 099536 65620
 - **Address**: 877/10 Ward No. 6, Mehrauli New Delhi – 110030
-- **Website**: [Update with actual domain]
-
+- **Website**: scesindia@gmail.com
 ## Contributing
 
 1. Follow the existing code style
