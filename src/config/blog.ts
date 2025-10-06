@@ -2,6 +2,162 @@ import { BlogPost } from '@/types';
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "shaping-tomorrow-through-education-today",
+    title: "Shaping Tomorrow Through Education Today: How We Can Decide the Future of Our World",
+    excerpt: "Every child deserves access to quality education. Discover how supporting children's education today creates a ripple effect that shapes our collective future and builds a better world for generations to come.",
+    content: `
+# Shaping Tomorrow Through Education Today: How We Can Decide the Future of Our World
+
+Education is not just about teaching children to read, write, and calculate. It's about planting seeds of hope, nurturing dreams, and building the foundation for a better tomorrow. At Sunrise Children Educational Society (SCES), we believe that every child we educate today becomes a beacon of change for the future.
+
+## The Power of One Child's Education
+
+When we educate one child, we don't just change that child's life – we transform entire communities. Consider Meera, a 10-year-old girl from a slum in Mehrauli. Two years ago, she had never held a book. Today, she reads stories to younger children in her neighborhood and dreams of becoming a teacher. Her transformation has inspired her parents to send her younger siblings to school and motivated other families in her community to prioritize education.
+
+This is the ripple effect of education – one child's learning journey touches countless lives and creates waves of positive change that extend far beyond what we can immediately see.
+
+## Breaking the Cycle of Poverty
+
+Poverty and lack of education create a vicious cycle that traps families for generations. Children born into poverty often lack access to quality education, which limits their opportunities and keeps them in the same economic conditions as their parents. However, education has the unique power to break this cycle.
+
+### The Statistics Tell a Powerful Story:
+- Children who complete primary education are 50% less likely to live in poverty as adults
+- Each additional year of schooling increases a person's earnings by 8-10%
+- Educated mothers are 50% more likely to ensure their children receive proper healthcare and education
+- Communities with higher literacy rates show significantly better economic development
+
+## Education as a Tool for Social Change
+
+Education doesn't just improve individual lives – it transforms societies. When children learn about equality, justice, and human rights, they grow up to challenge unfair systems and work toward a more equitable world.
+
+### Creating Future Leaders
+The children we educate today will become tomorrow's:
+- **Teachers** who will educate the next generation
+- **Doctors** who will heal communities
+- **Engineers** who will build sustainable infrastructure
+- **Social workers** who will advocate for the marginalized
+- **Entrepreneurs** who will create jobs and drive economic growth
+- **Leaders** who will make decisions that affect millions
+
+## The Global Impact of Local Education
+
+In our interconnected world, the education of children in Delhi's slums can have global implications. Today's educated child might:
+- Develop innovative solutions to climate change
+- Create technology that connects communities worldwide
+- Lead international peace-building efforts
+- Contribute to scientific breakthroughs that benefit humanity
+- Build bridges between cultures and nations
+
+## Our Approach: Holistic Development
+
+At SCES, we don't just focus on academic learning. Our comprehensive approach includes:
+
+### Academic Excellence
+- Quality curriculum aligned with national standards
+- Personalized learning approaches for different learning styles
+- Regular assessments and progress tracking
+- Preparation for higher education opportunities
+
+### Life Skills Development
+- Critical thinking and problem-solving abilities
+- Communication and leadership skills
+- Digital literacy for the modern world
+- Financial literacy and entrepreneurship basics
+
+### Character Building
+- Values of compassion, integrity, and social responsibility
+- Understanding of human rights and equality
+- Environmental consciousness and sustainability
+- Cultural appreciation and global citizenship
+
+### Health and Wellness
+- Nutrition programs to support physical development
+- Mental health awareness and emotional intelligence
+- Sports and physical activities for overall well-being
+- Health education and hygiene practices
+
+## Success Stories: Seeds of Change
+
+### Arjun's Journey
+Arjun, now 16, joined our program when he was 8 years old. His parents worked as daily wage laborers and couldn't afford school fees. Today, Arjun has received a scholarship to study engineering and plans to return to his community to build better infrastructure. "SCES didn't just give me education," he says, "they gave me the power to dream and the tools to make those dreams reality."
+
+### Kavya's Impact
+Kavya, a former SCES student, is now a teacher in her own community. She has started an after-school program for working children, ensuring they don't miss out on education despite their circumstances. Her initiative has reached over 100 children in the past two years.
+
+### Rohit's Innovation
+Rohit, who graduated from our program five years ago, has developed a mobile app that helps connect rural students with urban tutors. His innovation is now being used by thousands of students across India, multiplying the impact of education far beyond his own community.
+
+## The Multiplier Effect of Your Support
+
+When you support a child's education, you're not just investing in one life – you're investing in:
+- **The child's family:** Educated children often become the primary income earners, lifting entire families out of poverty
+- **The community:** Educated individuals contribute to local economic development and social progress
+- **Future generations:** Educated parents prioritize their children's education, creating a positive cycle
+- **Society at large:** A more educated population leads to better governance, reduced crime, and increased innovation
+- **The global community:** Today's educated child might solve tomorrow's global challenges
+
+## How You Can Shape the Future
+
+### Direct Support
+- **₹500/month** provides a child with basic educational materials and supplies
+- **₹1,500/month** covers a child's complete education including books, uniforms, and meals
+- **₹5,000/month** sponsors a child's education plus provides family support services
+- **₹25,000** establishes a small library in an underserved community
+
+### Volunteer Your Skills
+- Teach children directly through our volunteer programs
+- Mentor students in specific subjects or life skills
+- Help with administrative tasks and program coordination
+- Share your professional expertise through career guidance sessions
+
+### Spread Awareness
+- Share our mission with your network
+- Organize fundraising events in your community
+- Use social media to highlight the importance of education
+- Advocate for educational policies that support underserved children
+
+### Corporate Partnerships
+- Employee volunteer programs
+- Skill-based volunteering initiatives
+- Corporate social responsibility partnerships
+- Internship and job placement programs for our graduates
+
+## The Urgency of Now
+
+Every day that a child remains out of school is a day lost in building a better future. The challenges facing our world – climate change, inequality, technological disruption, social unrest – require educated, thoughtful, and compassionate leaders to solve them.
+
+The children we educate today will be the ones making crucial decisions about our planet's future in 20-30 years. By investing in their education now, we're essentially voting for the kind of world we want to live in tomorrow.
+
+## A Vision for Tomorrow
+
+Imagine a world where:
+- Every child has access to quality education regardless of their economic background
+- Poverty is eliminated through the power of education and opportunity
+- Innovation and creativity flourish because every mind is nurtured and developed
+- Social justice prevails because educated citizens demand equality and fairness
+- Environmental challenges are solved by brilliant minds that were given the chance to learn and grow
+- Peace and understanding replace conflict because education builds bridges between communities
+
+This vision is not just a dream – it's an achievable goal if we all commit to supporting education today.
+
+## Your Role in Shaping Tomorrow
+
+You have the power to influence the future of our world. Every rupee you donate, every hour you volunteer, every voice you raise in support of education contributes to building a better tomorrow.
+
+The question isn't whether we can afford to invest in children's education – it's whether we can afford not to.
+
+Join us in shaping tomorrow through education today. Together, we can create a world where every child has the opportunity to reach their full potential and contribute to building a better future for all.
+
+---
+
+*The future of our world lies in the hands of today's children. Help us give them the education they need to build a better tomorrow. [Donate now](/donate) or [join our volunteer program](/volunteer) to be part of this transformative journey.*
+    `,
+    author: "Dr. Priya Sharma",
+    publishDate: new Date("2024-12-20"),
+    tags: ["Education", "Future", "Social Change", "Impact Stories", "Community Development"],
+    featuredImage: "/gallery/481157835_944410404543185_2962726328455719855_n.jpg"
+  },
+  {
     id: "transforming-education-through-technology",
     title: "Transforming Education Through Technology: Our Digital Learning Initiative",
     excerpt: "Discover how SCES is bridging the digital divide by bringing modern technology to underserved communities, creating new opportunities for interactive and engaging learning experiences.",
@@ -72,7 +228,7 @@ Together, we can ensure that every child has the tools they need to succeed in o
     author: "Rahul Gupta",
     publishDate: new Date("2024-12-15"),
     tags: ["Technology", "Education", "Digital Learning", "Community Impact"],
-    featuredImage: "/blog/digital-learning-initiative.jpg"
+    featuredImage: "/gallery/481296508_945413307776228_3335274858252168528_n.jpg"
   },
   {
     id: "community-partnerships-building-sustainable-change",
@@ -193,7 +349,7 @@ Every ₹1,000 donation helps us engage with 10 families in meaningful conversat
     author: "Amit Patel",
     publishDate: new Date("2024-12-01"),
     tags: ["Community", "Partnerships", "Sustainability", "Social Change"],
-    featuredImage: "/blog/community-partnerships.jpg"
+    featuredImage: "/gallery/481333905_945413354442890_357301310474130145_n.jpg"
   }
 ];
 
@@ -209,27 +365,27 @@ export const blogCategories = [
 
 export const blogAuthors = [
   {
-    name: "Dr. Rajesh Kumar",
+    name: "Rajni Chawla",
     role: "President & Founder",
     bio: "Visionary leader with 15+ years in educational development",
-    image: "/authors/rajesh-kumar.jpg"
+    image: "/Rajni Chawla - President.jpg"
   },
   {
     name: "Rahul Gupta", 
     role: "Technology Integration Specialist",
     bio: "Expert in educational technology and digital learning solutions",
-    image: "/authors/rahul-gupta.jpg"
+    image: "/gallery/481296508_945413307776228_3335274858252168528_n.jpg"
   },
   {
     name: "Amit Patel",
     role: "Community Outreach Manager", 
     bio: "Specialist in community engagement and grassroots development",
-    image: "/authors/amit-patel.jpg"
+    image: "/gallery/481333905_945413354442890_357301310474130145_n.jpg"
   },
   {
     name: "Dr. Priya Sharma",
     role: "Director of Education",
     bio: "Educational psychologist focused on inclusive learning methodologies",
-    image: "/authors/priya-sharma.jpg"
+    image: "/Anchal - Secretary & Teacher.png"
   }
 ];

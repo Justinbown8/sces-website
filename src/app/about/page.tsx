@@ -126,7 +126,7 @@ export default function AboutPage() {
             </p>
             <div className="relative w-full max-w-4xl mx-auto h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
               <OptimizedImage
-                src="/images/about-hero.jpg"
+                src="/gallery/481659008_945413954442830_3072592436674307254_n.jpg"
                 alt="Children learning in SCES classroom"
                 fill
                 className="object-cover"
