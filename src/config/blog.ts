@@ -152,8 +152,8 @@ Join us in shaping tomorrow through education today. Together, we can create a w
 
 *The future of our world lies in the hands of today's children. Help us give them the education they need to build a better tomorrow. [Donate now](/donate) or [join our volunteer program](/volunteer) to be part of this transformative journey.*
     `,
-    author: "Dr. Priya Sharma",
-    publishDate: new Date("2024-12-20"),
+    author: "Anchal",
+    publishDate: new Date("2024-01-15"),
     tags: ["Education", "Future", "Social Change", "Impact Stories", "Community Development"],
     featuredImage: "/gallery/481157835_944410404543185_2962726328455719855_n.jpg"
   },
@@ -225,8 +225,8 @@ Together, we can ensure that every child has the tools they need to succeed in o
 
 *To learn more about our Digital Learning Initiative or to support this program, visit our [donation page](/donate) or [contact us](/contact) directly.*
     `,
-    author: "Rahul Gupta",
-    publishDate: new Date("2024-12-15"),
+    author: "Madhuri",
+    publishDate: new Date("2024-01-10"),
     tags: ["Technology", "Education", "Digital Learning", "Community Impact"],
     featuredImage: "/gallery/481296508_945413307776228_3335274858252168528_n.jpg"
   },
@@ -346,8 +346,8 @@ Every ₹1,000 donation helps us engage with 10 families in meaningful conversat
 
 *Community partnerships are at the heart of sustainable change. To learn more about how you can support our community engagement efforts, [donate today](/donate) or [volunteer with us](/volunteer).*
     `,
-    author: "Amit Patel",
-    publishDate: new Date("2024-12-01"),
+    author: "Rashi Bhargav",
+    publishDate: new Date("2024-01-05"),
     tags: ["Community", "Partnerships", "Sustainability", "Social Change"],
     featuredImage: "/gallery/481333905_945413354442890_357301310474130145_n.jpg"
   }
@@ -371,21 +371,39 @@ export const blogAuthors = [
     image: "/Rajni Chawla - President.jpg"
   },
   {
-    name: "Rahul Gupta", 
-    role: "Technology Integration Specialist",
-    bio: "Expert in educational technology and digital learning solutions",
-    image: "/gallery/481296508_945413307776228_3335274858252168528_n.jpg"
-  },
-  {
-    name: "Amit Patel",
-    role: "Community Outreach Manager", 
-    bio: "Specialist in community engagement and grassroots development",
-    image: "/gallery/481333905_945413354442890_357301310474130145_n.jpg"
-  },
-  {
-    name: "Dr. Priya Sharma",
-    role: "Director of Education",
-    bio: "Educational psychologist focused on inclusive learning methodologies",
+    name: "Anchal", 
+    role: "Secretary & Teacher",
+    bio: "Secretary and Teacher bringing organizational skills and educational expertise",
     image: "/Anchal - Secretary & Teacher.png"
+  },
+  {
+    name: "Madhuri",
+    role: "Teacher & Committee Member", 
+    bio: "Dedicated teacher with innovative teaching methods and child psychology expertise",
+    image: "/Madhuri - Teacher & Committee Member.png"
+  },
+  {
+    name: "Rashi Bhargav",
+    role: "Committee Member & Teacher",
+    bio: "Experienced educator specializing in inclusive learning environments",
+    image: "/Rashi Bhargav - Committee Member & Teacher.png"
+  },
+  {
+    name: "Kamini",
+    role: "Teacher & Committee Member",
+    bio: "Enthusiastic educator focusing on literacy and numeracy foundations",
+    image: "/Kamini - Teacher & Committee Member.png"
+  },
+  {
+    name: "Rima Kumari",
+    role: "Teacher & Committee Member",
+    bio: "Passionate educator with innovative teaching techniques",
+    image: "/Rima Kumari - Teacher & Committee Member.png"
+  },
+  {
+    name: "Sita Ma'am",
+    role: "Teacher & Committee Member",
+    bio: "Senior teacher and mentor with years of experience in underprivileged education",
+    image: "/Sita Ma'am - Teacher & Committee Member.png"
   }
 ];
