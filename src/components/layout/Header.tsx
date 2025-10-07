@@ -158,13 +158,14 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
         className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
+        style={{ backgroundColor: '#ffffff' }}
         role="dialog"
         aria-modal="true"
         aria-labelledby="mobile-menu-title"
       >
         <div className="flex flex-col h-full">
           {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
             <div className="flex items-center space-x-3">
               <Logo size="sm" />
               <span 
@@ -185,7 +186,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
 
           {/* Mobile Navigation Links */}
           <nav 
-            className="flex-1 px-4 py-6 space-y-2"
+            className="flex-1 px-4 py-6 space-y-2 bg-white"
             role="navigation"
             aria-label="Mobile navigation"
           >
@@ -206,7 +207,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           </nav>
 
           {/* Mobile CTA Button */}
-          <div className="p-4 border-t border-gray-200">
+          <div className="p-4 border-t border-gray-200 bg-white">
             <Button
               variant="primary"
               size="lg"
