@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/Button';
 import { HeroCarousel } from '@/components/sections/HeroCarousel';
+import { AwardsSection } from '@/components/sections/AwardsSection';
 import { MissionSection } from '@/components/sections/MissionSection';
 import { DonationImpactSection } from '@/components/sections/DonationImpactSection';
 import TestimonialSection from '@/components/sections/TestimonialSection';
@@ -17,6 +18,9 @@ export default function Home() {
       <ClientOnly fallback={<div className="h-96 bg-gradient-to-r from-blue-600 to-blue-700" />}>
         <HeroCarousel slides={siteConfig.heroSlides} />
       </ClientOnly>
+
+      {/* Awards & Recognition Section */}
+      <AwardsSection />
 
       {/* Mission Section */}
       <MissionSection />
