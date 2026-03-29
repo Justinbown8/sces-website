@@ -1,6 +1,6 @@
-import React from 'react';
+'use client';
+import React, { useState, useEffect } from 'react';
 import { cn, buttonBase } from '@/lib/utils';
-import { MotionAccessibility } from '@/lib/accessibility';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
@@ -12,7 +12,6 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   children: React.ReactNode;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  // Accessibility props
   'aria-label'?: string;
   'aria-describedby'?: string;
   'aria-expanded'?: boolean;
@@ -40,18 +39,25 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ...props 
   }, ref) => {
     const baseStyles = buttonBase();
-    
-    // Respect reduced motion preferences
-    const motionClasses = MotionAccessibility.respectMotionPreference(
-      'transform hover:-translate-y-0.5 transition-all duration-200',
-      'transition-colors duration-200'
-    );
+
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+    useEffect(() => {
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      setPrefersReducedMotion(mq.matches);
+      const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+      mq.addEventListener('change', handler);
+      return () => mq.removeEventListener('change', handler);
+    }, []);
+
+    const motionClasses = prefersReducedMotion
+      ? 'transition-colors duration-200'
+      : 'transform hover:-translate-y-0.5 transition-all duration-200';
 
     const variants = {
       primary: gradient 
         ? cn(
             'gradient-button text-white font-semibold',
-            shine && !MotionAccessibility.prefersReducedMotion() && 'gradient-button-hover',
+            shine && !prefersReducedMotion && 'gradient-button-hover',
             'hover:shadow-lg',
             motionClasses
           )
@@ -122,7 +128,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <div className="absolute inset-0 flex items-center justify-center">
             <div 
               className={cn(
-                MotionAccessibility.prefersReducedMotion() 
+                prefersReducedMotion
                   ? 'border-2 border-current border-t-transparent' 
                   : 'animate-spin rounded-full border-2 border-current border-t-transparent',
                 iconSizes[size]
