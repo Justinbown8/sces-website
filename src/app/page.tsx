@@ -4,6 +4,7 @@ import { AwardsSection } from '@/components/sections/AwardsSection';
 import { MissionSection } from '@/components/sections/MissionSection';
 import { DonationImpactSection } from '@/components/sections/DonationImpactSection';
 import TestimonialSection from '@/components/sections/TestimonialSection';
+import { TransparencySection } from '@/components/sections/TransparencySection';
 import { ClientOnly } from '@/components/ui/ClientOnly';
 import { siteConfig } from '@/config/site';
 import { pageMetadata } from '@/lib/seo';
@@ -27,6 +28,9 @@ export default function Home() {
 
       {/* Donation Impact Section */}
       <DonationImpactSection />
+
+      {/* Financial Transparency Section */}
+      <TransparencySection />
 
       {/* Testimonials Section */}
       <ClientOnly fallback={<div className="py-16 bg-gradient-to-br from-yellow-50 to-white" />}>
