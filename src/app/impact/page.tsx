@@ -1,6 +1,7 @@
 import React from 'react';
 import TestimonialSection from '@/components/sections/TestimonialSection';
 import ImpactStoriesSection from '@/components/sections/ImpactStoriesSection';
+import { TransparencySection } from '@/components/sections/TransparencySection';
 import { Button } from '@/components/ui/Button';
 import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
@@ -65,6 +66,9 @@ export default function ImpactPage() {
           </div>
         </div>
       </section>
+
+      {/* Financial Transparency Section */}
+      <TransparencySection />
 
       {/* Call to Action */}
       <section className="py-16 bg-yellow-50">

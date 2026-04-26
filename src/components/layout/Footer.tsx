@@ -99,6 +99,12 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                 >
                   Become a Volunteer
                 </Link>
+                <Link
+                  href="/impact#transparency"
+                  className="block text-gray-200 hover:text-white transition-colors duration-200 focus:outline-none focus:text-white"
+                >
+                  Financial Transparency
+                </Link>
               </nav>
             </div>
 
