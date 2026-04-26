@@ -34,32 +34,60 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }).format(date);
   };
 
-  // Convert markdown-style content to HTML (basic implementation)
+  // Convert markdown-style content to HTML (robust implementation)
   const formatContent = (content: string) => {
-    return content
-      .split('\n\n')
-      .map((paragraph, index) => {
-        if (paragraph.startsWith('# ')) {
-          return `<h1 key="${index}" class="text-3xl font-bold text-gray-900 mb-6 mt-8">${paragraph.slice(2)}</h1>`;
-        }
-        if (paragraph.startsWith('## ')) {
-          return `<h2 key="${index}" class="text-2xl font-bold text-gray-900 mb-4 mt-6">${paragraph.slice(3)}</h2>`;
-        }
-        if (paragraph.startsWith('### ')) {
-          return `<h3 key="${index}" class="text-xl font-bold text-gray-900 mb-3 mt-4">${paragraph.slice(4)}</h3>`;
-        }
-        if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
-          return `<p key="${index}" class="text-lg font-semibold text-gray-900 mb-4">${paragraph.slice(2, -2)}</p>`;
-        }
-        if (paragraph.startsWith('*') && paragraph.endsWith('*')) {
-          return `<p key="${index}" class="text-gray-700 italic mb-4 pl-4 border-l-4 border-blue-200">${paragraph.slice(1, -1)}</p>`;
-        }
-        if (paragraph.startsWith('---')) {
-          return `<hr key="${index}" class="my-8 border-gray-200" />`;
-        }
-        return `<p key="${index}" class="text-gray-700 leading-relaxed mb-4">${paragraph}</p>`;
-      })
-      .join('');
+    let html = content.trim();
+
+    // 1. Handle Horizontal Rules
+    html = html.replace(/^\s*---\s*$/gm, '<hr class="my-12 border-gray-200" />');
+
+    // 2. Handle Images: ![alt](url)
+    html = html.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => `
+      <div class="my-12 overflow-hidden rounded-[2rem] shadow-2xl group relative">
+        <img src="${src}" alt="${alt}" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        ${alt ? `
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+            <p class="text-white text-sm font-medium italic opacity-90">${alt}</p>
+          </div>
+        ` : ''}
+      </div>
+    `);
+
+    // 3. Handle Headings
+    html = html.replace(/^# (.*$)/gm, '<h1 class="text-3xl md:text-5xl font-heading font-bold text-gray-900 mb-8 mt-16 leading-tight">$1</h1>');
+    html = html.replace(/^## (.*$)/gm, '<h2 class="text-2xl md:text-4xl font-heading font-bold text-gray-900 mb-6 mt-12 leading-snug">$1</h2>');
+    html = html.replace(/^### (.*$)/gm, '<h3 class="text-xl md:text-3xl font-heading font-bold text-gray-900 mb-4 mt-10 leading-snug">$1</h3>');
+
+    // 4. Handle Bold & Italics
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>');
+    html = html.replace(/\*(.*?)\*/g, '<em class="italic text-gray-800">$1</em>');
+
+    // 5. Handle Links: [text](url)
+    html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-blue-600 font-bold border-b-2 border-blue-200 hover:border-blue-600 transition-colors" target="_blank" rel="noopener noreferrer">$1</a>');
+
+    // 6. Handle Lists (Wrap groups of list items)
+    html = html.replace(/^\* (.*$)/gm, '<li class="ml-6 pl-2 list-disc mb-3 text-gray-700">$1</li>');
+    html = html.replace(/^- (.*$)/gm, '<li class="ml-6 pl-2 list-disc mb-3 text-gray-700">$1</li>');
+    html = html.replace(/^\d+\. (.*$)/gm, '<li class="ml-6 pl-2 list-decimal mb-3 text-gray-700">$1</li>');
+
+    // 7. Handle Paragraphs
+    const sections = html.split(/\n\n+/);
+    html = sections.map(section => {
+      const trimmed = section.trim();
+      if (!trimmed) return '';
+      // If it starts with a tag (like <h1, <div, <li, <hr), return as is
+      if (trimmed.startsWith('<h') || 
+          trimmed.startsWith('<div') || 
+          trimmed.startsWith('<li') || 
+          trimmed.startsWith('<hr') || 
+          trimmed.startsWith('<ul') || 
+          trimmed.startsWith('<ol')) {
+        return trimmed;
+      }
+      return `<p class="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">${trimmed}</p>`;
+    }).join('');
+
+    return html;
   };
 
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
