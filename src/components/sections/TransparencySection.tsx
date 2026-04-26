@@ -99,10 +99,10 @@ export const TransparencySection: React.FC = () => {
                 <CardHeader className="p-8 pb-4">
                   <div className="flex justify-between items-center mb-6">
                     <div className={cn(
-                      "p-4 rounded-2xl transition-all duration-500 group-hover:scale-110",
+                      "p-4 rounded-2xl transition-all duration-500 group-hover:scale-110 flex items-center justify-center",
                       report.color
                     )}>
-                      {React.cloneElement(report.icon as React.ReactElement, { className: "w-8 h-8" })}
+                      {report.icon}
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-100">
                       {report.category}
@@ -139,7 +139,7 @@ export const TransparencySection: React.FC = () => {
                       asChild
                     >
                       <a href={report.file} download className="flex items-center justify-center">
-                        <Download className="w-5 h-5 mr-2 group_hover/btn:animate-bounce" />
+                        <Download className="w-5 h-5 mr-2 group-hover/btn:animate-bounce" />
                         Download PDF
                       </a>
                     </Button>
