@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 interface LogoProps {
@@ -6,6 +8,12 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const sizeClasses = {
     sm: 'w-8 h-8',
     md: 'w-10 h-10',
@@ -18,13 +26,15 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
 
   return (
     <div className={`relative flex-shrink-0 ${selectedSize} ${className}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/Sunrise_Children_Educational_Society-removebg-preview.svg"
-        alt="SCES Logo"
-        className="w-full h-full object-contain"
-        loading="eager"
-      />
+      {mounted && (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img
+          src="/Sunrise_Children_Educational_Society-removebg-preview.svg"
+          alt="SCES Logo"
+          className="w-full h-full object-contain"
+          loading="eager"
+        />
+      )}
     </div>
   );
 };

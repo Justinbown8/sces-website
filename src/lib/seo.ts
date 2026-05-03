@@ -35,18 +35,17 @@ export function generateMetadata({
     title: siteTitle,
     description: siteDescription,
     keywords: [
-      'NGO',
-      'education',
-      'children',
-      'India',
-      'donation',
-      'volunteer',
-      'SCES',
+      'Sunrise School',
+      'Sunrise School Delhi',
+      'NGO in Mehrauli',
+      'Donate for Children',
+      'NGO Delhi',
+      'Child Education Donation',
       'Sunrise Children Educational Society',
-      'Delhi',
-      'Mehrauli',
-      'educational opportunities',
-      'underserved children',
+      'SCES NGO',
+      'Delhi NGO',
+      'Education',
+      'Donation',
       ...(tags || []),
     ],
     authors: authors?.map(name => ({ name })) || [{ name: 'SCES Team' }],
@@ -96,7 +95,7 @@ export const defaultMetadata = generateMetadata();
 export const pageMetadata = {
   home: () => generateMetadata({
     title: 'Home',
-    description: 'Sunrise Children Educational Society - Providing educational opportunities to underserved children in India. Join our mission to create brighter futures through education.',
+    description: 'Sunrise School (SCES NGO Delhi) - Providing quality education and school kits to underprivileged children in Mehrauli, Delhi. Support our mission by donating today.',
     url: '/',
   }),
 
@@ -138,7 +137,7 @@ export const pageMetadata = {
 
   donate: () => generateMetadata({
     title: 'Donate Now',
-    description: 'Make a difference in a child\'s life. Your donation helps provide school kits, tuition support, and digital access to education.',
+    description: 'Donate for children\'s education. Support Sunrise School NGO in Delhi by providing school kits, tuition support, and digital learning opportunities to children in need.',
     url: '/donate',
   }),
 

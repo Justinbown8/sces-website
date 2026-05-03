@@ -12,8 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 1,
+      changeFrequency: 'daily' as const,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
@@ -25,19 +25,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/president`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.7,
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/staff`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.7,
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/gallery`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
-      priority: 0.8,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/impact`,
@@ -54,20 +54,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/donate`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
+      changeFrequency: 'daily' as const,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/volunteer`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.6,
+      priority: 0.5,
     },
   ];
 

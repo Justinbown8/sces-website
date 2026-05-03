@@ -362,20 +362,22 @@ export const defaultSettings: SiteSettings = {
     maximumAmount: 500000
   },
   seo: {
-    defaultTitle: "Sunrise Children Educational Society - Empowering Children Through Education",
-    titleTemplate: "%s | SCES",
-    defaultDescription: "Providing educational opportunities to underserved children across India. Join us in creating brighter futures through quality education and community support.",
+    defaultTitle: "Sunrise School & NGO Delhi - Empowering Children Through Education",
+    titleTemplate: "%s | Sunrise School Delhi",
+    defaultDescription: "Sunrise Children Educational Society (SCES) is a leading NGO in Mehrauli, Delhi, providing quality education and school kits to underprivileged children. Donate for children's education today.",
     defaultKeywords: [
-      "NGO",
-      "education",
-      "children",
-      "India",
-      "charity",
-      "donation",
-      "volunteer",
-      "social work",
-      "community development",
-      "child welfare"
+      "Sunrise School",
+      "Sunrise School Delhi",
+      "Sunrise NGO Mehrauli",
+      "NGO in Delhi",
+      "Donation for Children",
+      "Donate for Children",
+      "Education for All",
+      "Mehrauli NGO",
+      "Sunrise Children Educational Society",
+      "SCES NGO",
+      "Child Education Donation",
+      "NGO school Delhi"
     ],
     openGraph: {
       siteName: "Sunrise Children Educational Society",
