@@ -34,7 +34,7 @@ const organizationStructuredData = {
   name: 'Sunrise Children Education Society',
   alternateName: 'SCES NGO',
   url: siteConfig.url,
-  logo: `${siteConfig.url}/images/logo.png`,
+  logo: `${siteConfig.url}/Sunrise_Children_Educational_Society-removebg-preview.svg`,
   description: 'A non-profit organization dedicated to providing quality education to underprivileged children',
   foundingDate: '2015',
   address: {

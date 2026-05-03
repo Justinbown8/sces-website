@@ -20,10 +20,10 @@ export default function PerformanceMonitor() {
     // Track Core Web Vitals
     const trackWebVitals = async () => {
       try {
-        const { getCLS, getFID, getFCP, getLCP, getTTFB } = await import('web-vitals');
+        const { onCLS, onFID, onFCP, onLCP, onTTFB } = await import('web-vitals');
 
         // Cumulative Layout Shift
-        getCLS((metric) => {
+        onCLS((metric) => {
           if (!metricsReported.current.has('CLS')) {
             trackPerformance('CLS', metric.value * 1000, 'score'); // Convert to score
             metricsReported.current.add('CLS');
@@ -31,7 +31,7 @@ export default function PerformanceMonitor() {
         });
 
         // First Input Delay
-        getFID((metric) => {
+        onFID((metric) => {
           if (!metricsReported.current.has('FID')) {
             trackPerformance('FID', metric.value, 'ms');
             metricsReported.current.add('FID');
@@ -39,7 +39,7 @@ export default function PerformanceMonitor() {
         });
 
         // First Contentful Paint
-        getFCP((metric) => {
+        onFCP((metric) => {
           if (!metricsReported.current.has('FCP')) {
             trackPerformance('FCP', metric.value, 'ms');
             metricsReported.current.add('FCP');
@@ -47,7 +47,7 @@ export default function PerformanceMonitor() {
         });
 
         // Largest Contentful Paint
-        getLCP((metric) => {
+        onLCP((metric) => {
           if (!metricsReported.current.has('LCP')) {
             trackPerformance('LCP', metric.value, 'ms');
             metricsReported.current.add('LCP');
@@ -55,7 +55,7 @@ export default function PerformanceMonitor() {
         });
 
         // Time to First Byte
-        getTTFB((metric) => {
+        onTTFB((metric) => {
           if (!metricsReported.current.has('TTFB')) {
             trackPerformance('TTFB', metric.value, 'ms');
             metricsReported.current.add('TTFB');

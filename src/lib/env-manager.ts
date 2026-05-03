@@ -226,7 +226,7 @@ export const envConfig: EnvironmentConfig = {
   NEXT_PUBLIC_HOTJAR_SITE_ID: getEnvVar('NEXT_PUBLIC_HOTJAR_SITE_ID'),
   
   // Security
-  CSRF_SECRET: getEnvVar('CSRF_SECRET'),
+  CSRF_SECRET: getEnvVar('CSRF_SECRET') || (process.env.NODE_ENV === 'development' ? 'dev-csrf-secret' : undefined),
   NEXTAUTH_SECRET: getEnvVar('NEXTAUTH_SECRET'),
   
   // Email

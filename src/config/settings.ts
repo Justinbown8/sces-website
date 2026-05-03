@@ -220,8 +220,8 @@ export interface SiteSettings {
 export const defaultSettings: SiteSettings = {
   branding: {
     logo: {
-      primary: "/logo.svg",
-      secondary: "/logo-white.svg",
+      primary: "/Sunrise_Children_Educational_Society-removebg-preview.svg",
+      secondary: "/Sunrise_Children_Educational_Society-removebg-preview.svg",
       favicon: "/favicon.ico",
       appleTouchIcon: "/apple-touch-icon.png"
     },
@@ -392,7 +392,7 @@ export const defaultSettings: SiteSettings = {
       organizationName: "Sunrise Children Educational Society",
       organizationType: "NGO",
       url: "https://sces-ngo.org",
-      logo: "https://sces-ngo.org/logo.svg",
+      logo: "https://sces-ngo.org/Sunrise_Children_Educational_Society-removebg-preview.svg",
       contactPoint: {
         telephone: "+91-99536-65620",
         contactType: "customer service",

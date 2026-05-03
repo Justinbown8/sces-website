@@ -10,7 +10,7 @@ export function generateOrganizationStructuredData() {
     alternateName: 'SCES',
     description: siteConfig.description,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`, // Update when logo is available
+    logo: `${siteConfig.url}/Sunrise_Children_Educational_Society-removebg-preview.svg`,
     image: `${siteConfig.url}/PIC.jpg`,
     address: {
       '@type': 'PostalAddress',
@@ -92,7 +92,7 @@ export function generateArticleStructuredData(post: BlogPost, authorImage?: stri
       name: siteConfig.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteConfig.url}/logo.png`, // Update when logo is available
+        url: `${siteConfig.url}/Sunrise_Children_Educational_Society-removebg-preview.svg`,
       },
     },
     mainEntityOfPage: {

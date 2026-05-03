@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import Script from "next/script";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Poppins } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
@@ -27,16 +28,17 @@ const poppins = Poppins({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   ...defaultMetadata,
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
   },
   icons: [
     {
@@ -70,17 +72,18 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.variable} ${poppins.variable}`}>
       <head>
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17579457266"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17579457266');
-            `,
-          }}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17579457266"
+          strategy="afterInteractive"
         />
+        <Script id="google-ads-tracking" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17579457266');
+          `}
+        </Script>
         <StructuredData data={organizationData} />
         <StructuredData data={websiteData} />
         <Suspense fallback={null}>
