@@ -15,14 +15,14 @@ export const siteConfig = {
   },
   
   get url() {
-    return getEnvVarWithDefault('NEXT_PUBLIC_SITE_URL', 'https://sces-ngo.org');
+    return getEnvVarWithDefault('NEXT_PUBLIC_SITE_URL', 'https://scesindia.com');
   },
   
   // Contact information
   contact: {
     phone: "099536 65620",
     address: "877/10 Ward No. 6, Mehrauli New Delhi – 110030",
-    email: "info@sces-ngo.org"
+    email: "info@scesindia.com"
   } as ContactInfo,
 
   // Social media links (now managed by settings)

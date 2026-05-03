@@ -47,7 +47,7 @@ export const DONATION_FREQUENCIES = {
 export const CONTACT_INFO = {
   phone: '099536 65620',
   address: '877/10 Ward No. 6, Mehrauli New Delhi – 110030',
-  email: 'info@sces-ngo.org' // Placeholder
+  email: 'info@scesindia.com' // Updated domain
 } as const;
 
 export const SOCIAL_LINKS = {

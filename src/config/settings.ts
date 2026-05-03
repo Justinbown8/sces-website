@@ -393,8 +393,8 @@ export const defaultSettings: SiteSettings = {
     structuredData: {
       organizationName: "Sunrise Children Educational Society",
       organizationType: "NGO",
-      url: "https://sces-ngo.org",
-      logo: "https://sces-ngo.org/Sunrise_Children_Educational_Society-removebg-preview.svg",
+      url: "https://scesindia.com",
+      logo: "https://scesindia.com/Sunrise_Children_Educational_Society-removebg-preview.svg",
       contactPoint: {
         telephone: "+91-99536-65620",
         contactType: "customer service",
