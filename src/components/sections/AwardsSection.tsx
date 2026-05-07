@@ -45,6 +45,13 @@ const awards: AwardCard[] = [
     year: "2021",
     description: "Recognition for active participation in Blood Donation Camps for children with Thalassemia.",
     image: "/images/awards/rk-foundation.png"
+  },
+  {
+    title: "MLA Recognition Certificate",
+    organization: "Member of Legislative Assembly",
+    year: "2026",
+    description: "Recognized by the Member of Legislative Assembly for outstanding contributions to education and continuous dedication to community welfare.",
+    image: "/MLA Certificate.jpeg"
   }
 ];
 
