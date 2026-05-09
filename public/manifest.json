@@ -1,0 +1,21 @@
+{
+  "name": "Sunrise Children Educational Society",
+  "short_name": "SCES India",
+  "description": "Sunrise Children Educational Society - Empowering children through education.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FFD700",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

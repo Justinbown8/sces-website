@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       sizes: '16x16',
     },
   ],
-  manifest: "/site.webmanifest",
+  manifest: "/manifest.json",
   other: {
     "msapplication-TileColor": "#FFD700",
     "theme-color": "#FFD700",
