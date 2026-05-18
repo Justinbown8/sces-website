@@ -32,6 +32,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
+  themeColor: "#FFD700",
 };
 
 export const metadata: Metadata = {
@@ -52,11 +53,15 @@ export const metadata: Metadata = {
       type: 'image/x-icon',
       sizes: '16x16',
     },
+    {
+      rel: 'apple-touch-icon',
+      url: '/icons/apple-touch-icon.png',
+      sizes: '180x180',
+    },
   ],
   manifest: "/manifest.json",
   other: {
     "msapplication-TileColor": "#FFD700",
-    "theme-color": "#FFD700",
   },
 };
 
