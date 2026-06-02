@@ -162,25 +162,30 @@ export function VolunteerForm() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/volunteer/apply', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-Token': 'volunteer-form', // Simple CSRF token
-        },
-        body: JSON.stringify({
-          ...formData,
-          website_url: honeypot, // Honeypot field
-        }),
-      });
-
-      if (response.ok) {
-        // Redirect to success page
-        window.location.href = '/volunteer-success';
-      } else {
-        const errorData = await response.json();
-        alert(errorData.message || 'Something went wrong. Please try again.');
+      if (honeypot) {
+        // Silent rejection for spam bots
+        setIsSubmitting(false);
+        return;
       }
+
+      const whatsappNumber = "919953665620";
+      const text = `*New Volunteer Application*
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Phone:* ${formData.phone}
+*City:* ${formData.city}
+*Availability:* ${formData.availability}
+*Skills:* ${formData.skills.join(', ')}
+*Message:* ${formData.message}`;
+
+      const encodedText = encodeURIComponent(text);
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+      
+      window.open(whatsappUrl, '_blank');
+      
+      // Redirect to success page
+      window.location.href = '/volunteer-success';
     } catch (error) {
       console.error('Error submitting volunteer application:', error);
       alert('Something went wrong. Please try again.');
