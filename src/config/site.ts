@@ -3,6 +3,32 @@ import { getHeroSlides, getDonationConfig } from '@/lib/content-manager';
 import { getSEOSettings, getEnabledSocialPlatforms, getPaymentSettings } from '@/lib/settings-manager';
 import { getEnvVarWithDefault } from '@/lib/env-manager';
 
+// Group navigation links by category for dropdown organization
+const ABOUT_LINKS = ['/president', '/staff'];
+const PARTICIPATE_LINKS = ['/membership', '/volunteer'];
+
+// Navigation (static for now, could be made configurable)
+export const navigationGroups = {
+  main: [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/gallery", label: "Gallery" },
+    { href: "/impact", label: "Impact" },
+  ],
+  about: [
+    { href: "/president", label: "President" },
+    { href: "/staff", label: "Staff" },
+  ],
+  participate: [
+    { href: "/membership", label: "Membership" },
+    { href: "/volunteer", label: "Volunteer" },
+  ],
+  other: [
+    { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact" },
+  ],
+};
+
 // Site-wide configuration (now integrated with settings management)
 export const siteConfig = {
   // Basic site information
