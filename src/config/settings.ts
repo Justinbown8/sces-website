@@ -364,7 +364,7 @@ export const defaultSettings: SiteSettings = {
   seo: {
     defaultTitle: "Sunrise School & NGO Delhi - Empowering Children Through Education",
     titleTemplate: "%s | Sunrise School Delhi",
-    defaultDescription: "Sunrise Children Educational Society (SCES) is a leading NGO in Mehrauli, Delhi, providing quality education and school kits to underprivileged children. Donate for children's education today.",
+    defaultDescription: "SCES is a Delhi NGO providing quality education & school kits to underprivileged children in Mehrauli. Support children's education — donate today.",
     defaultKeywords: [
       "Sunrise School",
       "Sunrise School Delhi",
