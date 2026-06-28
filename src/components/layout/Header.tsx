@@ -67,27 +67,27 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
       } ${className}`}
       role="banner"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 lg:h-16 gap-2 flex-nowrap">
           {/* Logo and Site Name */}
           <Link
             href="/"
-            className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-1"
+            className="flex items-center gap-2 flex-shrink-0 group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-0.5"
           >
-            <Logo size="md" className="group-hover:scale-110 transition-transform duration-200" />
-            <div className="hidden sm:block">
-              <span className="text-lg lg:text-xl font-bold text-gray-900 font-heading">
+            <Logo size="sm" className="group-hover:scale-110 transition-transform duration-200" />
+            <div className="hidden sm:block min-w-0">
+              <span className="text-base lg:text-lg font-bold text-gray-900 font-heading truncate block">
                 SCES
               </span>
-              <p className="text-xs text-gray-600 leading-tight">
-                Sunrise Children Educational Society
+              <p className="text-[10px] lg:text-xs text-gray-600 leading-tight whitespace-nowrap">
+                Sunrise School
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav 
-            className="hidden lg:flex items-center space-x-4 xl:space-x-8"
+            className="hidden xl:flex items-center gap-1 xl:gap-2 flex-nowrap overflow-x-auto"
             role="navigation"
             aria-label="Main navigation"
             id="main-navigation"
@@ -96,7 +96,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-2 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md ${
+                className={`relative px-2 xl:px-3 py-2 text-xs lg:text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md whitespace-nowrap ${
                   isActiveLink(link.href)
                     ? 'text-blue-600'
                     : 'text-gray-700 hover:text-blue-600'
@@ -114,39 +114,49 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           </nav>
 
           {/* Desktop CTA Button */}
-          <div className="hidden lg:block">
+          <div className="hidden xl:flex flex-shrink-0 ml-2">
             <Button
               variant="primary"
-              size="md"
-              className="font-semibold"
+              size="sm"
+              className="font-semibold whitespace-nowrap text-sm px-3 py-2 h-auto"
               asChild
             >
-              <Link href="/donate">Donate Now</Link>
+              <Link href="/donate">Donate</Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-            aria-haspopup="true"
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+          {/* Mobile Menu Button & Donate */}
+          <div className="xl:hidden flex items-center gap-2 flex-shrink-0">
+            <Button
+              variant="primary"
+              size="sm"
+              className="font-semibold text-xs px-2 py-1.5 h-auto whitespace-nowrap"
+              asChild
+            >
+              <Link href="/donate">Donate</Link>
+            </Button>
+            <button
+              onClick={toggleMenu}
+              className="p-1.5 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              aria-haspopup="true"
+            >
+              {isMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/50 z-40 xl:hidden"
           onClick={toggleMenu}
           aria-hidden="true"
           role="presentation"
@@ -156,7 +166,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
       {/* Mobile Menu Drawer */}
       <div
         id="mobile-menu"
-        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-4/5 max-w-xs bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out xl:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ backgroundColor: '#ffffff' }}
@@ -166,19 +176,19 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
       >
         <div className="flex flex-col h-full">
           {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-            <div className="flex items-center space-x-3">
+          <div className="flex items-center justify-between p-3 border-b border-gray-200 bg-white flex-shrink-0">
+            <div className="flex items-center gap-2">
               <Logo size="sm" />
               <span 
                 id="mobile-menu-title"
-                className="text-lg font-bold text-gray-900 font-heading"
+                className="text-base font-bold text-gray-900 font-heading"
               >
                 SCES
               </span>
             </div>
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
+              className="p-1.5 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200 flex-shrink-0"
               aria-label="Close menu"
             >
               <X className="w-5 h-5" />
@@ -187,7 +197,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
 
           {/* Mobile Navigation Links */}
           <nav 
-            className="flex-1 px-4 py-6 space-y-2 bg-white"
+            className="flex-1 px-3 py-4 space-y-1 bg-white overflow-y-auto"
             role="navigation"
             aria-label="Mobile navigation"
           >
@@ -195,7 +205,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                   isActiveLink(link.href)
                     ? 'text-blue-600 bg-blue-50'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
@@ -208,10 +218,10 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           </nav>
 
           {/* Mobile CTA Button */}
-          <div className="p-4 border-t border-gray-200 bg-white">
+          <div className="p-3 border-t border-gray-200 bg-white flex-shrink-0">
             <Button
               variant="primary"
-              size="lg"
+              size="md"
               className="w-full font-semibold"
               asChild
             >

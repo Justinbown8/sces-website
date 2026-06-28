@@ -42,12 +42,12 @@ export default function Home() {
       </ClientOnly>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold font-heading text-gray-900 mb-4">
+      <section className="py-8 lg:py-12 bg-gray-50">
+        <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-gray-900 mb-3">
             Ready to Make a Difference?
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
+          <p className="text-base sm:text-lg lg:text-lg text-gray-600 mb-6">
             Your contribution, no matter the size, helps us provide education to children in need.
           </p>
           <Button variant="primary" size="md" asChild>

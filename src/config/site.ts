@@ -43,6 +43,7 @@ export const siteConfig = {
     { href: "/gallery", label: "Gallery" },
     { href: "/impact", label: "Impact" },
     { href: "/blog", label: "Blog" },
+    { href: "/membership", label: "Membership" },
     { href: "/volunteer", label: "Volunteer" },
     { href: "/contact", label: "Contact" }
   ] as NavigationLink[],

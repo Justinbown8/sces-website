@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local dev tools / IDE caches
+.refact/
+.vercel-trigger
+
+# temp / scratch directories
+temp-api/
+
+# local workaround scripts (not for repo)
+powershell.cmd
+
+# loose test / scratch files in root
+test-about.js

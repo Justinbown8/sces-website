@@ -95,7 +95,7 @@ export default function RootLayout({
           <GoogleAnalytics />
         </Suspense>
       </head>
-      <body className="font-body antialiased min-h-screen flex flex-col">
+      <body suppressHydrationWarning className="font-body antialiased min-h-screen flex flex-col">
         {/* Skip Links */}
         <div className="skip-links">
           <a href="#main-content" className="skip-link">
@@ -111,7 +111,7 @@ export default function RootLayout({
             <Header />
             <main 
               id="main-content" 
-              className="flex-1 pt-16 lg:pt-20"
+              className="flex-1 pt-14 lg:pt-16"
               role="main"
               aria-label="Main content"
             >

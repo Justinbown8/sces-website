@@ -93,7 +93,7 @@ export function HeroCarousel({
   return (
     <section 
       className={cn(
-        'relative w-full h-[85vh] min-h-[600px] max-h-[900px] overflow-hidden',
+        'relative w-full h-screen sm:h-[70vh] lg:h-[60vh] min-h-[400px] max-h-[600px] overflow-hidden mt-14 lg:mt-16',
         className
       )}
       onMouseEnter={() => setIsAutoPlaying(false)}

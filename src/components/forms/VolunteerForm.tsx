@@ -168,6 +168,20 @@ export function VolunteerForm() {
         return;
       }
 
+      // Save to database via API
+      const response = await fetch('/api/volunteer/apply', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to save to database');
+      }
+
       const whatsappNumber = "919953665620";
       const text = `*New Volunteer Application*
 
@@ -188,7 +202,7 @@ export function VolunteerForm() {
       window.location.href = '/volunteer-success';
     } catch (error) {
       console.error('Error submitting volunteer application:', error);
-      alert('Something went wrong. Please try again.');
+      alert(error instanceof Error ? error.message : 'Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

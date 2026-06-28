@@ -37,6 +37,23 @@ export default function TestimonialSection({
 }: TestimonialSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(autoPlay);
+  const [windowWidth, setWindowWidth] = useState<number>(1200);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const getActiveItemsPerView = () => {
+    if (windowWidth < 768) return itemsPerView.mobile;
+    if (windowWidth < 1024) return itemsPerView.tablet;
+    return itemsPerView.desktop;
+  };
+
+  const activeItemsPerView = getActiveItemsPerView();
 
   // Auto-play functionality
   useEffect(() => {
@@ -44,14 +61,14 @@ export default function TestimonialSection({
 
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => 
-        prevIndex >= testimonials.length - itemsPerView.desktop 
+        prevIndex >= testimonials.length - activeItemsPerView 
           ? 0 
           : prevIndex + 1
       );
     }, interval);
 
     return () => clearInterval(timer);
-  }, [isAutoPlaying, interval, layout, itemsPerView.desktop]);
+  }, [isAutoPlaying, interval, layout, activeItemsPerView]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -62,13 +79,13 @@ export default function TestimonialSection({
 
   const goToPrevious = () => {
     const newIndex = currentIndex === 0 
-      ? Math.max(0, testimonials.length - itemsPerView.desktop)
+      ? Math.max(0, testimonials.length - activeItemsPerView)
       : currentIndex - 1;
     goToSlide(newIndex);
   };
 
   const goToNext = () => {
-    const newIndex = currentIndex >= testimonials.length - itemsPerView.desktop
+    const newIndex = currentIndex >= testimonials.length - activeItemsPerView
       ? 0
       : currentIndex + 1;
     goToSlide(newIndex);
@@ -76,7 +93,7 @@ export default function TestimonialSection({
 
   if (layout === 'grid') {
     return (
-      <section className={cn('py-16 bg-gradient-to-br from-yellow-50 to-white', className)}>
+      <section className={cn('py-16 bg-gradient-to-br from-yellow-50 to-white overflow-hidden', className)}>
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-12">
@@ -108,7 +125,7 @@ export default function TestimonialSection({
 
   // Carousel Layout
   return (
-    <section className={cn('py-16 bg-gradient-to-br from-yellow-50 to-white', className)}>
+    <section className={cn('py-16 bg-gradient-to-br from-yellow-50 to-white overflow-hidden', className)}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -123,14 +140,14 @@ export default function TestimonialSection({
         {/* Carousel Container */}
         <div className="relative">
           {/* Navigation Buttons */}
-          {showNavigation && testimonials.length > itemsPerView.desktop && (
+          {showNavigation && testimonials.length > activeItemsPerView && (
             <>
               <button
                 onClick={goToPrevious}
                 className={cn(
                   'absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10',
                   'w-12 h-12 rounded-full bg-white shadow-lg',
-                  'flex items-center justify-center',
+                  'hidden lg:flex items-center justify-center',
                   'text-blue-800 hover:text-blue-600',
                   'hover:shadow-xl transition-all duration-300',
                   'focus:outline-none focus:ring-2 focus:ring-blue-800 focus:ring-offset-2'
@@ -147,7 +164,7 @@ export default function TestimonialSection({
                 className={cn(
                   'absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10',
                   'w-12 h-12 rounded-full bg-white shadow-lg',
-                  'flex items-center justify-center',
+                  'hidden lg:flex items-center justify-center',
                   'text-blue-800 hover:text-blue-600',
                   'hover:shadow-xl transition-all duration-300',
                   'focus:outline-none focus:ring-2 focus:ring-blue-800 focus:ring-offset-2'
@@ -166,7 +183,7 @@ export default function TestimonialSection({
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{
-                transform: `translateX(-${currentIndex * (100 / itemsPerView.desktop)}%)`
+                transform: `translateX(-${currentIndex * (100 / activeItemsPerView)}%)`
               }}
             >
               {testimonials.map((testimonial, index) => (
@@ -190,10 +207,10 @@ export default function TestimonialSection({
           </div>
 
           {/* Dots Indicator */}
-          {testimonials.length > itemsPerView.desktop && (
+          {testimonials.length > activeItemsPerView && (
             <div className="flex justify-center mt-8 space-x-2">
               {Array.from({ 
-                length: Math.ceil(testimonials.length - itemsPerView.desktop + 1) 
+                length: Math.max(1, testimonials.length - activeItemsPerView + 1) 
               }).map((_, index) => (
                 <button
                   key={index}
