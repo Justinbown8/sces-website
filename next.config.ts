@@ -6,9 +6,6 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   
   // Disable ESLint and TypeScript during builds for deployment
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -30,14 +27,6 @@ const nextConfig: NextConfig = {
   // Optimize bundle
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
   
   // Headers for caching

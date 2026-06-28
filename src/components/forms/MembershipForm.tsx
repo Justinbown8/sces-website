@@ -23,6 +23,18 @@ interface FormErrors {
   [key: string]: string | undefined;
 }
 
+const generateWhatsAppText = (data: MembershipFormData) => {
+  return `*New Membership Application*
+
+*Name:* ${data.firstName} ${data.lastName}
+*Email:* ${data.email}
+*Phone:* ${data.phone}
+*DOB:* ${data.dateOfBirth}
+*Occupation:* ${data.occupation}
+*Address:* ${data.address}, ${data.city}, ${data.state} - ${data.pincode}
+*Membership Type:* ${data.membershipType.toUpperCase()}`;
+};
+
 export default function MembershipForm() {
   const [formData, setFormData] = useState<MembershipFormData>({
     firstName: '',
@@ -40,7 +52,7 @@ export default function MembershipForm() {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmittingDb, setIsSubmittingDb] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const [honeypot, setHoneypot] = useState('');
@@ -140,24 +152,24 @@ export default function MembershipForm() {
     return isValid;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Submit via database
+  const handleSubmitDatabase = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) {
       return;
     }
 
-    setIsSubmitting(true);
+    setIsSubmittingDb(true);
     setSubmitStatus('idle');
 
     try {
       // Honeypot check
       if (honeypot) {
-        setIsSubmitting(false);
+        setIsSubmittingDb(false);
         return;
       }
 
-      // Send to API endpoint for database storage
       const response = await fetch('/api/membership', {
         method: 'POST',
         headers: {
@@ -170,25 +182,8 @@ export default function MembershipForm() {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setStatusMessage('Thank you for registering! Your membership details have been saved. Opening WhatsApp to forward your application...');
+        setStatusMessage('Thank you for registering! Your membership has been saved to our database.');
         
-        // Open WhatsApp redirect
-        const whatsappNumber = "919953665620";
-        const text = `*New Membership Application*
-
-*Name:* ${formData.firstName} ${formData.lastName}
-*Email:* ${formData.email}
-*Phone:* ${formData.phone}
-*DOB:* ${formData.dateOfBirth}
-*Occupation:* ${formData.occupation}
-*Address:* ${formData.address}, ${formData.city}, ${formData.state} - ${formData.pincode}
-*Membership Type:* ${formData.membershipType.toUpperCase()}`;
-
-        const encodedText = encodeURIComponent(text);
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-        window.open(whatsappUrl, '_blank');
-
-        // Reset form
         setFormData({
           firstName: '',
           lastName: '',
@@ -204,7 +199,6 @@ export default function MembershipForm() {
           agreeToTerms: false
         });
 
-        // Redirect after 2 seconds
         setTimeout(() => {
           window.location.href = '/membership-success';
         }, 2000);
@@ -217,8 +211,48 @@ export default function MembershipForm() {
       setSubmitStatus('error');
       setStatusMessage('An error occurred. Please try again.');
     } finally {
-      setIsSubmitting(false);
+      setIsSubmittingDb(false);
     }
+  };
+
+  // Submit via WhatsApp
+  const handleSubmitWhatsApp = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    // Honeypot check
+    if (honeypot) {
+      return;
+    }
+
+    const text = generateWhatsAppText(formData);
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/919953665620?text=${encodedText}`;
+    window.open(whatsappUrl, '_blank');
+    
+    setSubmitStatus('success');
+    setStatusMessage('Opening WhatsApp with your membership details. Please send the message to complete registration.');
+    
+    // Reset form after opening WhatsApp
+    setTimeout(() => {
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        dateOfBirth: '',
+        occupation: '',
+        address: '',
+        city: '',
+        state: '',
+        pincode: '',
+        membershipType: 'annual',
+        agreeToTerms: false
+      });
+    }, 100);
   };
 
   const membershipPrices = {
@@ -239,7 +273,7 @@ export default function MembershipForm() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+        <form className="space-y-4 sm:space-y-6" onSubmit={(e) => e.preventDefault()}>
           {/* Honeypot field */}
           <div style={{ display: 'none' }}>
             <input
@@ -501,16 +535,29 @@ export default function MembershipForm() {
           </div>
           {errors.agreeToTerms && <p className="text-xs text-red-600">{errors.agreeToTerms}</p>}
 
-          {/* Submit Button */}
-          <Button
-            variant="primary"
-            size="lg"
-            className="w-full font-semibold"
-            type="submit"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Registering...' : 'Register Membership'}
-          </Button>
+          {/* Dual Submit Buttons */}
+          <div className="space-y-3">
+            <Button
+              variant="primary"
+              size="lg"
+              className="w-full font-semibold"
+              type="button"
+              onClick={handleSubmitWhatsApp}
+              disabled={isSubmittingDb}
+            >
+              Submit via WhatsApp
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full font-medium"
+              type="button"
+              onClick={handleSubmitDatabase}
+              disabled={isSubmittingDb}
+            >
+              {isSubmittingDb ? 'Saving...' : 'Save to Database'}
+            </Button>
+          </div>
         </form>
       </div>
     </Card>

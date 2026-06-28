@@ -152,6 +152,12 @@ export const pageMetadata = {
     description: 'Get in touch with SCES. Find our contact information, address, and ways to connect with our team.',
     url: '/contact',
   }),
+
+  membership: () => generateMetadata({
+    title: 'Become a Member',
+    description: 'Join SCES and support children\'s education. Choose from our flexible membership plans.',
+    url: '/membership',
+  }),
 };
 
 // Blog post metadata generator
