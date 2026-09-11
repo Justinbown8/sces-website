@@ -14,7 +14,7 @@ export const metadata = pageMetadata.home();
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-14 lg:pt-16">
       {/* Hero Carousel */}
       <ClientOnly fallback={<div className="h-96 bg-gradient-to-r from-blue-600 to-blue-700" />}>
         <HeroCarousel slides={siteConfig.heroSlides} />

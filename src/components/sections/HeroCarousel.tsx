@@ -93,7 +93,7 @@ export function HeroCarousel({
   return (
     <section 
       className={cn(
-        'relative w-full h-screen sm:h-[70vh] lg:h-[60vh] min-h-[400px] max-h-[600px] overflow-hidden mt-14 lg:mt-16',
+        'relative w-full overflow-hidden',
         className
       )}
       onMouseEnter={() => setIsAutoPlaying(false)}
@@ -105,20 +105,21 @@ export function HeroCarousel({
       aria-label="Hero carousel"
     >
       {/* Background Images */}
-      <div className="absolute inset-0">
+      <div className="relative">
         {slides.map((slide, index) => (
           <div
             key={index}
             className={cn(
-              'absolute inset-0 transition-opacity duration-1000 ease-in-out',
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+              'transition-opacity duration-1000 ease-in-out',
+              index === currentSlide ? 'opacity-100' : 'opacity-0 absolute inset-0'
             )}
           >
             <Image
               src={slide.image}
               alt={slide.title}
-              fill
-              className="object-cover"
+              width={1920}
+              height={900}
+              className="w-full h-auto object-cover block"
               priority={index === 0}
               sizes="100vw"
             />
@@ -129,7 +130,7 @@ export function HeroCarousel({
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 h-full flex items-center">
+      <div className="absolute inset-0 z-10 flex items-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-6 leading-tight">
