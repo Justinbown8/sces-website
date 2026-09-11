@@ -1,6 +1,9 @@
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import ContactForm from '@/components/forms/ContactForm';
+import { pageMetadata } from '@/lib/seo';
+
+export const metadata = pageMetadata.contact();
 
 export default function ContactPage() {
   return (

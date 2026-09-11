@@ -2,8 +2,11 @@ import { Metadata } from 'next';
 import { Card } from '@/components/ui/Card';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | SCES - Sunrise Children Educational Society',
-  description: 'Terms of Service for Sunrise Children Educational Society. Understand the terms and conditions for using our website and services.',
+  title: 'Terms of Service',
+  description: 'Terms of Service for Sunrise Children Educational Society (SCES). Understand the terms and conditions for using our website and services.',
+  alternates: {
+    canonical: '/terms',
+  },
   openGraph: {
     title: 'Terms of Service | SCES',
     description: 'Terms of Service for Sunrise Children Educational Society',

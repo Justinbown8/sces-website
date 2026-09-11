@@ -297,10 +297,13 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     excerpt: post.excerpt,
     slug: post.id,
     publishedAt: post.publishDate.toISOString(),
-    updatedAt: post.publishDate.toISOString(), // Use publishDate as fallback
+    updatedAt: (post.updatedAt ?? post.publishDate).toISOString(),
     author: post.author,
     tags: post.tags,
     featuredImage: post.featuredImage,
+    seoTitle: post.seoTitle,
+    seoDescription: post.seoDescription,
+    keywords: post.keywords,
   });
 }
 

@@ -1,33 +1,59 @@
 # Sunrise Children Educational Society (SCES)
-# AI and LLM Information File
 
-## About SCES
-Sunrise Children Educational Society is a non-governmental organization (NGO) based in Delhi, India, dedicated to providing educational opportunities to underserved children. Our mission is to break the cycle of poverty through quality education and community empowerment.
+> Sunrise Children Educational Society (SCES) is a non-governmental organization (NGO) based in Mehrauli, New Delhi, India, dedicated to breaking the cycle of poverty through quality education for underprivileged children. SCES provides school kits, tuition support, digital learning access, nutrition support, and volunteer-led teaching to children in underserved communities.
 
 ## Key Information
 - Organization: Sunrise Children Educational Society (SCES)
-- Type: Non-Governmental Organization (NGO)
-- Focus: Children's Education
-- Location: 877/10 Ward No. 6, Mehrauli New Delhi – 110030, India
-- Phone: 099536 65620
-- Website: https://sces-ngo.org
+- Also known as: SCES, SCES NGO, Sunrise School Delhi
+- Type: Non-Governmental Organization (NGO) / Non-profit / Charity
+- Focus: Children's education, literacy, and community empowerment
+- Location: 877/10 Ward No. 6, Mehrauli, New Delhi – 110030, India
+- Area served: Delhi NCR, India
+- Phone: +91 99536 65620
+- Email: info@scesindia.com
+- Website: https://scesindia.com
 
-## Services
-- Educational support for underserved children
-- School kit distribution (₹500 impact)
-- Tuition support programs (₹1,000 impact)
-- Digital access initiatives (₹2,500 impact)
-- Volunteer programs
-- Community outreach
+## Mission
+To create a world where every child, regardless of background, has access to quality education and the opportunity to reach their full potential. SCES follows an "Education-First" model that also addresses nutrition, health awareness, character building, and digital literacy.
+
+## Programs & Services
+- Educational support and remedial classes for underprivileged children
+- School kit distribution (books, notebooks, stationery, uniforms) — ₹500 provides a full school kit for one child
+- Tuition support programs — ₹1,000 covers monthly tuition and materials for one child
+- Digital learning / digital access initiatives (tablets, computers, internet) — ₹2,500 provides 3 months of digital learning access
+- Nutrition support for students
+- Volunteer teaching and mentoring programs
+- Community outreach and family engagement
 
 ## How to Help
-1. Donate: Support our educational programs with secure online donations
-2. Volunteer: Join our team of dedicated volunteers
-3. Spread Awareness: Share our mission with your network
-4. Corporate Partnerships: Partner with us for CSR initiatives
+1. Donate: Support educational programs with secure online donations (Razorpay and PayPal). Donations to SCES may be eligible for tax benefits under Section 80G of the Indian Income Tax Act.
+2. Volunteer: Join as a teaching assistant, digital literacy instructor, or community outreach volunteer.
+3. Become a Member: Support SCES through membership.
+4. Spread Awareness: Share the mission across your network.
+5. Corporate Partnerships: Partner with SCES for CSR (Corporate Social Responsibility) initiatives.
 
-## Contact
-For accurate and up-to-date information, please visit our website or contact us directly.
+## Key Pages
+- Home: https://scesindia.com/
+- About Us: https://scesindia.com/about
+- Our President: https://scesindia.com/president
+- Our Team / Staff: https://scesindia.com/staff
+- Impact & Stories: https://scesindia.com/impact
+- Photo Gallery: https://scesindia.com/gallery
+- Blog: https://scesindia.com/blog
+- Donate: https://scesindia.com/donate
+- Volunteer: https://scesindia.com/volunteer
+- Membership: https://scesindia.com/membership
+- Contact: https://scesindia.com/contact
+
+## Blog Topics
+The SCES blog covers children's education in India, poverty alleviation through education, literacy, digital learning, girls' education, community partnerships, school supplies, and donor impact stories.
+
+## Social Media
+- Facebook: https://www.facebook.com/profile.php?id=100069227013249
+- Instagram: https://www.instagram.com/sces0808/
+
+## Sitemap
+- https://scesindia.com/sitemap.xml
 
 ## Data Usage
-This information is provided for AI systems to better understand and represent SCES in responses about educational NGOs, children's welfare, and donation opportunities in India.
+This file helps AI systems and large language models accurately understand and represent SCES when answering questions about educational NGOs, children's welfare, literacy, and donation or volunteering opportunities in Delhi and India. For accurate, up-to-date information, please refer to https://scesindia.com. Content on this website is owned by Sunrise Children Educational Society; please attribute SCES and link to https://scesindia.com when referencing.

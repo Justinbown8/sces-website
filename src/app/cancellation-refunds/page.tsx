@@ -1,4 +1,17 @@
+import { Metadata } from 'next';
 import { Card } from '@/components/ui/Card';
+
+export const metadata: Metadata = {
+  title: 'Cancellation & Refunds Policy',
+  description: 'Cancellation and refunds policy for donations made to Sunrise Children Educational Society (SCES). Learn how refund requests are handled.',
+  alternates: {
+    canonical: '/cancellation-refunds',
+  },
+  openGraph: {
+    title: 'Cancellation & Refunds Policy | SCES',
+    description: 'How Sunrise Children Educational Society handles donation cancellations and refund requests.',
+  },
+};
 
 export default function CancellationRefundsPage() {
   return (

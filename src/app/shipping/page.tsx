@@ -1,4 +1,17 @@
+import { Metadata } from 'next';
 import { Card } from '@/components/ui/Card';
+
+export const metadata: Metadata = {
+  title: 'Shipping & Delivery Policy',
+  description: 'Shipping and delivery policy for Sunrise Children Educational Society (SCES), covering donation receipts, acknowledgements, and communication timelines.',
+  alternates: {
+    canonical: '/shipping',
+  },
+  openGraph: {
+    title: 'Shipping & Delivery Policy | SCES',
+    description: 'How Sunrise Children Educational Society handles donation receipts and acknowledgements.',
+  },
+};
 
 export default function ShippingPage() {
   return (

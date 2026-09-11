@@ -2,6 +2,125 @@ import { BlogPost } from '@/types';
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "international-literacy-day-help-a-child-learn-to-read",
+    title: "International Literacy Day: 5 Ways You Can Help a Child Learn to Read",
+    excerpt: "This International Literacy Day, discover 5 meaningful ways to help underprivileged children in Delhi learn to read — from donating books and school kits to volunteering as a reading tutor with SCES.",
+    seoTitle: "International Literacy Day: 5 Ways to Help a Child Read",
+    seoDescription: "This International Literacy Day, discover 5 ways to help underprivileged children in Delhi learn to read — donate books, volunteer as a tutor, and more.",
+    keywords: [
+      "International Literacy Day",
+      "International Literacy Day activities",
+      "literacy day India",
+      "help literacy India",
+      "donate books India",
+      "teach reading kids",
+      "SCES literacy programs",
+      "child literacy India",
+      "learn to read",
+      "education NGO Delhi"
+    ],
+    content: `
+Every year on 8 September, the world pauses to celebrate **International Literacy Day** — a global observance that reminds us of one powerful truth: the ability to read and write can change the entire course of a child's life. Established by UNESCO in 1966, International Literacy Day highlights the millions of children and adults who still cannot read a single sentence in their own language.
+
+At **Sunrise Children Educational Society (SCES)**, literacy is where every success story begins. Before a child can dream of becoming a doctor, a teacher, or an engineer, they must first learn to read. So this International Literacy Day, we are sharing 5 simple, meaningful ways you can help an underprivileged child in Delhi learn to read — and become part of that story yourself.
+
+## Why International Literacy Day Matters in India
+
+India has made remarkable progress in expanding access to schooling, yet a quiet crisis remains: being *enrolled* in school is not the same as being able to *read*. Nationwide learning surveys such as the annual ASER report have repeatedly shown that a large share of children in primary grades struggle to read a simple paragraph or story meant for a much younger class.
+
+This is what educators call the "foundational literacy" gap — and it is exactly why International Literacy Day is so important in India. When a child cannot read fluently by the age of 8 or 9, every future subject, from science to social studies, becomes harder. Reading is not one skill among many; it is the key that unlocks all the others.
+
+For children from low-income families, the odds are steeper still. Many are **first-generation learners** — the first in their family to ever attend school. There are often no storybooks at home, no one to read aloud at night, and no money for the extra practice materials that reading fluency requires.
+
+## The Reading Gap in Delhi's Underserved Communities
+
+![Children reading and learning together at an SCES learning centre in Mehrauli, Delhi](/gallery/481907180_945413287776230_436069319495722425_n.jpg)
+
+In the narrow lanes of Mehrauli and other underserved parts of Delhi, we meet bright, curious children every single day. What they lack is not talent or willingness — it is access. Access to books. Access to a calm place to study. Access to a patient adult who will sit beside them and sound out letters until words finally click into place.
+
+The consequences of this reading gap are serious. Children who fall behind early are far more likely to drop out, and a child who leaves school without solid literacy faces a much higher risk of child labour, early marriage, and a lifetime of low-paid, insecure work. Helping a child learn to read is one of the most cost-effective ways to break the cycle of poverty — a mission we explore in depth in our post on [Education: The Ultimate Weapon Against Poverty](/blog/education-the-ultimate-weapon-against-poverty).
+
+The good news? This gap is completely solvable — and you can help close it. Here are 5 practical ways to help a child learn to read this International Literacy Day.
+
+## 5 Ways You Can Help a Child Learn to Read This International Literacy Day
+
+### 1. Donate Books and a School Kit (from just ₹500)
+
+The simplest way to **help literacy in India** is to put books and supplies directly into a child's hands. When you [donate books in India](/donate) through SCES, you provide the raw materials of reading — storybooks, workbooks, notebooks, and pencils.
+
+A single **₹500 donation funds a complete school kit** for one child: books, notebooks, stationery, and the dignity of arriving at class fully prepared. For a first-generation learner, owning their very first storybook is not a small thing — it is a treasure chest of possibilities.
+
+* **₹500** provides a full school kit and reading materials for one child
+* **₹1,000** supports a month of tuition and guided reading practice
+* **₹2,500** funds digital learning access, including reading apps and audiobooks
+
+### 2. Volunteer as a Reading Tutor or Mentor
+
+Books alone do not teach reading — people do. One of the most powerful ways to **teach reading to kids** is to give your time. As an SCES reading volunteer, you can run phonics sessions, listen to children read aloud, or simply be the encouraging voice that tells a nervous learner, "Try again — you can do this."
+
+You do not need a teaching degree; you need patience, warmth, and a few hours a week. If you can read this blog post, you can help a child learn to read. [Sign up to volunteer with SCES](/volunteer) and become a reading mentor in Delhi.
+
+### 3. Sponsor a Child's Learning Journey
+
+If you want to make a lasting difference, consider sponsoring a child's education over time. Ongoing support pays for the consistent, everyday things that build strong readers: tuition, learning materials, nutrition so children can concentrate, and the encouragement to keep going.
+
+Sponsorship turns a one-time gift into a long-term relationship with real, measurable impact. You can start a monthly contribution on our [donation page](/donate) and watch a child grow from hesitant beginner to confident reader.
+
+### 4. Start a Book Drive or Reading Corner
+
+International Literacy Day activities do not have to happen alone. Rally your friends, family, office, or classmates to collect gently used children's books, or raise funds to build a small reading corner in a community learning centre.
+
+A well-stocked, welcoming reading corner sends children a simple, life-changing message: *books belong to you, too.* Corporate teams looking for a meaningful CSR activity can [contact SCES](/contact) to organise a book drive or sponsor a classroom library.
+
+### 5. Spread the Word This International Literacy Day
+
+Never underestimate the power of your voice. Sharing a child's right to read is a free, high-impact way to support literacy in India.
+
+* Share this post and SCES stories on Facebook, Instagram, and WhatsApp
+* Use hashtags like **#InternationalLiteracyDay**, **#EducationForAll**, and **#EveryChildEveryDream**
+* Tag friends who care about children's education and invite them to donate or volunteer
+
+Every share helps another child get closer to the page — and closer to a brighter future.
+
+## How SCES Builds Literacy in Mehrauli's Classrooms
+
+![A dedicated SCES teacher guiding young students through a reading lesson in Delhi](/gallery/482009591_944425507875008_215162912013963424_n.jpg)
+
+Our **SCES literacy programs** are built around a simple idea: meet every child where they are, then walk with them, step by step, toward fluent reading. That means small-group phonics, plenty of read-aloud time, colourful storybooks in Hindi and English, and regular practice that makes reading feel like play rather than pressure.
+
+Because a hungry or anxious child cannot focus on letters and sounds, our "Education-First" model also includes nutrition support, health awareness, and a safe, joyful space to learn. Reading fluency is celebrated, not just tested — and every milestone, from a first word to a first full story, becomes a reason for the whole classroom to cheer.
+
+You can see the ripple effect of this work in our post on [Helping Children Through Education](/blog/helping-children-through-education), where a strong start in reading opens the door to everything that follows.
+
+## Simple International Literacy Day Activities You Can Try
+
+Want to mark International Literacy Day at home, in school, or at work? Try one of these:
+
+* **Read aloud for 20 minutes** with a child and talk about the story afterwards
+* **Gift a storybook** to a child who does not own any
+* **Host a mini read-a-thon** and pledge a donation for every book finished
+* **Set up a family reading hour** and switch off the screens
+* **Fund a school kit** so a child in Delhi can start reading today
+
+Small actions, repeated often, are exactly how strong readers are made.
+
+## Turn the Page on Poverty — Help a Child Read Today
+
+Literacy is the first sunrise in a child's education. It is where confidence is born, where curiosity takes root, and where the cycle of poverty finally begins to break. This International Literacy Day, your support can put a book in a child's hands and a future within their reach.
+
+Whether you donate a school kit, volunteer as a reading tutor, or simply share this story, you are helping a child in Delhi discover the words that will shape their life. Let's make sure no child is left unable to read.
+
+---
+
+*This International Literacy Day, give the gift of reading. [Donate now to fund a child's school kit](/donate) or [join us as a volunteer](/volunteer) — every child deserves a sunrise.*
+    `,
+    author: "Anchal",
+    publishDate: new Date("2026-09-08"),
+    updatedAt: new Date("2026-09-11"),
+    tags: ["Education", "Literacy", "International Literacy Day", "Impact Stories"],
+    featuredImage: "/gallery/481765611_945413501109542_248714420041554021_n.jpg"
+  },
+  {
     id: "education-the-ultimate-weapon-against-poverty",
     title: "Education: The Ultimate Weapon Against Poverty",
     excerpt: "Explore how quality education serves as the primary catalyst for breaking the multi-generational cycle of poverty and how SCES India is leading this mission on the ground.",
@@ -497,6 +616,7 @@ Join us in this mission. Visit the [SCES donation page](/donate) to make a contr
 export const blogCategories = [
   "All",
   "Education",
+  "Literacy",
   "Technology", 
   "Community",
   "Impact Stories",

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
+import { getSEOSettings } from '@/lib/settings-manager';
 
 export interface SEOProps {
   title?: string;
@@ -29,21 +30,34 @@ export function generateMetadata({
   const siteTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
   const siteDescription = description || siteConfig.description;
   const siteUrl = url ? `${siteConfig.url}${url}` : siteConfig.url;
-  const siteImage = image ? `${siteConfig.url}${image}` : `${siteConfig.url}/PIC.jpg`;
+  const seoSettings = getSEOSettings();
+  const defaultOgImage = seoSettings.openGraph.defaultImage || '/PIC.jpg';
+  const siteImage = image ? `${siteConfig.url}${image}` : `${siteConfig.url}${defaultOgImage}`;
 
   const metadata: Metadata = {
-    title: siteTitle,
+    metadataBase: new URL(siteConfig.url),
+    // Use `absolute` so the root layout `title.template` does not append the
+    // organization name a second time (siteTitle already includes the brand).
+    title: { absolute: siteTitle },
     description: siteDescription,
     keywords: [
       'Sunrise School',
       'Sunrise School Delhi',
-      'NGO in Mehrauli',
-      'Donate for Children',
-      'NGO Delhi',
-      'Child Education Donation',
       'Sunrise Children Educational Society',
       'SCES NGO',
+      'NGO in Mehrauli',
+      'NGO in Delhi',
       'Delhi NGO',
+      'Donate for Children',
+      'Donation for Children',
+      'Child Education Donation',
+      'donate education India',
+      'school kit donation India',
+      'education charity India',
+      'sponsor a child India',
+      'girls education NGO India',
+      'volunteer teach India',
+      'education for underprivileged children',
       'Education',
       'Donation',
       ...(tags || []),
@@ -54,7 +68,7 @@ export function generateMetadata({
     robots: noIndex ? 'noindex,nofollow' : 'index,follow',
     openGraph: {
       type,
-      locale: 'en_US',
+      locale: 'en_IN',
       url: siteUrl,
       title: siteTitle,
       description: siteDescription,
@@ -170,6 +184,9 @@ export function generateBlogMetadata({
   author,
   tags,
   featuredImage,
+  seoTitle,
+  seoDescription,
+  keywords,
 }: {
   title: string;
   excerpt: string;
@@ -179,16 +196,20 @@ export function generateBlogMetadata({
   author: string;
   tags: string[];
   featuredImage?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  keywords?: string[];
 }) {
   return generateMetadata({
-    title,
-    description: excerpt,
+    title: seoTitle || title,
+    description: seoDescription || excerpt,
     url: `/blog/${slug}`,
     type: 'article',
     publishedTime: publishedAt,
     modifiedTime: updatedAt,
     authors: [author],
-    tags,
+    // Prepend post-specific SEO keywords, then human-readable tags.
+    tags: [...(keywords || []), ...tags],
     image: featuredImage,
   });
 }

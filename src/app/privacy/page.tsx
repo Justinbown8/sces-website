@@ -2,8 +2,11 @@ import { Metadata } from 'next';
 import { Card } from '@/components/ui/Card';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | SCES - Sunrise Children Educational Society',
-  description: 'Privacy Policy for Sunrise Children Educational Society. Learn how we protect and handle your personal information.',
+  title: 'Privacy Policy',
+  description: 'Privacy Policy for Sunrise Children Educational Society (SCES). Learn how we protect and handle your personal information.',
+  alternates: {
+    canonical: '/privacy',
+  },
   openGraph: {
     title: 'Privacy Policy | SCES',
     description: 'Privacy Policy for Sunrise Children Educational Society',

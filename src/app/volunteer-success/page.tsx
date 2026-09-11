@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
-  title: 'Application Submitted | SCES Volunteer',
+  title: 'Application Submitted - SCES Volunteer',
   description: 'Thank you for your volunteer application. We will contact you soon.',
   robots: 'noindex, nofollow', // Don't index success pages
 };

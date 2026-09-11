@@ -1,5 +1,13 @@
 import { siteConfig } from '@/config/site';
+import { getSEOSettings } from '@/lib/settings-manager';
 import { BlogPost } from '@/types';
+
+// Single source of truth for the default share/preview image so the
+// OpenGraph card (lib/seo.ts) and JSON-LD image never drift apart.
+function getDefaultImageUrl() {
+  const defaultImage = getSEOSettings().openGraph.defaultImage || '/PIC.jpg';
+  return `${siteConfig.url}${defaultImage}`;
+}
 
 // Organization structured data for SCES
 export function generateOrganizationStructuredData() {
@@ -11,7 +19,7 @@ export function generateOrganizationStructuredData() {
     description: siteConfig.description,
     url: siteConfig.url,
     logo: `${siteConfig.url}/Sunrise_Children_Educational_Society-removebg-preview.svg`,
-    image: `${siteConfig.url}/PIC.jpg`,
+    image: getDefaultImageUrl(),
     address: {
       '@type': 'PostalAddress',
       streetAddress: '877/10 Ward No. 6',
@@ -79,7 +87,7 @@ export function generateArticleStructuredData(post: BlogPost, authorImage?: stri
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
-    image: post.featuredImage ? `${siteConfig.url}${post.featuredImage}` : `${siteConfig.url}/PIC.jpg`,
+    image: post.featuredImage ? `${siteConfig.url}${post.featuredImage}` : getDefaultImageUrl(),
     datePublished: post.publishDate.toISOString(),
     dateModified: post.updatedAt?.toISOString() || post.publishDate.toISOString(),
     author: {

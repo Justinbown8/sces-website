@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import DonorDashboard from '@/components/donation/DonorDashboard';
 
 export const metadata: Metadata = {
-  title: 'Donor Dashboard - Track Your Impact | SCES',
+  title: 'Donor Dashboard - Track Your Impact',
   description: 'View your donation history and track the impact of your contributions to Sunrise Children Educational Society.',
+  robots: 'noindex, nofollow', // Private, personalized page — keep out of search
 };
 
 export default function DonorDashboardPage() {

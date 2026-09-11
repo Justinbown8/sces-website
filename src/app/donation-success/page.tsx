@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import DonationSuccessContent from '@/components/forms/DonationSuccessContent';
 
 export const metadata: Metadata = {
-  title: 'Donation Successful - Thank You | SCES',
+  title: 'Donation Successful - Thank You',
   description: 'Thank you for your generous donation to Sunrise Children Educational Society. Your contribution helps provide educational opportunities to children in need.',
   robots: 'noindex, nofollow', // Don't index success pages
 };

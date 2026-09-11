@@ -58,6 +58,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/membership`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/volunteer`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
@@ -69,12 +75,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.5,
     },
+    // Legal / policy pages (indexable, low priority)
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/shipping`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/cancellation-refunds`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
   ];
 
   // Dynamic blog pages
   const blogPages = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.id}`,
-    lastModified: post.publishDate,
+    lastModified: post.updatedAt ?? post.publishDate,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));

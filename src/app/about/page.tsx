@@ -12,9 +12,12 @@ import { siteConfig } from '@/config/site';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About Us - SCES NGO',
-  description: 'Learn about Sunrise Children Education Society (SCES), our mission, vision, and commitment to providing quality education to underprivileged children.',
-  keywords: ['about SCES', 'NGO mission', 'education for children', 'social impact', 'non-profit organization'],
+  title: 'About Us',
+  description: 'Learn about Sunrise Children Educational Society (SCES), our mission, vision, and commitment to providing quality education to underprivileged children in Delhi.',
+  keywords: ['about SCES', 'NGO mission', 'education for children', 'social impact', 'non-profit organization', 'NGO in Mehrauli Delhi'],
+  alternates: {
+    canonical: '/about',
+  },
   openGraph: {
     title: 'About SCES NGO - Empowering Children Through Education',
     description: 'Discover our journey, mission, and impact in providing quality education to underprivileged children across communities.',
@@ -31,7 +34,7 @@ const breadcrumbItems = [
 const organizationStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'NGO',
-  name: 'Sunrise Children Education Society',
+  name: 'Sunrise Children Educational Society',
   alternateName: 'SCES NGO',
   url: siteConfig.url,
   logo: `${siteConfig.url}/Sunrise_Children_Educational_Society-removebg-preview.svg`,

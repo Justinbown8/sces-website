@@ -81,6 +81,12 @@ export interface BlogPost {
   updatedAt?: Date;
   tags: string[];
   featuredImage?: string;
+  /** Optional custom meta title (falls back to `title`). Keep ~55-60 chars. */
+  seoTitle?: string;
+  /** Optional custom meta description (falls back to `excerpt`). Keep <=160 chars. */
+  seoDescription?: string;
+  /** Optional SEO keywords for this post (added to page keywords / OG tags). */
+  keywords?: string[];
 }
 
 export interface DonationData {

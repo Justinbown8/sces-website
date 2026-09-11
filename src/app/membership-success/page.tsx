@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 export const metadata = {
-  title: 'Membership Registration Successful | SCES',
+  title: 'Membership Registration Successful',
   description: 'Thank you for registering as a member of SCES. Welcome to our community!',
+  robots: 'noindex, nofollow', // Post-action confirmation page — keep out of search
 };
 
 export default function MembershipSuccessPage() {

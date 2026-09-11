@@ -41,7 +41,9 @@ export const siteConfig = {
   },
   
   get url() {
-    return getEnvVarWithDefault('NEXT_PUBLIC_SITE_URL', 'https://scesindia.com');
+    // Normalize: strip any trailing slash so template-literal URLs
+    // (e.g. `${siteConfig.url}/blog`) never produce double slashes.
+    return getEnvVarWithDefault('NEXT_PUBLIC_SITE_URL', 'https://scesindia.com').replace(/\/+$/, '');
   },
   
   // Contact information

@@ -383,7 +383,7 @@ export const defaultSettings: SiteSettings = {
       siteName: "Sunrise Children Educational Society",
       type: "website",
       locale: "en_IN",
-      defaultImage: "/og-image.jpg"
+      defaultImage: "/PIC.jpg"
     },
     twitter: {
       card: "summary_large_image",
