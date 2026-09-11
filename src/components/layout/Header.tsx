@@ -84,9 +84,10 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
     }`;
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/90 backdrop-blur-sm'
+        isScrolled ? 'bg-white shadow-lg' : 'bg-white'
       } ${className}`}
       role="banner"
     >
@@ -230,10 +231,12 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
         </div>
       </div>
 
+    </header>
+
       {/* Mobile Overlay */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/50 z-[998] lg:hidden"
           onClick={toggleMenu}
           aria-hidden="true"
         />
@@ -242,14 +245,15 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
       {/* Mobile Drawer */}
       <div
         id="mobile-menu"
-        className={`fixed top-0 right-0 h-full w-4/5 max-w-xs bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-4/5 max-w-xs shadow-2xl z-[999] transform transition-transform duration-300 ease-in-out lg:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
+        style={{ backgroundColor: '#ffffff' }}
         role="dialog"
         aria-modal="true"
         aria-labelledby="mobile-menu-title"
       >
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full" style={{ backgroundColor: '#ffffff' }}>
           <div className="flex items-center justify-between p-3 border-b border-gray-200 flex-shrink-0">
             <div className="flex items-center gap-2">
               <Logo size="sm" />
@@ -262,9 +266,9 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
             >
               <X className="w-5 h-5" />
             </button>
-</div>
+          </div>
 
-          <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto" role="navigation" aria-label="Mobile navigation">
+          <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto" style={{ backgroundColor: '#ffffff' }} role="navigation" aria-label="Mobile navigation">
             {[...navigationGroups.main, ...navigationGroups.about, ...navigationGroups.participate, ...navigationGroups.other].map((link: NavigationLink) => (
               <Link
                 key={link.href}
@@ -274,7 +278,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
                 }`}
                 onClick={toggleMenu}
               >
-{link.label}
+                {link.label}
               </Link>
             ))}
           </nav>
@@ -286,7 +290,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 };
 
