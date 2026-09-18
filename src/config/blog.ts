@@ -2,6 +2,283 @@ import { BlogPost } from '@/types';
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "best-ngos-in-delhi",
+    title: "10 Best NGOs in Delhi (2026): Impact, Programs & How to Donate",
+    excerpt: "Looking for the best NGOs in Delhi to support in 2026? This guide covers 10 trusted Delhi non-profits working in education, health, relief and child welfare - what they do, the programmes they run, the impact they report, and exactly how you can donate or volunteer.",
+    seoTitle: "10 Best NGOs in Delhi (2026): Top Nonprofits to Donate",
+    seoDescription: "Discover the 10 best NGOs in Delhi for 2026 - trusted non-profits for child education, health and relief, plus how to donate or volunteer with confidence.",
+    keywords: [
+      "best NGOs in Delhi",
+      "NGO in Delhi",
+      "top NGOs in Delhi",
+      "top 10 NGO in Delhi",
+      "list of NGOs in Delhi",
+      "NGO for children in Delhi",
+      "education NGO in Delhi",
+      "best NGO in Delhi for child education",
+      "NGO near me in Delhi",
+      "donate to NGO in Delhi",
+      "charity in Delhi",
+      "child education donation",
+      "sponsor a child India",
+      "SCES",
+      "Sunrise School Delhi",
+      "volunteer NGO Delhi"
+    ],
+    content: `
+Finding the right NGO to support in Delhi can feel overwhelming. The capital is home to thousands of registered non-profits, and each one is working on a different part of a very large problem - education, health, hunger, disaster relief, disability, mental health and more. For a donor or a volunteer, the difficult part is not finding an NGO. It is knowing which organisations are transparent, well governed and genuinely close to the communities they serve.
+
+This guide to the 10 best NGOs in Delhi for 2026 is here to help. Every organisation on this list is a registered, established non-profit with a verifiable public track record. We have set out what each one does, where it works, the programmes it runs and the impact it reports, so you can decide where your money or your time will do the most good. At number four you will find our own organisation, **Sunrise Children Educational Society (SCES)**, and we have explained transparently why we believe it belongs in this company.
+
+## What Is an NGO and Why Do They Matter in Delhi?
+
+An NGO, or non-governmental organisation, is a non-profit body that works independently of government to meet social, educational, health, environmental or humanitarian needs. In India, NGOs are usually registered as public trusts, societies or Section 8 companies. Many also hold 12A and 80G certification, which lets donors claim a tax deduction on their contributions.
+
+Delhi is one of the most important NGO hubs in the country. Because it is the national capital, it brings together government ministries, funding agencies, embassies, corporate social responsibility teams and a dense network of grassroots organisations in one city. Many national NGOs are headquartered here, while hundreds of smaller community organisations work inside Delhi's slums, resettlement colonies and unauthorised colonies.
+
+The need is real. Delhi's rapid growth has produced sharp inequality. Families who migrate from Uttar Pradesh, Bihar, Jharkhand and West Bengal in search of work often settle in crowded quarters with limited access to schooling, healthcare and clean water. Non-profits step into that gap, running learning centres, health camps, helplines, nutrition programmes and skill-training centres where public services have not yet reached.
+
+## Why Delhi's NGO Ecosystem Matters
+
+Delhi's non-profit sector does more than deliver services. It also experiments, advocates and holds systems accountable. A city-wide NGO can pilot a reading programme in a dozen schools, measure the results and then hand a proven model to government. It can run a night shelter, a legal-aid clinic or a mental-health helpline that simply would not exist otherwise.
+
+![A volunteer teacher guiding young students through a reading exercise at an SCES learning centre in Mehrauli, Delhi](/gallery/481907180_945413287776230_436069319495722425_n.jpg)
+
+For children in particular, Delhi's NGOs are often the difference between staying in school and dropping out. Community learning centres provide a quiet place to study, a teacher who believes in the child, and a nutritious meal that makes concentration possible. For families living on daily wages, that support can be transformative. Keeping a child in school is one of the most effective ways to break the cycle of intergenerational poverty - a subject we explore in our post on [Education: The Ultimate Weapon Against Poverty](/blog/education-the-ultimate-weapon-against-poverty).
+
+## The 10 Best NGOs in Delhi (2026)
+
+The organisations below are all genuine, registered non-profits with established track records. We have described each one factually and respectfully, with its focus areas, flagship programmes, reported impact and website so you can research it further.
+
+![Children in a classroom at an SCES-supported school in Delhi, eager to learn](/gallery/481175245_944425734541652_9070409219912970222_n.jpg)
+
+### 1. Teach For India
+
+**Website:** [teachforindia.org](https://www.teachforindia.org)
+
+Founded in 2008, Teach For India (TFI) is a leadership-development organisation that tackles educational inequity by placing outstanding graduates and professionals as full-time teachers in low-income schools. Fellows commit to two years in a classroom, and many continue working on education reform long after their fellowship ends.
+
+TFI's approach is a pipeline: recruit talented leaders, put them where the need is greatest, and then support them to keep solving the problem at every level of the system. Today more than 1,000 Fellows teach across nine cities, and the organisation reports that its classrooms have directly impacted over 32,000 students. Its alumni network has grown to more than 5,800 people, who between them have founded over 160 organisations.
+
+**Address:** N-23, Second Floor, Green Park Extension, New Delhi - 110016.
+
+### 2. Goonj
+
+**Website:** [goonj.org](https://goonj.org)
+
+Goonj began in 1999 with a simple but radical idea: that the urban surplus lying unused in Indian homes - clothes, books, school bags, furniture - can be turned into a development resource for rural and disaster-hit communities. Founder Anshu Gupta, a Magsaysay Award recipient, built a national movement around "cloth for work", in which communities receive material support in exchange for building roads, digging ponds or repairing schools.
+
+Goonj's programmes include Cloth for Work, School to School (which channels school material into rural classrooms), Rahat (disaster relief), Not Just A Piece of Cloth (menstrual hygiene) and Green by Goonj. Its most recent annual report records more than 19,000 community development projects, over 2.3 million lives touched and more than 8 million kilograms of material channelled to where it is needed most.
+
+**Head office:** Rajesh Pilot Marg, Madan Pur Khadar, New Delhi - 110076.
+
+### 3. Indian Red Cross Society - Delhi State Branch
+
+**Website:** [indianredcross.org](https://www.indianredcross.org)
+
+The Indian Red Cross Society is a national humanitarian organisation established in 1920 by an Act of Parliament. Its Delhi State Branch has been serving the capital since 1959 and works in coordination with the global Red Cross and Red Crescent movement.
+
+The Delhi Branch runs one of the city's most reliable blood services, provides disaster relief and preparedness training, and delivers first-aid and home-nursing courses through the St. John Ambulance Association's Delhi centre. Its programmes also include the Delhi Red Cross Hospital, the Henry Dunant Public School in East Delhi, a charitable dispensary in Naya Bans and a school-based drug-abuse awareness programme. The Lieutenant Governor of Delhi serves as the branch's ex-officio President, which gives it a formal role in the city's emergency response.
+
+**Address:** Red Cross Bhawan, Golf Links, New Delhi - 110003.
+
+### 4. Sunrise Children Educational Society (SCES)
+
+**Website:** [scesindia.com](https://scesindia.com)
+
+Sunrise Children Educational Society, known to the families it serves simply as SCES, is the organisation behind this blog and the school community it documents. Registered as a society, SCES works in Mehrauli in south Delhi to keep first-generation learners in school and learning - a mission we have pursued since our founding.
+
+SCES's model is deliberately simple and Education-First. We start with the practical barriers that push children out of school, then remove them one by one.
+
+* **School kits from ₹500.** A donation of ₹500 provides one child with a complete school kit - books, notebooks, stationery and a school bag. For a family with no spare income, that kit is often the reason a child can start the year on equal footing.
+* **Tuition and learning support.** Children who fall behind in class rarely catch up on their own. Our learning centres in Mehrauli provide regular tuition, guided reading practice and homework support so that no student is left behind by an under-resourced classroom.
+* **Digital learning.** Technology can multiply a single teacher's reach. Our digital learning programme gives students access to tablets, educational software and online reading material they would never see at home.
+* **Nutrition support.** A hungry child cannot concentrate. SCES provides meals and nutrition support so that learning is not interrupted by hunger.
+* **Volunteer mentoring.** Teachers, professionals and students volunteer at our centres as reading tutors, mentors and workshop leaders.
+
+![Students working through their lessons with school kits provided by SCES in Mehrauli, New Delhi](/gallery/481303838_944410271209865_4673313455438903277_n.jpg)
+
+Every rupee given to SCES is treated as a child's future, and we publish regular updates on our programmes, our students and our impact. Contributions to SCES are eligible for deduction under Section 80G of the Income Tax Act, so your donation goes further than you might expect.
+
+You can [donate to SCES online](https://scesindia.com/donate/) in a few minutes, [sign up as a volunteer](/volunteer), or [contact us](/contact) to visit a learning centre in Mehrauli and see the work for yourself.
+
+**Address:** 877/10 Ward No. 6, Mehrauli, New Delhi - 110030. **Phone:** 099536 65620.
+
+### 5. CHETNA (Childhood Enhancement through Training and Action)
+
+**Website:** [chetnango.org](https://chetnango.org)
+
+CHETNA is a Delhi-based organisation that works with street-connected and working children. Registered as a public charitable trust in 2002, it focuses on children who live or earn on the streets, and on those who are at risk of slipping through the gaps between school, family and the law.
+
+Its most visible initiative is Badhte Kadam, a children's federation that brings together thousands of street and working children to claim their rights. CHETNA also publishes Balaknama, a newspaper written and produced by street children - recognised by the Limca Book of Records as the first Hindi newsletter of its kind. Alongside these, the organisation runs Street to School and Open Basic Education programmes, child-contact points and a helpline, all designed to move children off the street and into education.
+
+**Address:** 40/22 Manohar Kunj, Gautam Nagar, New Delhi.
+
+### 6. Aasra
+
+**Website:** [aasra.info](https://www.aasra.info)
+
+Aasra is one of India's best-known suicide-prevention organisations. It was started on 13 September 1998 and operates a 24x7 emotional-support helpline for people in distress, depression or crisis. While Aasra is based in Navi Mumbai, its helpline is national in scope and receives calls from Delhi and the National Capital Region every day, which is why it is included in this guide to organisations worth supporting from the capital.
+
+The service is run largely by trained volunteers who complete a minimum six-month preparation programme. Aasra also facilitates support groups for people living with schizophrenia and bipolar disorder, for those who have survived a suicide attempt and for families bereaved by suicide. The organisation reports that it has helped more than 800,000 people and trained over 7,500 volunteers, and it operates as a unit of Befrienders Worldwide.
+
+**Helpline:** +91-22-27546669. **Address:** 104, Sunrise Arcade, Plot No. 100, Sector 16, Koparkhairane, Navi Mumbai - 400709.
+
+### 7. Smile Foundation
+
+**Website:** [smilefoundationindia.org](https://www.smilefoundationindia.org)
+
+Established in 2002, Smile Foundation is one of India's largest development organisations working on education, healthcare, livelihood and women's empowerment. It complements government efforts rather than duplicating them, and focuses on children and families in urban slums and remote villages.
+
+Its Mission Education programme provides education, nutrition and holistic development for underprivileged children, while the Child For Child initiative builds empathy among students in private schools. Campaigns such as Shiksha Na Ruke (so that learning does not stop) and She Can Fly support children and girls returning to school. Smile Foundation reports that it impacts more than 20 lakh children and their families each year through over 400 projects across more than 2,000 villages and slums in 27 states.
+
+**Head office:** 161 B/4, 3rd Floor, Gulmohar House, Yusuf Sarai Community Centre, New Delhi - 110049.
+
+### 8. Butterflies
+
+**Website:** [butterfliesngo.org](https://butterfliesngo.org)
+
+Founded in Delhi in 1989, Butterflies is a rights-based organisation for street and street-connected children. Rather than removing children from the streets and institutionalising them, it works alongside them, providing education, protection and a space where their voices matter.
+
+Butterflies runs a Street Education Programme and mobile schools, and its Children's Development Khazana teaches children to save and manage money. Other programmes include a health and sports cooperative, a culinary and catering school that trains young people for employment, and children's media projects through which children report on issues that affect them. The organisation reaches around 3,300 children every year and reports that it has worked with more than 71,000 children since it began. It is a member of the Family for Every Child global alliance.
+
+**Address:** 163/4, Pradhan Wali Gali, Jaunapur, New Delhi - 110047.
+
+### 9. Sightsavers India
+
+**Website:** [sightsaversindia.org](https://www.sightsaversindia.org)
+
+Sightsavers has worked in India since 1966, when it was registered as the Royal Commonwealth Society for the Blind. Today it is a leading organisation in eye health, inclusive education and the social inclusion of people with disabilities.
+
+Its eye-health programmes work to prevent avoidable blindness and to restore sight through surgery and screening, while its inclusive education work helps children with disabilities learn in mainstream schools instead of being excluded. The Sightsavers India Fellowship supports eye-care professionals with advanced training. Across its global programmes since 1970, Sightsavers reports that it has facilitated more than 8.5 million sight-restoration surgeries and over 103 million eye screenings; in India it works across multiple states and cities.
+
+**Head office:** 45, Okhla Industrial Estate, Phase III, New Delhi - 110020.
+
+### 10. National Foundation for India (NFI)
+
+**Website:** [nfi.org.in](https://www.nfi.org.in)
+
+The National Foundation for India is a grant-making and philanthropic foundation rather than a direct service provider. It was seeded in 1990 by the late Bharat Ratna C. Subramaniam, Dr. Kamla Choudhary and Bharat Ratna Dr. M. S. Swaminathan, and was formally registered as a trust in 1992.
+
+NFI supports grassroots civil-society organisations working on social justice, education, health and nutrition, gender rights, climate action and governance. It makes grants, builds the capacity of smaller organisations and connects them with donors and government. Its initiatives include Ankuran (for young change-makers), the C. Subramaniam Awards, a rural internship programme and the Samvidhan Se Hum fellowship. NFI reports that it has worked in 24 states with around 300 civil-society organisations and has impacted roughly 1.2 million marginalised lives.
+
+**Address:** India Habitat Centre, Core 4A, Upper Ground Floor, Lodhi Road, New Delhi - 110003.
+
+![A group of children learning together at an SCES community learning centre in Delhi](/gallery/482000236_945413334442892_4903671561226491342_n.jpg)
+
+## Quick Comparison: The 10 Best NGOs in Delhi at a Glance
+
+| NGO | Primary Focus | Best For |
+| --- | --- | --- |
+| Teach For India | Education leadership | Funding fellowships and school reform |
+| Goonj | Material relief and development | Donating clothes, books and relief material |
+| Indian Red Cross Society - Delhi | Humanitarian relief and blood services | Blood donation and disaster relief |
+| SCES (Sunrise Children Educational Society) | Child education in Mehrauli | Sponsoring school kits, tuition and daily learning |
+| CHETNA | Street and working children | Supporting street children's education and rights |
+| Aasra | Suicide prevention | Supporting mental-health and crisis helplines |
+| Smile Foundation | Education, health, livelihood | Large-scale child development programmes |
+| Butterflies | Street-connected children | Rights-based work with children on the street |
+| Sightsavers India | Eye health and inclusion | Preventing blindness and inclusive education |
+| National Foundation for India | Grants and philanthropy | Backing grassroots organisations across India |
+
+## How to Choose the Right NGO to Support
+
+Before you donate, it is worth asking a few straightforward questions. A genuine organisation will welcome them.
+
+* **Is it registered?** Ask for the registration number and the trust or society deed. Most legitimate NGOs will share these readily.
+* **Does it have 80G certification?** An 80G certificate means your donation is tax-deductible and that the organisation has been vetted by the income-tax authorities.
+* **Is it transparent about money?** Look for an annual report, audited financials and a clear breakdown of how funds are used. A credible NGO does not hide its numbers.
+* **Can you see the work?** Field visits, photographs, impact reports and beneficiary stories all help. If you are in Delhi, visit a project. Seeing is believing.
+* **Is it close to the problem?** Organisations embedded in the communities they serve often respond faster and understand local needs better than distant intermediaries.
+
+![A mentor guiding schoolchildren in India. Photo: Iamflag, CC BY-SA 4.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Mentoring_School_Childrens.jpg/1400px-Mentoring_School_Childrens.jpg)
+
+## How to Donate to an NGO in Delhi
+
+Donating is easier than most people expect.
+
+1. Choose the cause that matters most to you - education, health, hunger, disability or mental health.
+2. Verify the organisation's registration and 80G status.
+3. Decide whether you want to give once or set up a recurring monthly donation. Even small monthly gifts create predictable funding that NGOs can plan around.
+4. Donate through the organisation's official website or a verified payment link. Avoid unofficial payment requests.
+5. Ask for your 80G receipt and keep it for your tax records.
+
+If child education is your cause, you can [donate securely to SCES](https://scesindia.com/donate/), where a gift of just ₹500 provides a complete school kit for one child. You can also [volunteer your time](/volunteer) as a reading tutor or mentor at our Mehrauli learning centres.
+
+## Frequently Asked Questions About NGOs in Delhi
+
+### Which is the best NGO in Delhi for child education?
+
+There is no single "best" NGO, because different organisations are best at different things. For a community-level, Education-First model that puts school kits, tuition, digital learning and nutrition directly into the hands of first-generation learners in Mehrauli, SCES is an excellent choice. For education leadership at scale, Teach For India is one of the most recognised names in the country. Smile Foundation and CHETNA are also strong options, depending on whether you want to support direct education or work with street-connected children.
+
+### How can I donate to an NGO in Delhi?
+
+Most established Delhi NGOs accept online donations through their official websites. Choose a registered organisation, confirm its 80G status, and donate through its verified payment gateway. For child education, you can [make a donation to SCES](https://scesindia.com/donate/) in a few minutes. Always keep the receipt for your tax records.
+
+### Is a donation to SCES tax-deductible?
+
+Yes. SCES is a registered society and contributions are eligible for deduction under Section 80G of the Income Tax Act. You will receive a receipt that you can use when filing your income-tax return.
+
+### Can I volunteer with an NGO in Delhi instead of donating?
+
+Absolutely, and volunteers are often more valuable than money. Non-profits in Delhi need reading tutors, mentors, event helpers, photographers, designers, social-media volunteers and subject-matter experts. SCES welcomes volunteers who can teach, mentor or run workshops at its Mehrauli learning centres. You can [apply to volunteer](/volunteer) or [contact us](/contact) to discuss how your skills can help.
+
+### How do I check whether an NGO in Delhi is genuine?
+
+Check that it is registered as a trust, society or Section 8 company, that it has a valid 80G certificate and PAN, and that it publishes audited financials and an annual report. Ask for its registration number, visit its office or project if you can, and be cautious of any organisation that cannot clearly explain how your donation will be used.
+
+### How much of my donation actually reaches the children?
+
+This varies widely. Well-managed NGOs publish their administrative ratios in their annual reports, and many keep overheads low by relying on volunteers. Before donating, ask what proportion of funds goes to programmes versus administration. Transparency on this question is one of the clearest signs of a trustworthy organisation.
+
+![Young learners at an SCES learning centre in Mehrauli, Delhi, building their reading skills](/gallery/481765611_945413501109542_248714420041554021_n.jpg)
+
+If you would like to go deeper into the literacy challenge in India, our post on [5 ways to help a child learn to read](/blog/international-literacy-day-help-a-child-learn-to-read) explains how reading support changes lives, and [Shaping Tomorrow Through Education Today](/blog/shaping-tomorrow-through-education-today) looks at the long-term case for investing in education.
+
+## Conclusion: Support the NGOs That Change Delhi
+
+Delhi's non-profits do work that no government or business can do alone. They teach children to read, run the blood banks that save lives, answer the phone at 3 a.m. when someone is in crisis, and turn urban surplus into rural opportunity. The ten organisations in this guide are among the best in the city, and each one deserves the support it receives.
+
+![Schoolchildren at a rural school in India. Photo: McKay Savage, CC BY 2.0, via Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Tamil_Nadu_school_kids.jpg/1400px-Tamil_Nadu_school_kids.jpg)
+
+If our mission speaks to you, we would love for you to join it. [Donate to SCES today](https://scesindia.com/donate/) to fund a school kit, a month of tuition or a digital learning session for a child in Mehrauli. If you have time rather than money, [volunteer with us](/volunteer) and sit beside a child as they learn to read. Every contribution, however small, moves a child one step closer to the future they deserve.
+
+---
+
+*[Donate Now](https://scesindia.com/donate/) | [Become a Volunteer](/volunteer) | [Read more stories on our blog](/blog)*
+    `,
+    author: "Rajni Chawla",
+    publishDate: new Date("2026-09-18"),
+    tags: ["Education", "NGO", "Delhi", "Donation", "Impact Stories"],
+    featuredImage: "/banner_for_blog_post_sunrise_school.jpg",
+    faqs: [
+      {
+        question: "Which is the best NGO in Delhi for child education?",
+        answer: "There is no single best NGO, because different organisations excel at different things. SCES (Sunrise Children Educational Society) is a strong choice for community-level, Education-First work with first-generation learners in Mehrauli, providing school kits, tuition, digital learning and nutrition support. Teach For India is widely recognised for education leadership at scale, while Smile Foundation and CHETNA are established options for direct education and street-connected children respectively."
+      },
+      {
+        question: "How can I donate to an NGO in Delhi?",
+        answer: "Choose a registered organisation, confirm its 80G status, and donate through the official website or a verified payment gateway. SCES accepts online donations for child education at scesindia.com/donate. Keep the receipt for your tax records."
+      },
+      {
+        question: "Is a donation to SCES tax-deductible?",
+        answer: "Yes. SCES is a registered society and contributions are eligible for deduction under Section 80G of the Income Tax Act. Donors receive a receipt they can use when filing their income-tax return."
+      },
+      {
+        question: "Can I volunteer with an NGO in Delhi instead of donating?",
+        answer: "Yes. Delhi NGOs need reading tutors, mentors, event helpers, photographers, designers and subject experts. SCES welcomes volunteers who can teach or mentor children at its Mehrauli learning centres."
+      },
+      {
+        question: "How do I check whether an NGO in Delhi is genuine?",
+        answer: "Check that it is registered as a trust, society or Section 8 company, that it has a valid 80G certificate and PAN, and that it publishes audited financials and an annual report. Ask for the registration number, visit the project if possible, and avoid organisations that cannot explain how donations are used."
+      },
+      {
+        question: "How much of my donation reaches the children?",
+        answer: "It varies by organisation. Reputable NGOs publish administrative ratios in their annual reports and often keep overheads low through volunteers. Ask what share of funds goes to programmes versus administration before you donate."
+      }
+    ]
+  },
+  {
     id: "international-literacy-day-help-a-child-learn-to-read",
     title: "International Literacy Day: 5 Ways You Can Help a Child Learn to Read",
     excerpt: "This International Literacy Day, discover 5 meaningful ways to help underprivileged children in Delhi learn to read — from donating books and school kits to volunteering as a reading tutor with SCES.",

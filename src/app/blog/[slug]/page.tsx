@@ -5,7 +5,9 @@ import { blogPosts, blogAuthors } from '@/config/blog';
 import { ShareButtons } from '@/components/blog/ShareButtons';
 import { CommentSection } from '@/components/blog/CommentSection';
 import { BlogStructuredData } from '@/components/blog/BlogStructuredData';
+import { TableOfContents } from '@/components/blog/TableOfContents';
 import { Breadcrumb } from '@/components/seo/Breadcrumb';
+import { escapeHtml, extractHeadings, slugifyHeading } from '@/lib/markdown';
 
 interface BlogPostPageProps {
   params: {
@@ -34,9 +36,63 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }).format(date);
   };
 
+  // Convert consecutive pipe-table lines into a brand-styled <table>
+  const convertPipeTables = (md: string) => {
+    const lines = md.split('\n');
+    const isTableLine = (line: string) => /^\s*\|/.test(line);
+    const isSeparatorLine = (line: string) => /^\s*\|[\s:|-]+\|?\s*$/.test(line);
+    const parseRow = (line: string) =>
+      line
+        .trim()
+        .replace(/^\|/, '')
+        .replace(/\|$/, '')
+        .split('|')
+        .map(cell => cell.trim());
+
+    const result: string[] = [];
+    let i = 0;
+    while (i < lines.length) {
+      if (i + 1 < lines.length && isTableLine(lines[i]) && isSeparatorLine(lines[i + 1])) {
+        const header = parseRow(lines[i]);
+        i += 2;
+        const rows: string[][] = [];
+        while (i < lines.length && isTableLine(lines[i])) {
+          rows.push(parseRow(lines[i]));
+          i += 1;
+        }
+        const head = header
+          .map(cell => `<th class="px-4 py-3 text-left font-heading text-sm md:text-base font-bold text-white">${escapeHtml(cell)}</th>`)
+          .join('');
+        const body = rows
+          .map((row, index) => {
+            const cells = row
+              .map(cell => `<td class="px-4 py-3 text-sm md:text-base text-gray-700">${escapeHtml(cell)}</td>`)
+              .join('');
+            const zebra = index % 2 === 1 ? ' bg-gray-50' : ' bg-white';
+            return `<tr class="border-b border-gray-200${zebra}">${cells}</tr>`;
+          })
+          .join('');
+        result.push(
+          '<div class="my-10 overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">' +
+          '<table class="w-full min-w-[520px] border-collapse">' +
+          '<thead><tr class="bg-button-navy">' + head + '</tr></thead>' +
+          '<tbody>' + body + '</tbody>' +
+          '</table></div>'
+        );
+      } else {
+        result.push(lines[i]);
+        i += 1;
+      }
+    }
+    return result.join('\n');
+  };
+
   // Convert markdown-style content to HTML (robust implementation)
   const formatContent = (content: string) => {
     let html = content.trim();
+
+    // 0. Handle Pipe Tables
+    html = convertPipeTables(html);
 
     // 1. Handle Horizontal Rules
     html = html.replace(/^\s*---\s*$/gm, '<hr class="my-12 border-gray-200" />');
@@ -44,26 +100,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     // 2. Handle Images: ![alt](url)
     html = html.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => `
       <div class="my-12 overflow-hidden rounded-[2rem] shadow-2xl group relative">
-        <img src="${src}" alt="${alt}" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        <img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
         ${alt ? `
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-            <p class="text-white text-sm font-medium italic opacity-90">${alt}</p>
+            <p class="text-white text-sm font-medium italic opacity-90">${escapeHtml(alt)}</p>
           </div>
         ` : ''}
       </div>
     `);
 
-    // 3. Handle Headings
-    html = html.replace(/^# (.*$)/gm, '<h1 class="text-3xl md:text-5xl font-heading font-bold text-gray-900 mb-8 mt-16 leading-tight">$1</h1>');
-    html = html.replace(/^## (.*$)/gm, '<h2 class="text-2xl md:text-4xl font-heading font-bold text-gray-900 mb-6 mt-12 leading-snug">$1</h2>');
-    html = html.replace(/^### (.*$)/gm, '<h3 class="text-xl md:text-3xl font-heading font-bold text-gray-900 mb-4 mt-10 leading-snug">$1</h3>');
+    // 3. Handle Headings (with anchor IDs + scroll offset for the sticky header)
+    html = html.replace(/^# (.*$)/gm, (match, text) => `<h1 id="${slugifyHeading(text)}" class="text-3xl md:text-5xl font-heading font-bold text-gray-900 mb-8 mt-16 leading-tight scroll-mt-28">${text}</h1>`);
+    html = html.replace(/^## (.*$)/gm, (match, text) => `<h2 id="${slugifyHeading(text)}" class="text-2xl md:text-4xl font-heading font-bold text-gray-900 mb-6 mt-12 leading-snug scroll-mt-28">${text}</h2>`);
+    html = html.replace(/^### (.*$)/gm, (match, text) => `<h3 id="${slugifyHeading(text)}" class="text-xl md:text-3xl font-heading font-bold text-gray-900 mb-4 mt-10 leading-snug scroll-mt-28">${text}</h3>`);
 
     // 4. Handle Bold & Italics
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>');
     html = html.replace(/\*(.*?)\*/g, '<em class="italic text-gray-800">$1</em>');
 
     // 5. Handle Links: [text](url)
-    html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-blue-600 font-bold border-b-2 border-blue-200 hover:border-blue-600 transition-colors" target="_blank" rel="noopener noreferrer">$1</a>');
+    html = html.replace(/\[(.*?)\]\((.*?)\)/g, (match, text, url) => `<a href="${escapeHtml(url)}" class="text-blue-600 font-bold border-b-2 border-blue-200 hover:border-blue-600 transition-colors" target="_blank" rel="noopener noreferrer">${text}</a>`);
 
     // 6. Handle Lists (Wrap groups of list items)
     html = html.replace(/^\* (.*$)/gm, '<li class="ml-6 pl-2 list-disc mb-3 text-gray-700">$1</li>');
@@ -75,11 +131,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     html = sections.map(section => {
       const trimmed = section.trim();
       if (!trimmed) return '';
-      // If it starts with a tag (like <h1, <div, <li, <hr), return as is
+      // If it starts with a tag (like <h1, <div, <li, <hr, <table), return as is
       if (trimmed.startsWith('<h') || 
           trimmed.startsWith('<div') || 
           trimmed.startsWith('<li') || 
           trimmed.startsWith('<hr') || 
+          trimmed.startsWith('<table') ||
           trimmed.startsWith('<ul') || 
           trimmed.startsWith('<ol')) {
         return trimmed;
@@ -90,6 +147,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     return html;
   };
 
+  const headings = extractHeadings(post.content);
+
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
@@ -99,7 +158,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Hero Section */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto grid gap-x-10 lg:grid-cols-[minmax(0,1fr)_300px]">
+            {/* Post header column: breadcrumb, title, meta, featured image */}
+            <div className="min-w-0">
             {/* Breadcrumb */}
             <Breadcrumb
               items={[
@@ -177,7 +238,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 />
               </div>
             )}
+            </div>
 
+            {/* Table of Contents: sticky sidebar (desktop) / collapsible toggle (mobile) */}
+            <aside className="lg:row-span-2">
+              <TableOfContents headings={headings} postTitle={post.title} />
+            </aside>
+
+            {/* Article column: content, share, author, comments */}
+            <div className="min-w-0">
             {/* Article Content */}
             <article className="prose prose-lg max-w-none">
               <div 
@@ -223,6 +292,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Comments Section */}
             <CommentSection postId={post.id} />
+            </div>
           </div>
         </div>
       </section>

@@ -87,6 +87,8 @@ export interface BlogPost {
   seoDescription?: string;
   /** Optional SEO keywords for this post (added to page keywords / OG tags). */
   keywords?: string[];
+  /** Optional FAQs for this post (emitted as FAQPage JSON-LD for rich results). */
+  faqs?: { question: string; answer: string }[];
 }
 
 export interface DonationData {
