@@ -2,6 +2,244 @@ import { BlogPost } from '@/types';
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "childrens-education-support-children-in-delhi",
+    title: "Children's Education in India: Why Every Child in Delhi Deserves Support",
+    excerpt: "Every child deserves the same chance to learn. This guide looks at children's education in India, the daily reality for underprivileged children in Delhi, and how your donation, child care and child support can change a life - with practical ways to donate, sponsor a child or volunteer.",
+    seoTitle: "Children's Education in India: Support a Child in Delhi",
+    seoDescription: "Children's education in India changes lives. See why children in Delhi need support, and how your donation, child care or sponsorship can help.",
+    keywords: [
+      "children in Delhi",
+      "children's education",
+      "donation",
+      "education",
+      "child care",
+      "child support",
+      "donate for children",
+      "child education India",
+      "NGO for children in Delhi",
+      "sponsor a child India",
+      "help poor children",
+      "children charity Delhi",
+      "education for poor children",
+      "underprivileged children in Delhi",
+      "Delhi NGO donation",
+      "child welfare India"
+    ],
+    content: `
+Every child is born with the same spark. A child in a Delhi slum and a child in a wealthy neighbourhood laugh the same way, ask the same questions and carry the same dreams. Life may look different on the outside, but the value of a child's life is identical - and so is what every child needs to thrive: safety, care, attention and a real chance to learn.
+
+Yet in India today that chance is not shared equally. Millions of children still grow up without the education, nutrition and care that every child deserves. Nowhere is this gap more visible, and more fixable, than among the underprivileged children in Delhi - the capital of a country that has promised free education to every child.
+
+This post is about children's education in India, about the children in Delhi who need our attention, and about the practical ways a donation, child care and child support can change a life. Whether you want to donate for children, sponsor a child, or simply understand why child education in India matters so much, this guide is for you.
+
+## Why Children's Education Is the Same Battle Everywhere
+
+Wherever you travel in the world, the value of a child does not change. A child in Delhi, a child in Nairobi, a child in London - all are born with the same potential. What changes is access. Some children are born into families who can afford books, tuition and time. Others are born into families fighting for the next meal.
+
+Education is the great equaliser because it is the one thing that gives every child, regardless of birth, a path to a better life. The [World Bank](https://www.worldbank.org/ext/en/topic/education) estimates that each additional year of schooling raises a person's earnings by around 9%, with even higher returns for girls. That is not just an economic statistic; it is a promise. A child who can read, count and think is a child who can choose their own future.
+
+Children's education is not a Delhi problem or an India problem. It is a human problem. But because the need is closest to us here, the children in Delhi are where Sunrise Children Educational Society (SCES) has chosen to act - one child, one school kit, one reading lesson at a time.
+
+## The State of Children's Education in India
+
+To understand why child support matters, it helps to see the scale of the challenge.
+
+### How many children are still out of school?
+
+India has built one of the largest school systems in the world. According to the Unified District Information System for Education (UDISE+) for 2024-25, the country has around 24.69 crore students, 14.71 lakh schools and 1.01 crore teachers, as reported in the [official UDISE+ release](https://pib.gov.in/PressReleasePage.aspx?PRID=2161543). Primary enrolment is close to universal.
+
+But enrolment is not the same as education. In 2024-25 the government identified approximately 11.70 lakh children as out of school nationally, and many more are enrolled but not learning. The [Right of Children to Free and Compulsory Education Act, 2009](https://www.indiacode.nic.in/indiacode/bitstream/123456789/19958/1/rte2009_eng.pdf) makes free and compulsory elementary education a legal right for every child aged 6 to 14. The law exists; the gaps remain.
+
+### What ASER tells us about learning
+
+The Annual Status of Education Report (ASER) 2024, one of India's largest citizen-led surveys, paints a sobering picture of foundational learning. According to the [ASER 2024 national findings](https://asercentre.org/wp-content/uploads/2022/12/ASER-2024-National-findings.pdf):
+
+* Only **23.4%** of children in Class III in government schools could read a Class II text in 2024.
+* In Class V, **44.8%** of government-school children could read a Class II text, compared with 59.3% in private schools.
+* Just **33.7%** of Class III children could do basic subtraction, and only **30.7%** of Class V children could do division.
+
+In other words, millions of children in India spend years in school without mastering the basics. For children in Delhi's under-resourced schools, this foundational gap is the single biggest threat to their futures.
+
+### Why children drop out
+
+Foundational gaps grow into dropout. The [UDISE+ 2024-25 data](https://pib.gov.in/PressReleasePage.aspx?PRID=2161543) shows that the secondary school dropout rate in India was **8.2%** in 2024-25, while the secondary retention rate was only about **47.2%**. In effect, roughly half of India's children do not complete secondary school. Each dropout is a child let down by a system that could not hold on to them.
+
+![Children attending a learning session at an SCES centre in Delhi](/gallery/482009591_944425507875008_215162912013963424_n.jpg)
+
+## What Life Is Really Like for Children in Delhi
+
+Delhi is a city of opportunity and of brutal inequality. Census data show that around **17.85 lakh people in the capital live in slums**, and the city's population of children under six is over **20 lakh**. Many of these children belong to families who migrated to Delhi from Uttar Pradesh, Bihar, Jharkhand and West Bengal in search of work.
+
+For those families, survival is a daily project. Parents work as street vendors, domestic workers, construction labourers and rickshaw pullers, often for cash wages with no security. School can feel like a luxury when there is rent to pay and food to buy. That is the reality behind the phrase "underprivileged children in Delhi" - not a lack of talent, but a lack of support.
+
+Child labour is the sharpest edge of this problem. India's most recent official count, from [Census data published by the Ministry of Labour and Employment](https://www.labour.gov.in/childlabour/census-data-child-labour), recorded **10.1 million children aged 5 to 14** in work. The Child and Adolescent Labour (Prohibition and Regulation) Act sets the minimum age for any work at 14. When a child is pulled out of school to earn, their education ends early - and with it, so many of their choices.
+
+If you ever see a child in danger in Delhi, the national Child Helpline **1098** is free and available around the clock through the [Ministry of Women and Child Development](https://wcd.gov.in/child/child-helpline).
+
+## The Real Cost of Leaving a Child Behind
+
+When a child is denied an education, the cost compounds. An uneducated child is far more likely to become an uneducated adult, trapped in low-paid, insecure work. That adult then raises children in the same conditions. This is the cycle of intergenerational poverty, and education is the most reliable way to break it - a theme we explore in our post on [Education: The Ultimate Weapon Against Poverty](/blog/education-the-ultimate-weapon-against-poverty).
+
+Poor nutrition makes everything harder. The National Family Health Survey (NFHS-5) found that **35.5% of children under five in India were stunted**, **32.1% were underweight** and **67.1% of children aged 6-59 months were anaemic**, as reported by the [Press Information Bureau](https://pib.gov.in/PressReleasePage.aspx?PRID=1806601). A hungry, anaemic child cannot concentrate, however good the teacher. That is why real child care in India must include nutrition - a meal is not separate from education; it is part of it.
+
+## What Child Care and Child Support Actually Look Like
+
+Child care and child support are broad terms, so it is worth being concrete. For a child living in urban poverty in Delhi, meaningful support usually means:
+
+* **School supplies.** A school kit - books, notebooks, stationery and a bag - removes the most immediate barrier to attending class.
+* **Tuition and learning support.** Children who fall behind need patient, individual help to rebuild the basics.
+* **Nutrition.** Regular meals, so that no child tries to learn on an empty stomach.
+* **Digital learning.** Access to tablets, educational software and online reading material that children would never see at home.
+* **Mentoring and attention.** A caring adult who notices when a child is struggling and tells them they can do it.
+
+![Children receiving school kits and learning support from SCES in Mehrauli, Delhi](/gallery/481264655_944425514541674_170184300515518954_n.jpg)
+
+At [Sunrise Children Educational Society (SCES)](/about), every one of these is part of a single, Education-First model in Mehrauli. We provide school kits from ₹500, run tuition and reading support, and use [technology to widen access to learning](/blog/transforming-education-through-technology) for children who would otherwise be left behind.
+
+## How Education Changes a Child's Life
+
+Change rarely arrives as a single dramatic moment. It comes as a child who can suddenly read a full sentence, then a page, then a story. It comes as a student who stops being afraid of exams and starts asking questions. It comes as a family that begins to believe their daughter's education is worth fighting for.
+
+We see this every year. Children who arrived with no books and faltering confidence go on to pass exams, help younger siblings and dream out loud about becoming teachers, doctors and engineers. Our post on [Shaping Tomorrow Through Education Today](/blog/shaping-tomorrow-through-education-today) tells that longer story, and our literacy post on [how to help a child learn to read](/blog/international-literacy-day-help-a-child-learn-to-read) explains why reading is where it all begins.
+
+![A group of children learning and smiling together at an SCES centre in Delhi](/gallery/481711619_944425637874995_2775660185601880635_n.jpg)
+
+None of this would be possible without supporters. When you [help children through education](/blog/helping-children-through-education), you are not funding a programme - you are funding a future.
+
+## The Role of NGOs and Community Partnerships in Delhi
+
+No single organisation can educate a city's children. What works is a web of NGOs, schools, volunteers, donors and local communities pulling in the same direction. Community partnerships are what turn scattered effort into lasting change, as we describe in our post on [community partnerships building sustainable change](/blog/community-partnerships-building-sustainable-change).
+
+Delhi is fortunate to have many credible NGOs for children. If you are deciding where to give, our guide to the [10 best NGOs in Delhi](/blog/best-ngos-in-delhi) explains how to compare them, what to check and how to donate with confidence. SCES is proud to work alongside these organisations, and prouder still to be rooted in the community we serve.
+
+## Comparison: What Your Donation to Children's Education Can Do
+
+Small amounts add up, and every rupee is accounted for. Here is what different levels of giving can provide for underprivileged children in Delhi.
+
+| Your Donation | What It Provides | Children Helped |
+| --- | --- | --- |
+| ₹500 | A complete school kit - books, notebooks, stationery and a bag | 1 child |
+| ₹1,000 | A month of tuition and guided reading practice | 1 child |
+| ₹2,500 | Digital learning access, including reading apps and devices | 1 child |
+| ₹5,000 | School kits for an entire classroom of children | 10 children |
+| ₹10,000 | School kits that let twenty children start the year prepared | 20 children |
+
+Every row in that table is a concrete outcome. A donation for children's education is not an abstract gift - it is a book in a child's hand, a lesson they did not have to miss, and a day they stayed in school instead of going to work.
+
+## Ways to Support Children's Education in Delhi
+
+There are more ways to help than most people realise. Choose the one that fits your life.
+
+### Make a donation for children
+
+The fastest way to help is a [donation to support children's education](https://scesindia.com/donate/). You can give once, or set up a recurring monthly donation so the children we support can count on steady help. Even ₹500 puts a full school kit into a child's hands.
+
+### Sponsor a child
+
+A sponsored child receives ongoing support - school materials, tuition and encouragement - and the donor receives updates on their progress. Sponsorship is child support at its most personal: one person deciding that one child will not be left behind.
+
+### Volunteer your time
+
+If you live in Delhi, your time is as valuable as your money. Reading tutors, mentors, workshop leaders and professionals of every kind are needed. You can [volunteer with SCES](/volunteer) and sit beside a child as they learn to read.
+
+### Start a fundraiser
+
+Birthdays, marathons, office drives and family celebrations can all become fundraisers for children's education. A single campaign can fund school kits for dozens of children. Families can also explore the [National Scholarship Portal](https://scholarships.gov.in) for government support with school and college costs.
+
+### Spread awareness
+
+Not everyone can donate, but everyone can share. Share our [impact stories](/impact), post about children's education on social media, and talk to your workplace about supporting a local NGO. Awareness is what turns one donation into many.
+
+## How to Donate Responsibly: 80G, Transparency and Trust
+
+Before you donate anywhere, take a few minutes to check the basics. A credible organisation will welcome the questions.
+
+* **Registration.** Confirm the NGO is registered as a trust, society or Section 8 company.
+* **80G certification.** Contributions to SCES are eligible for deduction under Section 80G of the Income Tax Act, so your donation for children is also tax-efficient.
+* **Transparency.** Look for audited financials, an annual report and a clear explanation of how donations are used.
+* **Proximity to the problem.** Organisations rooted in the communities they serve understand local needs best.
+* **Evidence of impact.** Ask for real numbers and real stories.
+
+If you would like to see the work before you give, you are always welcome to [contact us](/contact), visit a learning centre in Mehrauli, or [join as a member](/membership) and support the mission over the long term.
+
+![Children studying together with support from SCES in Mehrauli, Delhi](/gallery/481659008_945413954442830_3072592436674307254_n.jpg)
+
+## Frequently Asked Questions
+
+### How can I help poor children in Delhi get an education?
+
+The most direct way is to support an Education-First NGO that works with underprivileged children in Delhi. A donation of ₹500 provides a school kit for one child, while regular giving funds tuition, nutrition and digital learning. Volunteering as a tutor or mentor is equally valuable, and simply sharing the cause helps reach more donors.
+
+### Is donating to children's education in India tax-deductible?
+
+Yes, if the organisation you support is 80G certified. SCES is a registered society and contributions are eligible for deduction under Section 80G of the Income Tax Act. You will receive a receipt for your records.
+
+### How much does it cost to support a child's education in India?
+
+Support can start very small. At SCES, ₹500 funds a complete school kit for one child, ₹1,000 supports a month of tuition, and ₹2,500 provides digital learning access. Larger or recurring donations allow us to support more children for longer.
+
+### Can I sponsor a child instead of making a one-time donation?
+
+Yes. Sponsorship provides ongoing child support for a specific child, covering learning materials, tuition and guidance. Recurring support helps NGOs plan ahead and keeps children in school consistently.
+
+### What is the difference between child care and child support?
+
+Child care generally refers to the day-to-day wellbeing of a child - nutrition, safety, health and attention. Child support usually refers to the practical help that keeps a child in school - fees, materials, tuition and mentoring. In practice the two work together: a healthy, cared-for child learns better.
+
+### How do I know my donation reaches the children?
+
+Ask for audited financials, an annual report and a breakdown of programme versus administrative spending. Reputable NGOs share this openly. At SCES, updates on our programmes, students and impact are published regularly so donors can see the difference they make.
+
+![Children at an SCES learning centre in Delhi, supported by donor contributions](/gallery/481828102_945413447776214_5947391325169733232_n.jpg)
+
+## Conclusion: Every Child Deserves the Same Chance
+
+Life is not the same for every child, but the value of every child's life is the same. A child in a Delhi slum deserves the same attention, the same care and the same chance to learn as a child anywhere else in the world. That belief is why we do this work, and why we are asking you to join it.
+
+Children's education in India is not an impossible problem. The law already promises free schooling. The surveys tell us exactly where children are falling behind. What is missing is support - the school kit, the tuition, the meal, the mentor who says "you can do this". Those things are within our reach, and they cost far less than most people imagine.
+
+![A hopeful child at an SCES learning centre in Mehrauli, Delhi](/gallery/481946909_945413497776209_6291019415336242719_n.jpg)
+
+If you would like to be part of it, [make a donation for children's education today](https://scesindia.com/donate/). If you have time rather than money, [become a volunteer](/volunteer). And if you simply want to stay close to the work, [read more stories on our blog](/blog) and share them with someone who cares.
+
+Every child deserves attention and care. Together, we can make sure more of Delhi's children get both.
+
+---
+
+*[Donate Now](https://scesindia.com/donate/) | [Become a Volunteer](/volunteer) | [Explore our impact](/impact)*
+    `,
+    author: "Rajni Chawla",
+    publishDate: new Date("2026-09-22"),
+    tags: ["Education", "Child Welfare", "Donation", "Delhi", "Impact Stories"],
+    featuredImage: "/gallery/482349485_944410251209867_2768032066179311418_n.jpg",
+    faqs: [
+      {
+        question: "How can I help poor children in Delhi get an education?",
+        answer: "The most direct way is to support an Education-First NGO that works with underprivileged children in Delhi. A donation of ₹500 provides a school kit for one child, while regular giving funds tuition, nutrition and digital learning. Volunteering as a tutor or mentor is equally valuable, and sharing the cause helps reach more donors."
+      },
+      {
+        question: "Is donating to children's education in India tax-deductible?",
+        answer: "Yes, if the organisation you support is 80G certified. SCES is a registered society and contributions are eligible for deduction under Section 80G of the Income Tax Act. You will receive a receipt for your records."
+      },
+      {
+        question: "How much does it cost to support a child's education in India?",
+        answer: "Support can start very small. At SCES, ₹500 funds a complete school kit for one child, ₹1,000 supports a month of tuition, and ₹2,500 provides digital learning access. Larger or recurring donations allow more children to be supported for longer."
+      },
+      {
+        question: "Can I sponsor a child instead of making a one-time donation?",
+        answer: "Yes. Sponsorship provides ongoing child support for a specific child, covering learning materials, tuition and guidance. Recurring support helps NGOs plan ahead and keeps children in school consistently."
+      },
+      {
+        question: "What is the difference between child care and child support?",
+        answer: "Child care generally refers to the day-to-day wellbeing of a child, including nutrition, safety, health and attention. Child support usually refers to the practical help that keeps a child in school, such as fees, materials, tuition and mentoring. The two work together: a healthy, cared-for child learns better."
+      },
+      {
+        question: "How do I know my donation reaches the children?",
+        answer: "Ask for audited financials, an annual report and a breakdown of programme versus administrative spending. Reputable NGOs share this openly. At SCES, updates on programmes, students and impact are published regularly so donors can see the difference they make."
+      }
+    ]
+  },
+  {
     id: "best-ngos-in-delhi",
     title: "10 Best NGOs in Delhi (2026): Impact, Programs & How to Donate",
     excerpt: "Looking for the best NGOs in Delhi to support in 2026? This guide covers 10 trusted Delhi non-profits working in education, health, relief and child welfare - what they do, the programmes they run, the impact they report, and exactly how you can donate or volunteer.",

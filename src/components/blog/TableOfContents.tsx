@@ -1,14 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { TocHeading } from '@/lib/markdown';
 
 interface TableOfContentsProps {
   headings: TocHeading[];
   postTitle: string;
+  suggestions?: { id: string; title: string }[];
 }
 
-export function TableOfContents({ headings, postTitle }: TableOfContentsProps) {
+export function TableOfContents({ headings, postTitle, suggestions = [] }: TableOfContentsProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -71,6 +73,33 @@ export function TableOfContents({ headings, postTitle }: TableOfContentsProps) {
     </ul>
   );
 
+  const renderSuggestions = (closeOnNavigate: boolean) => {
+    if (suggestions.length === 0) return null;
+    return (
+      <div className="mt-6 border-t border-gray-200 pt-4">
+        <p className="mb-3 flex items-center gap-2">
+          <span className="h-4 w-1 rounded-full bg-primary-yellow" />
+          <span className="font-heading text-sm font-bold uppercase tracking-wider text-button-navy">
+            Suggested Reading
+          </span>
+        </p>
+        <ul className="space-y-2">
+          {suggestions.map((suggestion) => (
+            <li key={suggestion.id}>
+              <Link
+                href={`/blog/${suggestion.id}`}
+                onClick={closeOnNavigate ? () => setIsOpen(false) : undefined}
+                className="block rounded-lg px-3 py-1.5 text-sm font-medium leading-snug text-gray-600 transition-colors hover:bg-gray-100 hover:text-button-navy"
+              >
+                {suggestion.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
   return (
     <>
       {/* Mobile / tablet: collapsible toggle above the article */}
@@ -103,12 +132,13 @@ export function TableOfContents({ headings, postTitle }: TableOfContentsProps) {
         </button>
         <div id="toc-mobile-panel" className={isOpen ? 'mt-4 border-t border-gray-200 pt-3' : 'hidden'}>
           {renderLinks(true)}
+          {renderSuggestions(true)}
         </div>
       </nav>
 
       {/* Desktop: sticky sidebar card */}
       <div className="hidden lg:block">
-        <div className="sticky top-24 rounded-2xl border border-gray-200 bg-gray-50 p-6">
+        <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-2xl border border-gray-200 bg-gray-50 p-6">
           <p className="mb-3 flex items-center gap-2 border-b border-gray-200 pb-3">
             <span className="h-4 w-1 rounded-full bg-primary-yellow" />
             <span className="font-heading text-sm font-bold uppercase tracking-wider text-button-navy">
@@ -118,6 +148,7 @@ export function TableOfContents({ headings, postTitle }: TableOfContentsProps) {
           <nav aria-label={`Table of contents - ${postTitle}`}>
             {renderLinks(false)}
           </nav>
+          {renderSuggestions(false)}
         </div>
       </div>
     </>

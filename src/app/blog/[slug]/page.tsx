@@ -28,6 +28,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     .filter(p => p.id !== post.id && p.tags.some(tag => post.tags.includes(tag)))
     .slice(0, 3);
 
+  const suggestedPosts = [...blogPosts]
+    .filter(p => p.id !== post.id)
+    .sort((a, b) => {
+      const scoreA = a.tags.filter(tag => post.tags.includes(tag)).length;
+      const scoreB = b.tags.filter(tag => post.tags.includes(tag)).length;
+      return scoreB - scoreA;
+    })
+    .slice(0, 5)
+    .map(p => ({ id: p.id, title: p.title }));
+
   const formatDate = (date: Date) => {
     return new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
@@ -242,7 +252,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Table of Contents: sticky sidebar (desktop) / collapsible toggle (mobile) */}
             <aside className="lg:row-span-2">
-              <TableOfContents headings={headings} postTitle={post.title} />
+              <TableOfContents headings={headings} postTitle={post.title} suggestions={suggestedPosts} />
             </aside>
 
             {/* Article column: content, share, author, comments */}
