@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createAdminClient } from '@/utils/supabase/server';
 import { sendWhatsAppNotification } from '@/lib/whatsapp';
 
 export const dynamic = 'force-dynamic';
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create Supabase client
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     // Insert membership data into Supabase
     const { data, error } = await supabase

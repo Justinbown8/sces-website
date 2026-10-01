@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createAdminClient } from '@/utils/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     console.log('Volunteer application data:', body);
     
     // Create Supabase client
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     
     // Save to Supabase
     const { data, error } = await supabase
