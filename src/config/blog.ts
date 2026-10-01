@@ -2,6 +2,302 @@ import { BlogPost } from '@/types';
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "save-income-tax-section-80g-ngo-donation-india",
+    title: "How to Save Income Tax via NGO Donations: A Complete Guide to Section 80G in India",
+    excerpt: "Donating to an NGO can lower your income tax. This complete guide to Section 80G in India explains the 50% deduction rule, how to claim it using your receipt and Form 10BE, and how a small donation of ₹500 or ₹2,500 changes a child's life in Delhi.",
+    seoTitle: "Section 80G Tax Exemption: Save Tax via NGO Donations",
+    seoDescription: "Section 80G explained: the 50% deduction rule, the ₹2,000 cash limit, Form 10BE, and how to claim tax benefit when you donate to a child education NGO in Delhi.",
+    keywords: [
+      "Section 80G tax exemption",
+      "donate to NGO for tax benefit",
+      "tax rebate on child education charity",
+      "best NGOs in Delhi for donation",
+      "Section 80G deduction",
+      "80G certificate",
+      "how to claim 80G",
+      "80G receipt",
+      "Form 10BE",
+      "Form 10BD",
+      "50% deduction Section 80G",
+      "old vs new tax regime 80G",
+      "Section 133 Income Tax Act 2025",
+      "donate to NGO in Delhi",
+      "child education donation 80G",
+      "save income tax donation India"
+    ],
+    content: `
+Every rupee you give to a good cause can do two things at once: change a child's life and lower your income tax bill. That is the promise of Section 80G of the Income Tax Act, one of the most searched tax-saving provisions in India every month. It is also one of the most misunderstood. Many donors assume that any donation qualifies, think the entire amount is deductible, lose the receipt, or claim the benefit under the new tax regime, where it simply does not exist.
+
+This guide explains how Section 80G works, how the 50% deduction rule applies when you donate to an NGO, and how to claim the benefit using your donation receipt and Form 10BE. It also shows what a small gift, ₹500 for a school kit or ₹2,500 for digital learning, actually does for an underprivileged child in Delhi. By the end, you will know how to save tax legitimately and give that money a purpose at the same time.
+
+A quick note on the law: from 1 April 2026, the Income-tax Act, 1961 was replaced by the Income-tax Act, 2025. The donation deduction known as Section 80G is now Section 133. The deduction percentages, limits and conditions are unchanged. People still search for "80G", so this guide uses both names.
+
+## Quick Answer: How Section 80G Saves You Tax
+
+If you read only one part of this guide, read this.
+
+* Section 80G (now Section 133) lets you deduct 50% or 100% of an eligible donation from your taxable income.
+* Donations to most registered NGOs fall in the **50% category**, and the eligible amount is capped at 10% of your adjusted gross total income.
+* The deduction is available only under the **old tax regime**. It is not available under the new regime, which is the default for individuals.
+* Cash donations above **₹2,000** do not qualify. Use UPI, debit or credit card, net banking, NEFT, RTGS or cheque.
+* The NGO must report your donation through Form 10BD and give you a **Form 10BE** certificate. Without Form 10BE, your claim can be disallowed.
+* Example: a ₹5,000 donation to an 80G NGO gives a ₹2,500 deduction. For someone in the 30% slab, that is about **₹780** of tax saved once cess is included, while all ₹5,000 reaches the cause.
+
+## What Is Section 80G (Now Section 133)?
+
+Section 80G of the Income Tax Act, 1961 allows a taxpayer to claim a deduction for money donated to certain approved funds, charitable institutions and relief funds. It is not a refund paid back to you. It is a deduction that reduces your taxable income, which in turn reduces the tax you owe.
+
+The idea behind the section is simple. The government wants to encourage private giving to social causes, so it shares the cost with you. If you donate and you are in the 30% tax slab, the effective cost of a ₹1,000 donation can fall to roughly ₹700 once the deduction is applied, depending on your income and the regime you choose.
+
+Under the Income-tax Act, 2025, which came into force on 1 April 2026, the same benefit continues as Section 133, titled "Deduction in respect of donations to certain funds, charitable institutions and other persons". The 2025 Act also replaces the old previous year and assessment year split with a single "tax year", and moves charitable institutions into a Registered Non-Profit Organisation (RNPO) framework, with donor-deduction approval governed by Section 354. For the individual taxpayer, the practical rules did not change.
+
+## The Four Types of 80G Donations
+
+Not every 80G donation gives the same benefit. The law places eligible donations into four groups, based on the deduction percentage and whether a qualifying income limit applies.
+
+| Category | Deduction | Qualifying Limit | Typical Donations |
+| --- | --- | --- | --- |
+| 1 | 100% | No limit | PM CARES Fund, Prime Minister's National Relief Fund, National Defence Fund, National Foundation for Communal Harmony, Swachh Bharat Kosh, Clean Ganga Fund |
+| 2 | 50% | No limit | Prime Minister's Drought Relief Fund |
+| 3 | 100% | 10% of AGTI | Government or approved bodies for family planning; company donations to the Indian Olympic Association |
+| 4 | 50% | 10% of AGTI | Most registered NGOs and charitable trusts, government donations for charitable purposes, and renovation of notified places of worship |
+
+For an individual donating to an education NGO, **Category 4** almost always applies: a **50% deduction**, subject to the qualifying limit. That is the rule this guide focuses on.
+
+## The 50% Deduction Rule, Explained Simply
+
+Here is the part most articles get wrong. When you donate to a Category 4 institution, the deduction is not the full amount and it is not simply "50% of whatever you gave". Two steps apply.
+
+* Step 1: Work out the eligible donation after applying the qualifying limit of **10% of your adjusted gross total income (AGTI)**.
+* Step 2: Claim **50%** of that eligible amount as a deduction.
+
+### What is adjusted gross total income?
+
+AGTI is your gross total income (the total of income from salary, house property, business or profession, capital gains and other sources) minus long-term capital gains, short-term capital gains taxed under Section 111A, income taxed at special rates under Sections 115A to 115D, and all Chapter VI-A deductions except Section 80G itself.
+
+In plain terms, the cap is based on your income after most other deductions. For a salaried donor making a normal-sized donation, the 10% limit is rarely binding.
+
+### Worked example
+
+Assume your gross total income is ₹12,00,000 and you claim ₹1,50,000 under Section 80C.
+
+* AGTI = ₹12,00,000 minus ₹1,50,000 = ₹10,50,000
+* Qualifying limit = 10% of ₹10,50,000 = ₹1,05,000
+* You donate ₹5,000 to an 80G NGO. It is below the limit, so the full ₹5,000 is eligible.
+* Deduction = 50% of ₹5,000 = ₹2,500
+* Tax saved at the 30% slab, plus 4% cess = about ₹780
+
+If you had donated ₹2,00,000, the eligible amount would have been capped at ₹1,05,000 and the deduction at ₹52,500. The limit exists to prevent very large donations from wiping out a tax bill, but it does not affect the small, regular donations most people make.
+
+### How much deduction a small donation earns
+
+| Your Donation | Eligible Amount | 80G Deduction (50%) |
+| --- | --- | --- |
+| ₹500 | ₹500 | ₹250 |
+| ₹1,000 | ₹1,000 | ₹500 |
+| ₹2,500 | ₹2,500 | ₹1,250 |
+| ₹5,000 | ₹5,000 | ₹2,500 |
+| ₹10,000 | ₹10,000 | ₹5,000 |
+
+## Old Tax Regime vs New: The Most Important Catch
+
+This is the rule that trips up the most donors. **Section 80G is a Chapter VI-A deduction, and it is available only if you opt for the old tax regime.** The new regime under Section 115BAC has been the default for individuals since financial year 2023-24, and it does not allow 80G. The only Chapter VI-A deductions that survive under the new regime are a few specific ones, such as the employer contribution to NPS under Section 80CCD(2).
+
+So before you donate in the name of tax saving, do the arithmetic. Compare the tax under the new regime, with its lower slabs and higher standard deduction but no 80G, against the tax under the old regime, with 80C, 80D, HRA and 80G but higher slab rates. If your combined deductions are large, the old regime can still win, and your donation adds to the saving. If the new regime is better for you, donate because the cause matters, not for the tax benefit.
+
+## What Qualifies and What Does Not
+
+Eligible under Section 80G:
+
+* Monetary donations to approved funds, institutions and charitable trusts.
+* Donations to government relief funds and certain notified bodies.
+* Donations made by cheque, demand draft, UPI, NEFT, RTGS, IMPS, debit card, credit card or net banking.
+
+Not eligible under Section 80G:
+
+* Cash donations above ₹2,000, even to a fully approved institution.
+* Donations in kind, such as clothes, food, books, medicines or equipment. Only money counts.
+* Donations to foreign charities, unless specifically notified by the Government of India.
+* Donations to political parties, which are covered by separate provisions.
+* Donations to institutions that do not hold a valid 80G registration.
+
+## Documents You Need: The 80G Receipt and Form 10BE
+
+Two documents protect your claim. Get both.
+
+### The 80G donation receipt
+
+A proper 80G receipt should show the name, address, PAN and 80G registration number of the institution, your name and PAN, the amount and date of the donation, the mode of payment, and a statement that the donation is eligible for deduction under Section 80G. Ask for a receipt even for a small UPI donation.
+
+### Form 10BE, the donation certificate
+
+Since AY 2022-23, the Income Tax Department has used a two-part reporting system. **Form 10BD** is the statement of donations filed by the institution with the Income Tax Department, listing every donor, PAN and amount. For a financial year, it is normally due by 31 May of the following year. **Form 10BE** is the certificate generated from that statement and issued to each donor. It carries the institution's details, its registration number, your details and the donation amount.
+
+You can receive Form 10BE from the NGO, or download it from the income tax e-filing portal under Income Tax Forms, View Filed Forms, Download 10BE PDFs. Keep it with your payment proof.
+
+If an institution fails to file Form 10BD, it faces a daily penalty under Section 234G, and your deduction can be disallowed during processing. This is exactly why giving to a compliant, transparent NGO matters.
+
+## Step-by-Step: How to Claim the 80G Deduction
+
+1. **Choose an 80G-approved institution and verify it.** Confirm the registration on the Income Tax Department's e-filing portal before you donate.
+2. **Donate using a non-cash method.** Avoid cash above ₹2,000 and keep the UPI or bank reference. For AY 2026-27, the ITR form asks for the transaction reference number and the IFSC code of the bank used.
+3. **Collect your 80G receipt.** Check that your name, PAN and the amount are correct.
+4. **Obtain Form 10BE.** Ask the NGO, or download it from the e-filing portal after the institution files Form 10BD.
+5. **Confirm you are on the old tax regime.** If you want the 80G deduction, you must opt for the old regime.
+6. **Fill Schedule 80G in your ITR.** The schedule has four parts matching the four categories. Enter the institution's name, address and PAN, split the donation between cash and other modes, and quote the reference number shown on Form 10BE.
+7. **File and keep records.** Retain the receipt, Form 10BE and payment proof for at least six years in case of scrutiny.
+
+### Worked example: a salaried employee
+
+Suppose your gross total income is ₹12,00,000, you claim ₹1,50,000 under Section 80C, and you donate ₹2,500 to an 80G-certified child education NGO. Your AGTI is ₹10,50,000, so the full ₹2,500 is eligible. The 80G deduction is ₹1,250, which reduces your taxable income, and at the same time you put digital learning in front of a child for a year.
+
+## Small Donations, Real Impact
+
+Tax saving is the bonus. The real return is what your money does. At an Education-First NGO working with underprivileged children in Delhi, even a modest gift has a specific, visible outcome.
+
+| Your Donation | Real-World Impact | 80G Deduction |
+| --- | --- | --- |
+| ₹500 | A complete school kit for one child: books, notebooks, stationery and a bag | ₹250 |
+| ₹1,000 | A month of tuition and guided reading practice for one child | ₹500 |
+| ₹2,500 | A full year of digital learning access, including reading apps and devices | ₹1,250 |
+| ₹5,000 | School kits that let ten children start the year prepared | ₹2,500 |
+| ₹10,000 | School kits for twenty children | ₹5,000 |
+
+A school kit is not a small thing. For a first-generation learner whose family cannot spare money for notebooks, it is the reason a child walks into class on the first day with the same supplies as everyone else. That dignity and readiness is where staying in school begins.
+
+## Tax Rebate on Child Education Charity: Why This Cause Pays Back Twice
+
+People often search for a "tax rebate on child education charity" because they want a cause that is both meaningful and tax-efficient. Donations to a child education NGO qualify for the same 80G treatment as any other Category 4 institution, so the tax logic is identical. What is different is the return.
+
+India has built one of the largest school systems in the world, yet learning outcomes remain a challenge. Foundational literacy is the gap that pushes children out of school. If a child cannot read fluently by age eight or nine, every later subject becomes harder. Supporting child education targets exactly that gap, with school kits, tuition and reading support.
+
+You can read more about the scale of the challenge in our post on [children's education in India](/blog/childrens-education-support-children-in-delhi), and about the literacy gap in [5 ways to help a child learn to read](/blog/international-literacy-day-help-a-child-learn-to-read).
+
+## How to Choose the Best NGO in Delhi for Donation
+
+The phrase "best NGOs in Delhi for donation" hides a real problem. The capital has thousands of registered non-profits, and they are not all equal. Before you give, for tax reasons or otherwise, check the following.
+
+* **Registration.** Is the organisation a registered trust, society or Section 8 company, and can it show the registration document?
+* **80G status.** Does it hold a valid 80G registration, and does the registration number appear on its receipt?
+* **PAN and filings.** Does it have a PAN, and does it file income tax returns and Form 10B?
+* **Financial transparency.** Does it publish audited financial statements, an annual report and a clear breakdown of programme versus administrative spending?
+* **Donation reporting.** Does it file Form 10BD and issue Form 10BE so your claim is safe?
+* **Proximity and evidence.** Is it rooted in the community it serves, and can it show real numbers and real stories?
+
+Our guide to the [10 best NGOs in Delhi](/blog/best-ngos-in-delhi) compares established organisations using exactly these checks.
+
+## Why a Donation to SCES Is 80G-Eligible and Fully Transparent
+
+Sunrise Children Educational Society (SCES) is built on the principle that a donor should never have to take transparency on trust. The documents behind our credibility are public.
+
+* **Registered society.** SCES is a registered non-profit society, and our registration documents and bye-laws are published for anyone to read.
+* **PAN.** Our Permanent Account Number is **AAPAS2135J**.
+* **Income-tax registration.** SCES holds provisional registration under Section 12A of the Income-tax Act (Form 10AC), with Unique Registration Number **AAPAS2135JE20251**, valid for assessment years 2026-27 to 2028-29.
+* **Audited and compliant.** Our accounts are audited by a chartered accountant, and we file our income tax return and the Form 10B audit report under Section 12A(b) every year.
+* **Radical transparency.** Our Annual Report 2024-25, Audit Report 2025, ITR, Form 10B and society registration are all published on our transparency page.
+* **80G benefit for you.** Donations to SCES are eligible for deduction under Section 80G (now Section 133). We provide a proper 80G receipt with every required detail and report donations through Form 10BD, so you can obtain your Form 10BE and claim your deduction with confidence.
+
+Every rupee is accounted for. Your donation funds school kits from ₹500, tuition and guided reading, digital learning, nutrition and mentoring for children in Mehrauli, south Delhi. You can see the work before you give: visit a learning centre, read our [impact stories](/impact), or review the [financial reports on our transparency page](/impact#transparency).
+
+**Contact:** 877/10 Ward No. 6, Mehrauli, New Delhi 110030. Phone: 099536 65620. Email: info@scesindia.com.
+
+## How to Donate to SCES and Claim Your 80G Benefit
+
+1. Go to [scesindia.com/donate](https://scesindia.com/donate/) and choose an amount, one-time or monthly.
+2. Pay by UPI, card or net banking, not cash, so that your deduction stays valid.
+3. Save your payment reference and the IFSC code of your bank.
+4. Receive your 80G receipt from SCES, showing our name, address, PAN and registration details.
+5. After the financial year closes, obtain your Form 10BE. SCES files Form 10BD, and you can also download Form 10BE from the income tax e-filing portal.
+6. Claim the deduction in Schedule 80G of your ITR under the old tax regime.
+
+If you would rather give time than money, you can [volunteer with SCES](/volunteer) as a reading tutor or mentor at our Mehrauli learning centres. If you want to go deeper, [contact us](/contact) or read more on our [blog](/blog).
+
+## Frequently Asked Questions
+
+### Is Section 80G still available in 2026?
+
+Yes, but under a new name. The donation deduction is now Section 133 of the Income-tax Act, 2025, which came into force on 1 April 2026. The 50% and 100% categories, the cash limit and the 10% qualifying limit are unchanged. For income of financial year 2025-26 (AY 2026-27), you still claim it as Section 80G of the 1961 Act.
+
+### How much tax can I save by donating to an NGO?
+
+For most NGO donations, you get a 50% deduction on the eligible amount, and the eligible amount is capped at 10% of your adjusted gross total income. A ₹5,000 donation therefore gives a ₹2,500 deduction. Multiply that by your slab rate to get the tax saved: at 30% plus cess, about ₹780.
+
+### What is the 50% rule in Section 80G?
+
+Donations to most registered NGOs fall in Category 4. You first cap the donation at 10% of adjusted gross total income, then claim 50% of that amount as a deduction. A few notified funds give a 100% deduction, and some give 50% or 100% with no income cap.
+
+### Can I claim 80G under the new tax regime?
+
+No. Section 80G is a Chapter VI-A deduction and is available only under the old tax regime. The new regime under Section 115BAC, which is the default for individuals, does not allow it.
+
+### Can I donate cash and still claim 80G?
+
+Only up to ₹2,000. A cash donation above ₹2,000 gets no deduction, even to a fully approved institution. For any larger amount, pay by UPI, card, cheque or bank transfer.
+
+### What is Form 10BE and why is it important?
+
+Form 10BE is the donation certificate the institution generates after filing Form 10BD, the statement of donations, with the Income Tax Department. It confirms your name, PAN and donation amount. Your 80G claim is cross-checked against it, so keep it with your return.
+
+### Is a donation to SCES eligible for 80G deduction?
+
+Yes. SCES is a registered society and donations are eligible for deduction under Section 80G (now Section 133). We issue a proper 80G receipt and file Form 10BD so that you can obtain Form 10BE.
+
+### Which NGO is best for tax saving in Delhi?
+
+The tax benefit is the same for any valid 80G institution, so choose on transparency and impact. Check the registration, 80G status, audited financials and Form 10BE compliance, then pick a cause you believe in. SCES welcomes donors who want to see exactly where the money goes.
+
+## Conclusion: Save Tax, Change a Life
+
+Section 80G does not hand you free money, and it should not be the only reason you give. But it does mean that part of what you would have paid as tax can instead fund a school kit, a month of tuition or a year of digital learning for a child who would otherwise go without. That is a genuinely good deal.
+
+The rules are simple once you know them. Donate by a non-cash method, give to an 80G-approved institution, collect your receipt and Form 10BE, and claim the deduction under the old regime. Do it through a transparent organisation like SCES, and you can watch the tax you save turn into a future for a child in Delhi.
+
+[Donate to SCES today](https://scesindia.com/donate/) and turn a tax deduction into a school kit, a reading lesson or a digital classroom for an underprivileged child. Every contribution is receipted, reported, and used where it matters most.
+
+---
+
+*This guide is general information, not tax advice, and tax rules can change. Please consult a qualified chartered accountant about your own situation before claiming a deduction. [Donate Now](https://scesindia.com/donate/) | [Become a Volunteer](/volunteer) | [See our impact](/impact)*
+    `,
+    author: "Rajni Chawla",
+    publishDate: new Date("2026-10-01"),
+    tags: ["Section 80G", "Tax Saving", "Donation", "Education", "Delhi"],
+    featuredImage: "/gallery/481303838_944410271209865_4673313455438903277_n.jpg",
+    faqs: [
+      {
+        question: "Is Section 80G still available in 2026?",
+        answer: "Yes, but under a new name. The donation deduction is now Section 133 of the Income-tax Act, 2025, which came into force on 1 April 2026. The 50% and 100% categories, the cash limit and the 10% qualifying limit are unchanged. For income of financial year 2025-26 (AY 2026-27), you still claim it as Section 80G of the 1961 Act."
+      },
+      {
+        question: "How much tax can I save by donating to an NGO?",
+        answer: "For most NGO donations you get a 50% deduction on the eligible amount, and the eligible amount is capped at 10% of your adjusted gross total income. A ₹5,000 donation therefore gives a ₹2,500 deduction. Multiply that by your slab rate: at 30% plus cess, the tax saved is about ₹780."
+      },
+      {
+        question: "What is the 50% rule in Section 80G?",
+        answer: "Donations to most registered NGOs fall in Category 4. You first cap the donation at 10% of your adjusted gross total income, then claim 50% of that amount as a deduction. A few notified funds give a 100% deduction, and some give 50% or 100% with no income cap."
+      },
+      {
+        question: "Can I claim 80G under the new tax regime?",
+        answer: "No. Section 80G is a Chapter VI-A deduction and is available only under the old tax regime. The new regime under Section 115BAC, which is the default for individuals, does not allow it."
+      },
+      {
+        question: "Can I donate cash and still claim 80G?",
+        answer: "Only up to ₹2,000. A cash donation above ₹2,000 gets no deduction, even to a fully approved institution. For any larger amount, pay by UPI, card, cheque or bank transfer."
+      },
+      {
+        question: "What is Form 10BE and why is it important?",
+        answer: "Form 10BE is the donation certificate the institution generates after filing Form 10BD, the statement of donations, with the Income Tax Department. It confirms your name, PAN and donation amount. Your 80G claim is cross-checked against it, so keep it with your return."
+      },
+      {
+        question: "Is a donation to SCES eligible for 80G deduction?",
+        answer: "Yes. SCES is a registered society and donations are eligible for deduction under Section 80G (now Section 133). SCES issues a proper 80G receipt and files Form 10BD so that donors can obtain Form 10BE."
+      },
+      {
+        question: "Which NGO is best for tax saving in Delhi?",
+        answer: "The tax benefit is the same for any valid 80G institution, so choose on transparency and impact. Check the registration, 80G status, audited financials and Form 10BE compliance, then pick a cause you believe in. SCES welcomes donors who want to see exactly where the money goes."
+      }
+    ]
+  },
+  {
     id: "childrens-education-support-children-in-delhi",
     title: "Children's Education in India: Why Every Child in Delhi Deserves Support",
     excerpt: "Every child deserves the same chance to learn. This guide looks at children's education in India, the daily reality for underprivileged children in Delhi, and how your donation, child care and child support can change a life - with practical ways to donate, sponsor a child or volunteer.",
@@ -1136,7 +1432,8 @@ export const blogCategories = [
   "Community",
   "Impact Stories",
   "Partnerships",
-  "Sustainability"
+  "Sustainability",
+  "Tax Saving"
 ];
 
 export const blogAuthors = [
