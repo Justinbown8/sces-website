@@ -1,39 +1,10 @@
 import React from 'react';
-import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
+import { ImpactStats } from '@/components/sections/ImpactStats';
 import { cn } from '@/lib/utils';
-
-interface MetricProps {
-  value: number;
-  label: string;
-  suffix?: string;
-  prefix?: string;
-  icon?: string;
-}
 
 interface MissionSectionProps {
   className?: string;
 }
-
-const metrics: MetricProps[] = [
-  {
-    value: 500,
-    label: "Children Helped",
-    suffix: "+",
-    icon: "👨‍🎓"
-  },
-  {
-    value: 50,
-    label: "Volunteers",
-    suffix: "+",
-    icon: "🤝"
-  },
-  {
-    value: 10,
-    label: "Cities Reached",
-    suffix: "+",
-    icon: "🏙️"
-  }
-];
 
 export function MissionSection({ className }: MissionSectionProps) {
   return (
@@ -67,41 +38,16 @@ export function MissionSection({ className }: MissionSectionProps) {
               educational access.
             </p>
           </div>
-          
-          {/* Metrics Display */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {metrics.map((metric, index) => (
-              <div 
-                key={index}
-                className="text-center group"
-              >
-                {/* Icon */}
-                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-200">
-                  {metric.icon}
-                </div>
-                
-                {/* Counter */}
-                <div className="text-4xl md:text-5xl font-bold text-transparent bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text mb-2">
-                  <AnimatedCounter
-                    end={metric.value}
-                    suffix={metric.suffix}
-                    prefix={metric.prefix}
-                    duration={2500}
-                  />
-                </div>
-                
-                {/* Label */}
-                <div className="text-gray-600 font-medium text-lg">
-                  {metric.label}
-                </div>
-              </div>
-            ))}
-          </div>
-          
+        </div>
+
+        {/* Metrics Display */}
+        <ImpactStats className="max-w-6xl mx-auto" />
+
+        <div className="text-center max-w-4xl mx-auto">
           {/* Additional Impact Statement */}
           <div className="mt-12 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl border border-yellow-200">
             <p className="text-lg font-medium text-gray-800">
-              "Education is the most powerful weapon which you can use to change the world." 
+              &ldquo;Education is the most powerful weapon which you can use to change the world.&rdquo; 
               <span className="block text-base text-gray-600 mt-2 italic">- Nelson Mandela</span>
             </p>
           </div>
