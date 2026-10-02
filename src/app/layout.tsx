@@ -1,6 +1,5 @@
 import Script from "next/script";
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Poppins } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
 import { Header, Footer } from "@/components/layout";
@@ -13,20 +12,6 @@ import PerformanceProvider from "@/components/providers/PerformanceProvider";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import PerformanceMonitor from "@/components/analytics/PerformanceMonitor";
 import AnalyticsDashboard from "@/components/analytics/AnalyticsDashboard";
-
-const montserrat = Montserrat({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -74,8 +59,11 @@ export default function RootLayout({
   const websiteData = generateWebsiteStructuredData();
 
   return (
-    <html lang="en" className={`${montserrat.variable} ${poppins.variable}`}>
+    <html lang="en">
       <head>
+        {/* Google Fonts (loaded via @import in globals.css) */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17579457266"
