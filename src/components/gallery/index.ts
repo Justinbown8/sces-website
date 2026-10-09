@@ -5,3 +5,4 @@ export { GalleryImageCard } from './GalleryImageCard';
 export { GalleryImageSkeleton } from './GalleryImageSkeleton';
 export { Lightbox } from './Lightbox';
 export { ImagePreloader, preloadImage, preloadImages } from './ImagePreloader';
+export { VideoGallery } from './VideoGallery';

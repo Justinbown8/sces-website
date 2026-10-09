@@ -1,4 +1,5 @@
 import { Gallery } from '@/components/gallery/Gallery';
+import { VideoGallery } from '@/components/gallery/VideoGallery';
 import { pageMetadata } from '@/lib/seo';
 import { Breadcrumb } from '@/components/seo/Breadcrumb';
 
@@ -27,6 +28,9 @@ export default function GalleryPage() {
               <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 🌍 Field Visits
               </div>
+              <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                🎥 Videos
+              </div>
             </div>
           </div>
         </div>
@@ -47,6 +51,13 @@ export default function GalleryPage() {
             showFilter={true}
             initialCategory="All"
           />
+        </div>
+      </section>
+
+      {/* Videos Section */}
+      <section className="pb-16">
+        <div className="container mx-auto px-4">
+          <VideoGallery className="max-w-7xl mx-auto" />
         </div>
       </section>
 
