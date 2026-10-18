@@ -2,6 +2,318 @@ import { BlogPost } from '@/types';
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "how-to-donate-online-india-why-donate-education",
+    title: "How to Donate Online in India (2026): A Step-by-Step Guide and Why Education Is the Cause Worth Your Money",
+    excerpt: "A practical guide to donating online in India: how to choose a trustworthy NGO, how to pay by UPI, card or net banking, how the Section 80G tax deduction works, and why a ₹500 school kit is one of the highest-impact donations you can make to children's education in Delhi.",
+    seoTitle: "How to Donate Online in India: Step-by-Step Guide (2026)",
+    seoDescription: "Learn how to donate online in India in three steps, how to verify an NGO before you pay, how 80G tax deduction works, and why children's education is the cause worth funding.",
+    keywords: [
+      "how to donate online",
+      "how to donate online in India",
+      "donate online India",
+      "online donation India",
+      "donate for children education",
+      "donate to NGO in Delhi",
+      "donate to NGO for tax benefit",
+      "80G donation",
+      "80G tax exemption",
+      "how to donate to NGO",
+      "UPI donation",
+      "donate by UPI",
+      "school kit donation",
+      "sponsor a child education India",
+      "children education donation",
+      "donate money for education",
+      "charity donation India",
+      "best NGO to donate to in India",
+      "is my donation tax deductible",
+      "donate to underprivileged children",
+      "monthly donation India",
+      "NGO donation receipt",
+      "where to donate money in India",
+      "education charity Delhi",
+      "donate now India",
+    ],
+    content: `
+Most people who want to donate online in India get stuck at the same three points. They are not sure which NGO to donate to, they do not know whether online donation is safe, and they are unclear whether they will actually get an 80G tax benefit. So the tab stays open and the donation never happens. This guide removes those three obstacles, walks through exactly how to donate online in three minutes, and explains why you should donate to children's education rather than to a general pool.
+
+It is written for the ordinary donor, not for tax experts or CSR managers. If you have ₹500 and ten minutes, you can finish this guide and finish your donation.
+
+## Quick Answer: How to Donate Online in India
+
+If you only read one section, read this one.
+
+1. **Pick a verifiable NGO.** Check for a real address, a working phone number, an 80G registration, published annual reports and audited accounts, and recent photographs of actual programmes.
+2. **Choose an amount that maps to an outcome.** Do not donate a random number. Donate against something specific such as a school kit, a month of tuition, or a quarter of digital learning.
+3. **Pay through a licensed gateway.** In India that usually means Razorpay, PayU, Cashfree or a bank gateway. UPI is the fastest and has the lowest failure rate. Never send money to a personal bank account or a personal UPI ID in the name of an NGO.
+4. **Give your PAN only if you want the 80G deduction.** The 80G certificate needs your name, PAN, address and the amount. Without PAN the NGO cannot issue a valid certificate.
+5. **Keep the receipt.** You need it at tax filing time, and the NGO must report your donation in Form 10BD and issue you Form 10BE.
+
+That is the whole process. If you searched "how to donate online", those five steps are the complete answer. The rest of this guide explains each step in detail, plus the reasoning behind why you should donate at all.
+
+## Why People Should Donate: The Case for Giving in India
+
+Before the mechanics, it is worth being honest about why donation matters in India specifically. This is not a generic appeal. These are the structural reasons your money does more good here than in most places.
+
+### Education is still the fastest route out of poverty
+
+India has made enormous progress on school enrolment, but enrolment is not learning. Millions of children sit in classrooms without a textbook of their own, without a teacher who has been trained recently, and without a quiet place to study at home. The gap between a child who has a school kit, tuition support and someone who checks their homework, and a child who has none of those things, is not a small gap. It compounds every single year.
+
+A child who falls behind in Class 3 is very likely to drop out before Class 10. A child who is held in school through Class 12 has a fundamentally different life: higher lifetime earnings, later marriage, better health outcomes, and children of their own who stay in school. That is why education donation is not charity in the soft sense. It is one of the few interventions where a small, one-time amount changes a multi-decade trajectory.
+
+### The amount needed is small, and that is the point
+
+This is the part most donors find surprising. The gap between a child staying in school and a child dropping out is often a few thousand rupees a year, not a few lakh. Notebooks, textbooks, stationery and a uniform cost around ₹500. A month of tuition and study material costs around ₹1,000. Digital learning access for three months costs around ₹2,500.
+
+That means a donation that feels trivial to you is not trivial to the child receiving it. A ₹500 donation for children's education is a full academic year of basic supplies for one child. You will spend more than that on a single dinner. The asymmetry between what it costs you and what it buys is the strongest argument for donating to education rather than to almost any other cause.
+
+### India's giving culture is already strong, but it is concentrated
+
+Indians give generously, especially around festivals, weddings and disasters. The problem is that giving is concentrated in moments and in kind, not in steady support. Clothes and sweets are welcome, but an NGO cannot pay a teacher's salary with them. What children's education needs is predictable money: a monthly donation of ₹500 that an organisation can plan a full academic year around.
+
+This is why monthly giving matters more than the size of a single gift. One donor giving ₹500 every month for a year is worth more to a child than twelve people giving ₹500 once, because it lets the NGO commit to a teacher, a classroom and a set of books for the full year.
+
+### You are not only helping the child
+
+Every rupee spent on a child's education reaches further than the child. A child who learns to read teaches a younger sibling. A mother who no longer has to choose between school fees and food has more time to work. A local school with better attendance becomes a better school for every child in the neighbourhood. This is why education charity in India is often described as having a multiplier effect: the return is not linear.
+
+## The Four Ways to Donate Online in India
+
+Not all online donation routes are the same. Here is what actually happens with each one, and which is best for what.
+
+| Route | Best for | Speed | Tax receipt |
+| --- | --- | --- | --- |
+| UPI | Almost everyone in India | Instant | Yes, if NGO issues one |
+| Debit or credit card | People without UPI, or larger amounts | Instant | Yes |
+| Net banking | Donors who prefer bank-level control | 1 to 2 minutes | Yes |
+| Wallet | Small one-time gifts | Instant | Yes |
+
+### Donating by UPI
+
+UPI is now the default way Indians pay online, and it is also the best option for charity donation. You scan or approve a collect request in your UPI app, the money moves instantly, and there is no card number to type. Failure rates are low and refunds, when needed, are traceable.
+
+Two rules matter here. First, always pay through the NGO's official checkout page, not through a UPI ID sent over WhatsApp or social media. Second, check that the payee name shown in your UPI app matches the NGO's registered name. SCES donations, for example, are collected under the society's registered name through Razorpay, not a personal account.
+
+### Donating by debit or credit card
+
+Cards are useful when you are donating a larger amount or when you do not have UPI set up. The important point is that your card details should be entered on the payment gateway's page, not on the NGO's own website. A legitimate NGO never stores your card number. If a donation page asks you to type your card details into a form that is not clearly Razorpay, PayU, Cashfree or your bank, stop.
+
+### Donating by net banking
+
+Net banking is slower but familiar, and it is a common choice for older donors and for corporate matching. You log in to your bank, approve the transfer, and receive a confirmation. This is also the cleanest route if you want a bank statement entry that clearly names the organisation.
+
+### Donating by wallet
+
+Wallets work for small amounts and are useful for quick one-time gifts. They are less useful for recurring donations because wallet balances run out. If you plan to give every month, use UPI autopay or a card instead.
+
+## What "Donate Online" Actually Requires From You
+
+A lot of people put off online donation because they assume it needs paperwork, a bank visit or a minimum amount. It does not. Here is everything a donate online transaction actually asks for, so you know before you start.
+
+* **An amount.** Anywhere from ₹100 upward on most Indian NGO pages. No minimum income, no eligibility test.
+* **A name and email.** The email is where the donation receipt goes. Nothing else is strictly required to complete an online donation.
+* **A payment method.** UPI, card, net banking or wallet. UPI is fastest and fails least often.
+* **PAN, only if you want 80G.** Skipping PAN does not block the donation. It only means no tax certificate.
+* **A minute or two.** The payment itself is instant. Filling the form is the slow part.
+
+What online donation does not require: a bank branch visit, a cheque, a printed form, a membership, or a phone call. Several people still believe donating to an NGO means writing a cheque and posting it. It has not worked that way for years, and the online route is also the one that produces a clean, claimable receipt.
+
+If you are donating for the first time, the safest pattern is the same everywhere. Open the organisation's own website, use the donate button on that site, and pay through the gateway that opens. Do not start from a payment link forwarded on WhatsApp.
+
+## How to Donate on the SCES Website: Step by Step
+
+Here is the exact process on our donation page, which is typical of how most Indian NGO donation pages work. If you want to donate online to an education NGO in Delhi, these are the same three steps you will see anywhere else.
+
+### Step 1: Choose how much you want to give
+
+Open the [donate page](/donate) and pick the amount that matches what you want to fund.
+
+* **₹500** buys a complete school kit: notebooks, textbooks, stationery and uniform for one child for a full academic year.
+* **₹1,000** covers tuition fees and study material for one child for one month at our Mehrauli learning centre.
+* **₹2,500** provides three months of digital learning, including computer access, internet and classes.
+* **₹5,000** funds a full quarter of support: school kit, tuition, nutrition and digital access together.
+
+You can also enter any custom amount above ₹100. If you would rather give every month, switch to the monthly option and choose ₹250, ₹500 or ₹1,000. A monthly donation is the single most useful thing you can do for a small NGO, because it lets us plan a whole year instead of stopping to fundraise every quarter.
+
+### Step 2: Enter your details
+
+You need three things: your name, your email address, and optionally your phone number. Your email is where the receipt goes, so type carefully.
+
+If you want the 80G tax exemption, tick the box and add your PAN, address, city and PIN code. This takes an extra twenty seconds and is the difference between getting a certificate and not getting one. The PAN format is ten characters, for example ABCDE1234F. You do not need to be a taxpayer to donate, and you do not need PAN to donate. You only need it to claim the deduction.
+
+You will also see a checkbox asking whether you want updates on how your donation is used. This is optional and does not change anything about your donation.
+
+### Step 3: Pay securely
+
+The payment step opens the Razorpay checkout, where you choose UPI, card, net banking or wallet. Your payment credentials are entered on Razorpay's infrastructure, not ours. We never see your card number, your UPI PIN or your bank login.
+
+Once the payment succeeds, you land on a confirmation page with a reference number, and your receipt is emailed to you. If you asked for an 80G certificate, it arrives in the same email thread within seven working days.
+
+### If something goes wrong
+
+Payments fail for boring reasons: a UPI timeout, an expired card, a bank server busy message. If money left your account but you did not see a confirmation page, do not donate again immediately. Note the payment ID, email us at info@scesindia.com, and we will trace it against the gateway. Duplicate donations are refunded.
+
+## What Your Donation Actually Pays For
+
+One fair criticism of charity donation is that donors never find out where the money went. Here is the actual split at SCES.
+
+| Share | Where it goes | What it covers |
+| --- | --- | --- |
+| 65% | Educational programmes | School kits, tuition, books, learning material |
+| 15% | Teacher training | Training and development for classroom teachers |
+| 12% | Infrastructure | Classrooms, digital tools, equipment |
+| 8% | Administration | Programme management and operations |
+
+The 8% administration share matters more than it looks. An organisation that spends nothing on administration is usually either very small or not being honest about its costs. You want a charity to pay its teachers and keep proper accounts. What you do not want is a large share going to fundraising or to unrelated expenses.
+
+You can verify our numbers against our published accounts. We keep our [annual report and audited financials](/about) available, and the [impact page](/impact) shows the programmes those numbers come from.
+
+## How the 80G Tax Deduction Works for Donors
+
+This section answers the question that stops more donations than any other: will I actually get a tax benefit?
+
+### The 50% rule
+
+Donations to most registered NGOs, including SCES, fall under the 50% category of Section 80G. You deduct 50% of the donated amount from your taxable income. A ₹5,000 donation gives a ₹2,500 deduction. At the 30% slab with 4% cess, that is roughly ₹780 of tax saved, while the full ₹5,000 reaches the children.
+
+### You must be on the old tax regime
+
+This is the catch most people miss. Section 80G is a Chapter VI-A deduction, and it is only available under the old tax regime. The new regime, which has been the default for individuals, does not allow it. If you are on the new regime, your donation is still worth making, but do not expect a tax benefit from it. Compare your two regime calculations before you assume the deduction will apply.
+
+### What you need to claim it
+
+* Your donation receipt, showing the amount, date, mode of payment and the NGO's 80G registration details.
+* Form 10BE, which the NGO issues after reporting your donation in Form 10BD.
+* Your PAN, which must match the PAN on the receipt.
+
+If you donated in cash above ₹2,000, it does not qualify. Online donation, cheque, NEFT, RTGS and UPI all do. This is one more reason to donate online rather than handing over cash.
+
+### Why the receipt is not optional
+
+Without Form 10BE your claim can be disallowed even if you genuinely donated. This is why giving your correct email address and PAN at the time of donation matters. It is also why a donation page that does not ask for PAN anywhere is a warning sign that the organisation may not be set up to issue proper certificates.
+
+## How to Check That an NGO Is Genuine Before You Donate
+
+This is the part no one teaches, and it is the reason many people hesitate to donate online at all. Five checks take about five minutes.
+
+* **A physical address and a working phone number.** Not a contact form, an actual address and a number someone answers.
+* **80G and 12A registration.** Ask for the registration number, or find it on the receipt. 12A makes the organisation itself tax exempt. 80G makes your donation eligible for deduction.
+* **Published annual reports and audited accounts.** A real NGO publishes them even when the numbers are unflattering.
+* **Named people.** Trustees, a president, staff with names and roles. Anonymity is a red flag.
+* **Programme evidence.** Photographs and reports of actual activity, not stock images of generic children.
+
+A legitimate organisation will never pressure you, never ask you to pay into a personal account, and never refuse to share registration documents. If any of those three things happen, walk away.
+
+## Why Monthly Donation Beats One-Time Giving
+
+One-time donation is easier. Monthly donation is more useful. That is the honest trade-off.
+
+A child's school year does not run on single gifts. Books are needed in April, tuition runs all year, and exam fees appear in a specific month. A monthly donation lets an organisation commit to those costs in advance. It also reduces the amount spent on fundraising, because a donor who gives every month does not need to be re-acquired every year.
+
+If ₹5,000 once feels like a lot, consider ₹500 a month instead. The annual total is higher, the impact is more predictable, and most people find the monthly amount far easier to part with. You can stop a recurring donation at any time by emailing the organisation, so there is no long-term lock-in. Setting up a monthly donation online takes the same three steps as a one-time gift. You only choose the monthly option before you pay.
+
+## Common Mistakes Donors Make
+
+These are the mistakes we see most often, and each one is easy to avoid.
+
+* **Donating without checking the cause.** Giving to a generic pool feels good but is harder to track. Choose a specific outcome such as a school kit or a month of tuition.
+* **Forgetting to ask for the receipt.** The receipt is your only proof, and it is required for 80G. Give a correct email address.
+* **Donating cash.** Cash above ₹2,000 does not qualify for 80G, and it leaves no trail. Use UPI, card, net banking or cheque.
+* **Assuming the tax benefit applies automatically.** It does not, and it does not apply under the new regime.
+* **Donating once and disappearing.** If you care about the cause, set up a small recurring donation. Consistency beats size.
+* **Paying into a personal account.** Always pay through the official checkout page of the organisation.
+
+## Donating as an NRI or Foreign Donor
+
+If you hold an Indian passport or an OCI card and have an Indian bank account or card, you can usually donate through the same Indian payment gateway as a resident donor. If you are donating from abroad with a foreign card or need a wire transfer, ask the organisation for their process before you send anything. Do not assume that a domestic payment page will accept an international card, and do not send money to an individual to route it on your behalf.
+
+NRIs should also check the tax position in the country where they file, because an Indian 80G deduction does not automatically translate into a foreign tax benefit.
+
+## Where to Donate in Delhi for Children's Education
+
+If you are specifically looking for an NGO in Delhi to support, here is what makes a local organisation different from a large national one.
+
+A local NGO can tell you which school the child attends and which classroom the money reached. The overhead is smaller because there are fewer layers. Decisions are faster because the person deciding is the person teaching. The trade-off is that local organisations have less brand recognition, so you have to do the verification work yourself.
+
+SCES works in and around Mehrauli, New Delhi, running free education, school kits, tuition support, digital learning and nutrition support for underprivileged children. We are small enough that you can visit, and we publish our accounts. If you want to see the work before you donate, [come and see the centre](/contact) or look through the [photo gallery](/gallery).
+
+You can donate online to SCES from anywhere in India, not only from Delhi. The donation is processed through the same Razorpay checkout whether you are in Mehrauli or in Chennai, and the receipt reaches you by email either way.
+
+## Frequently Asked Questions About Donating Online
+
+**Is online donation safe in India?**
+Yes, when you pay through a licensed gateway such as Razorpay, PayU, Cashfree or a bank gateway. Your card and UPI credentials are entered on the gateway's infrastructure and are not stored by the NGO. The risk is not the gateway, it is paying into a personal account instead of an official checkout page.
+
+**What is the minimum amount I can donate?**
+On our donation page the minimum is ₹100 and the maximum per transaction is ₹5,00,000. Most donors choose between ₹500 and ₹5,000.
+
+**Do I need a PAN card to donate?**
+No. You need PAN only if you want the 80G tax exemption certificate. A donation without PAN is still valid and still helps.
+
+**Will I get a receipt for my donation?**
+Yes. A receipt with your transaction reference is emailed to you. If you requested 80G, the certificate follows within seven working days.
+
+**Can I get an 80G deduction under the new tax regime?**
+No. Section 80G is available only under the old tax regime. If the new regime is better for you overall, donate for the cause rather than the deduction.
+
+**Can I stop a monthly donation?**
+Yes. Email the organisation and ask them to stop the mandate. There should be no penalty and no minimum term.
+
+**Can I choose which programme my money supports?**
+Yes. Your amount maps to a specific outcome such as a school kit, tuition, digital learning or a quarter of full support. For anything more specific, email the organisation and describe what you want to fund.
+
+**Can companies donate or set up CSR support?**
+Yes. Most registered NGOs accept CSR grants and employee giving. Ask for their registration documents, audited accounts and programme reports for due diligence.
+
+## The Part That Matters
+
+The mechanics of donating online in India are genuinely simple: choose an amount, enter your details, pay by UPI or card, keep the receipt. The hard part is deciding whether to do it at all. That decision is not really about money. ₹500 is a dinner. It is about whether the gap between a child who has a school kit and a child who does not is something you want to close.
+
+If you have read this far, you already know the answer. [Donate ₹500 now](/donate) and put a school kit in a child's hands this week. If you want to do more, [give monthly](/donate?recurring=true&amount=500) so the next academic year is planned rather than improvised. And if you would rather see the work first, [volunteer a few hours](/volunteer) and meet the children your donation supports.
+
+---
+
+*[Donate Now](/donate) | [Volunteer](/volunteer) | [See Our Impact](/impact)*
+    `,
+    author: "Rajni Chawla",
+    publishDate: new Date("2026-10-18"),
+    tags: ["Donation", "Education", "Tax Saving", "Impact Stories"],
+    featuredImage: "/banner_for_blog_post_sunrise_school.jpg",
+    faqs: [
+      {
+        question: "Is online donation safe in India?",
+        answer:
+          "Yes, when you pay through a licensed gateway such as Razorpay, PayU, Cashfree or a bank gateway. Your card and UPI credentials are entered on the gateway's infrastructure and are not stored by the NGO. The real risk is paying into a personal account instead of an official checkout page.",
+      },
+      {
+        question: "What is the minimum amount I can donate online?",
+        answer:
+          "At SCES the minimum online donation is ₹100 and the maximum per transaction is ₹5,00,000. Most donors choose between ₹500 and ₹5,000 because those amounts map to a school kit, a month of tuition, digital learning or a quarter of full support.",
+      },
+      {
+        question: "Do I need a PAN card to donate to an NGO?",
+        answer:
+          "No. PAN is required only if you want the 80G tax exemption certificate. A donation without PAN is still valid and the money still reaches the programme.",
+      },
+      {
+        question: "Can I claim an 80G deduction under the new tax regime?",
+        answer:
+          "No. Section 80G is a Chapter VI-A deduction and is available only under the old tax regime. Under the new regime, which is the default for individuals, the donation does not reduce your taxable income.",
+      },
+      {
+        question: "How do I know an NGO is genuine before donating?",
+        answer:
+          "Check for a physical address and a working phone number, 80G and 12A registration details, published annual reports and audited accounts, named trustees and staff, and recent evidence of programmes. A genuine NGO will share registration documents and will never ask you to pay into a personal account.",
+      },
+      {
+        question: "Is a monthly donation better than a one-time donation?",
+        answer:
+          "A monthly donation is more useful to the organisation because it allows a full academic year to be planned in advance and reduces fundraising costs. A one-time donation is still valuable, but recurring giving creates predictable support for a child.",
+      },
+    ],
+  },
+
+  {
     id: "save-income-tax-section-80g-ngo-donation-india",
     title: "How to Save Income Tax via NGO Donations: A Complete Guide to Section 80G in India",
     excerpt: "Donating to an NGO can lower your income tax. This complete guide to Section 80G in India explains the 50% deduction rule, how to claim it using your receipt and Form 10BE, and how a small donation of ₹500 or ₹2,500 changes a child's life in Delhi.",
@@ -1426,6 +1738,7 @@ Join us in this mission. Visit the [SCES donation page](/donate) to make a contr
 
 export const blogCategories = [
   "All",
+  "Donation",
   "Education",
   "Literacy",
   "Technology", 

@@ -265,6 +265,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </article>
 
+            {/* Visible FAQs: the FAQPage JSON-LD must be backed by on-page
+                answers, otherwise search engines treat it as invalid markup. */}
+            {post.faqs && post.faqs.length > 0 && (
+              <section className="mt-12 rounded-2xl border border-gray-200 p-6">
+                <h2 className="mb-4 text-2xl font-bold text-gray-900">Frequently Asked Questions</h2>
+                <div className="divide-y divide-gray-200">
+                  {post.faqs.map((faq) => (
+                    <details key={faq.question} className="group py-4">
+                      <summary className="flex cursor-pointer list-none items-center justify-between font-semibold text-gray-900">
+                        {faq.question}
+                        <span
+                          aria-hidden="true"
+                          className="ml-4 text-blue-600 transition-transform group-open:rotate-45"
+                        >
+                          +
+                        </span>
+                      </summary>
+                      <p className="mt-2 text-gray-700">{faq.answer}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            )}
+
             {/* Share Buttons */}
             <div className="mt-8 pt-6 border-t border-gray-200">
               <ShareButtons title={post.title} url={currentUrl} />

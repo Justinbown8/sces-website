@@ -12,6 +12,8 @@ export interface SEOProps {
   modifiedTime?: string;
   authors?: string[];
   tags?: string[];
+  /** Page-specific keyword overrides, merged ahead of the site defaults. */
+  keywords?: string[];
   noIndex?: boolean;
 }
 
@@ -25,6 +27,7 @@ export function generateMetadata({
   modifiedTime,
   authors,
   tags,
+  keywords,
   noIndex = false,
 }: SEOProps = {}): Metadata {
   const siteTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
@@ -41,6 +44,7 @@ export function generateMetadata({
     title: { absolute: siteTitle },
     description: siteDescription,
     keywords: [
+      ...(keywords || []),
       'Sunrise School',
       'Sunrise School Delhi',
       'Sunrise Children Educational Society',
@@ -150,8 +154,21 @@ export const pageMetadata = {
   }),
 
   donate: () => generateMetadata({
-    title: 'Donate Now',
-    description: 'Donate for children\'s education. Support Sunrise School NGO in Delhi by providing school kits, tuition support, and digital learning opportunities to children in need.',
+    title: 'Donate Now: Give a Child in Delhi a School Kit from ₹500',
+    description:
+      'Donate now to Sunrise School NGO in Mehrauli, Delhi. ₹500 gives one child a full school kit, ₹1,000 covers a month of tuition. Secure UPI, card and net banking payments with an 80G receipt.',
+    keywords: [
+      'donate now',
+      'donate online India',
+      'donate for children education',
+      'donate to NGO in Delhi',
+      'school kit donation',
+      'sponsor a child education India',
+      '80G donation',
+      'NGO donation Delhi',
+      'donate to children charity',
+      'online donation for education',
+    ],
     url: '/donate',
   }),
 

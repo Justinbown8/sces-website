@@ -29,6 +29,11 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   
+  // Donation funnel aliases (/donate-now, /donate-online, /donation) are handled
+  // in src/proxy.ts, not here. With trailingSlash enabled, config redirects
+  // normalise "/donate-now" to "/donate-now/" before matching, so the rule then
+  // re-matches its own normalised form and loops.
+
   // Headers for caching
   async headers() {
     return [

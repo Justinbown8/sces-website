@@ -195,3 +195,36 @@ export function generateFAQStructuredData(faqs: Array<{ question: string; answer
     })),
   };
 }
+
+// HowTo steps for donating to SCES. Google can surface these as a numbered
+// procedure above the blue links, which is how most "how to donate" queries
+// resolve before a click.
+export function generateDonationHowToStructuredData(steps: {
+  name: string;
+  text: string;
+}[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to Donate Online to Sunrise Children Educational Society',
+    description:
+      'A three-step process to donate online in India to SCES and receive an 80G tax exemption receipt.',
+    totalTime: 'PT3M',
+    estimatedCost: {
+      '@type': 'MonetaryAmount',
+      currency: 'INR',
+      value: '500',
+    },
+    supply: [
+      { '@type': 'HowToSupply', name: 'A UPI app, debit card, credit card or net banking login' },
+      { '@type': 'HowToSupply', name: 'PAN card, if you want the 80G certificate' },
+    ],
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      url: `${siteConfig.url}/donate`,
+    })),
+  };
+}
