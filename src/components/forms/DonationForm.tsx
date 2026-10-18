@@ -1,39 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { useScreenReader, useFormAccessibility } from '@/hooks/useAccessibility';
 import { validateEmail, validateRequired, validateDonationAmount } from '@/lib/validations';
-import { 
-  PaymentStatusTracker, 
-  getPaymentErrorMessage,
-  formatCurrency,
-  convertCurrency 
-} from '@/lib/payment';
-import PayPalButton from '@/components/payment/PayPalButton';
-
-interface PayPalCaptureData {
-  success: boolean;
-  transactionId: string;
-  amount: {
-    value: string;
-    currency: string;
-  };
-  status: string;
-  captureTime: string;
-  donor: {
-    name: string;
-    email: string;
-  };
-  recurring: boolean;
-  frequency?: string;
-}
-
-interface PayPalError {
-  message: string;
-  originalError?: unknown;
-}
+import { PaymentStatusTracker, getPaymentErrorMessage, formatCurrency } from '@/lib/payment';
+import { DONATION_TIERS } from '@/config/donation';
 
 interface RazorpayResponse {
   razorpay_order_id: string;
@@ -61,9 +35,7 @@ interface RazorpayOptions {
     email: string;
     contact: string;
   };
-  notes: {
-    address: string;
-  };
+  notes: Record<string, string>;
   theme: {
     color: string;
   };
@@ -82,17 +54,22 @@ declare global {
     };
   }
 }
-import { PAYMENT_CONFIG, DONATION_PRESETS, SUPPORTED_PAYMENT_METHODS } from '@/config/payment';
+
+const TOTAL_STEPS = 3;
+const MAX_RETRY_ATTEMPTS = 3;
+const PRESET_AMOUNTS = [500, 1000, 2500, 5000];
 
 interface FormErrors {
   amount?: string;
   name?: string;
   email?: string;
   phone?: string;
+  pan?: string;
+  pincode?: string;
   payment?: string;
 }
 
-interface DonationFormState {
+interface FormState {
   step: number;
   amount: number;
   customAmount: string;
@@ -102,77 +79,96 @@ interface DonationFormState {
     name: string;
     email: string;
     phone: string;
+    pan: string;
+    address: string;
+    city: string;
+    pincode: string;
   };
-  paymentMethod: string;
+  wants80G: boolean;
+  wantsUpdates: boolean;
 }
 
 interface PaymentStatus {
-  status: 'idle' | 'processing' | 'success' | 'failed' | 'retry';
+  status: 'idle' | 'processing' | 'success' | 'failed';
   message?: string;
   transactionId?: string;
   retryCount?: number;
 }
 
-const TOTAL_STEPS = 3;
-const MAX_RETRY_ATTEMPTS = PAYMENT_CONFIG.limits.maxRetries;
+const PAN_PATTERN = /^[A-Z]{5}[0-9]{4}[A-Z]$/;
 
-export default function DonationForm() {
-  const [formState, setFormState] = useState<DonationFormState>({
+function initialFormState(defaultAmount?: number, defaultRecurring?: boolean): FormState {
+  const preset = defaultAmount && defaultAmount >= 100 ? defaultAmount : 1000;
+  return {
     step: 1,
-    amount: 0,
+    amount: preset,
     customAmount: '',
-    recurring: false,
+    recurring: Boolean(defaultRecurring),
     frequency: 'monthly',
     donor: {
       name: '',
       email: '',
       phone: '',
+      pan: '',
+      address: '',
+      city: '',
+      pincode: '',
     },
-    paymentMethod: 'razorpay',
-  });
+    wants80G: false,
+    wantsUpdates: false,
+  };
+}
 
+interface DonationFormProps {
+  defaultAmount?: number;
+  defaultRecurring?: boolean;
+}
+
+export default function DonationForm({ defaultAmount, defaultRecurring }: DonationFormProps = {}) {
+  const [formState, setFormState] = useState<FormState>(() =>
+    initialFormState(defaultAmount, defaultRecurring)
+  );
   const [errors, setErrors] = useState<FormErrors>({});
   const [isLoading, setIsLoading] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<PaymentStatus>({ status: 'idle' });
   const [paymentTracker] = useState(() => new PaymentStatusTracker());
-  
-  // Accessibility hooks
-  const { announce } = useScreenReader();
-  const { generateFieldId, createFieldProps } = useFormAccessibility();
 
-  const updateFormState = (updates: Partial<DonationFormState>) => {
-    setFormState(prev => ({ ...prev, ...updates }));
-  };
+  const { announce } = useScreenReader();
+
+  const updateFormState = useCallback((updates: Partial<FormState>) => {
+    setFormState((prev) => ({ ...prev, ...updates }));
+  }, []);
+
+  const currentAmount = useMemo(() => {
+    const parsed = Number(formState.customAmount);
+    return formState.customAmount && Number.isFinite(parsed) && parsed > 0 ? parsed : formState.amount;
+  }, [formState.amount, formState.customAmount]);
 
   const validateStep = (step: number): boolean => {
     const newErrors: FormErrors = {};
 
     if (step === 1) {
-      // Validate amount
-      const amount = formState.amount || parseFloat(formState.customAmount);
-      const amountValidation = validateDonationAmount(amount);
+      const amountValidation = validateDonationAmount(currentAmount);
       if (!amountValidation.isValid) {
         newErrors.amount = amountValidation.errors[0];
       }
     }
 
     if (step === 2) {
-      // Validate donor information
       const nameValidation = validateRequired(formState.donor.name, 'Name');
-      if (!nameValidation.isValid) {
-        newErrors.name = nameValidation.errors[0];
-      }
+      if (!nameValidation.isValid) newErrors.name = nameValidation.errors[0];
 
       const emailValidation = validateEmail(formState.donor.email);
-      if (!emailValidation.isValid) {
-        newErrors.email = emailValidation.errors[0];
-      }
+      if (!emailValidation.isValid) newErrors.email = emailValidation.errors[0];
 
-      // Phone is optional but validate if provided
-      if (formState.donor.phone) {
-        const phoneValidation = validateRequired(formState.donor.phone, 'Phone');
-        if (!phoneValidation.isValid) {
-          newErrors.phone = phoneValidation.errors[0];
+      if (formState.wants80G) {
+        if (!formState.donor.pan) {
+          newErrors.pan = 'PAN is required to issue your 80G certificate.';
+        } else if (!PAN_PATTERN.test(formState.donor.pan.toUpperCase())) {
+          newErrors.pan = 'Enter a valid 10-character PAN, for example ABCDE1234F.';
+        }
+        if (!formState.donor.address.trim()) {
+          newErrors.pincode = 'Address is required for the 80G certificate.';
         }
       }
     }
@@ -184,6 +180,7 @@ export default function DonationForm() {
   const handleNext = () => {
     if (validateStep(formState.step)) {
       updateFormState({ step: formState.step + 1 });
+      announce(`Step ${formState.step + 1} of ${TOTAL_STEPS}`);
     }
   };
 
@@ -193,134 +190,110 @@ export default function DonationForm() {
     setPaymentStatus({ status: 'idle' });
   };
 
-  const handleAmountSelect = (amount: number) => {
-    updateFormState({ amount, customAmount: '' });
-    setErrors({ ...errors, amount: undefined });
-  };
-
-  const handleCustomAmountChange = (value: string) => {
-    const numericValue = value.replace(/[^0-9]/g, '');
-    updateFormState({ customAmount: numericValue, amount: 0 });
-    setErrors({ ...errors, amount: undefined });
-  };
-
-  const handleDonorInfoChange = (field: keyof DonationFormState['donor'], value: string) => {
-    updateFormState({
-      donor: { ...formState.donor, [field]: value }
-    });
-    setErrors({ ...errors, [field]: undefined });
-  };
-
   const initializeRazorpay = (): Promise<typeof window.Razorpay | null> => {
+    if (typeof window !== 'undefined' && window.Razorpay) {
+      return Promise.resolve(window.Razorpay);
+    }
     return new Promise((resolve) => {
       const script = document.createElement('script');
       script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      script.onload = () => {
-        resolve(window.Razorpay);
-      };
-      script.onerror = () => {
-        resolve(null);
-      };
+      script.onload = () => resolve(window.Razorpay);
+      script.onerror = () => resolve(null);
       document.body.appendChild(script);
     });
   };
 
-  const createRazorpayOrder = async (amount: number) => {
-    try {
-      const response = await fetch('/api/razorpay', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          amount: amount, // API will convert to paise
-          currency: 'INR',
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to create order');
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error('Error creating Razorpay order:', error);
-      throw error;
-    }
-  };
-
   const handleRazorpayPayment = async (amount: number) => {
     try {
-      setPaymentStatus({ status: 'processing', message: 'Initializing payment...' });
-      
+      setPaymentStatus({ status: 'processing', message: 'Opening secure payment window...' });
+
       const Razorpay = await initializeRazorpay();
       if (!Razorpay) {
-        throw new Error('Razorpay SDK failed to load');
+        throw new Error('Payment window could not load. Please check your connection.');
       }
 
-      const order = await createRazorpayOrder(amount);
+      const orderResponse = await fetch('/api/razorpay', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount, currency: 'INR' }),
+      });
 
-      const options = {
+      const order = await orderResponse.json();
+      if (!orderResponse.ok || !order.success) {
+        throw new Error(order?.message || 'Could not start the payment.');
+      }
+
+      const options: RazorpayOptions = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
         amount: order.amount,
         currency: order.currency,
-        name: 'SCES - Sunrise Children Educational Society',
+        name: 'Sunrise Children Educational Society',
         description: `Donation - ${formState.recurring ? 'Recurring' : 'One-time'}`,
         order_id: order.order_id,
         handler: async (response: RazorpayResponse) => {
           try {
-            setPaymentStatus({ status: 'processing', message: 'Verifying payment...' });
-            
-            // Verify payment on server
+            setPaymentStatus({ status: 'processing', message: 'Confirming your payment...' });
+
             const verifyResponse = await fetch('/api/payment/verify', {
               method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
+              headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature,
-                donor: formState.donor,
+                ...response,
                 amount,
                 recurring: formState.recurring,
                 frequency: formState.frequency,
+                donor: {
+                  name: formState.donor.name,
+                  email: formState.donor.email,
+                  phone: formState.donor.phone,
+                  pan: formState.wants80G ? formState.donor.pan.toUpperCase() : '',
+                  address: formState.donor.address,
+                  city: formState.donor.city,
+                  pincode: formState.donor.pincode,
+                  wants80G: formState.wants80G,
+                },
               }),
             });
 
-            if (verifyResponse.ok) {
-              await verifyResponse.json();
-              paymentTracker.addUpdate('success', 'Payment completed successfully', response.razorpay_payment_id);
-              
-              setPaymentStatus({
-                status: 'success',
-                message: 'Payment successful! Redirecting to confirmation page...',
-                transactionId: response.razorpay_payment_id,
-              });
+            const verification = await verifyResponse.json();
 
-              // Redirect to success page with donation details
-              const successUrl = new URL('/donation-success', window.location.origin);
-              successUrl.searchParams.set('transaction_id', response.razorpay_payment_id);
-              successUrl.searchParams.set('amount', amount.toString());
-              successUrl.searchParams.set('donor_name', formState.donor.name);
-              successUrl.searchParams.set('donor_email', formState.donor.email);
-              successUrl.searchParams.set('recurring', formState.recurring.toString());
-              if (formState.recurring) {
-                successUrl.searchParams.set('frequency', formState.frequency);
-              }
-              
-              // Redirect after a short delay to show success message
-              setTimeout(() => {
-                window.location.href = successUrl.toString();
-              }, 2000);
-            } else {
-              throw new Error('Payment verification failed');
+            if (!verifyResponse.ok || !verification.success) {
+              // The money may still have been captured, so give the donor a
+              // reference number instead of a dead end.
+              setPaymentStatus({
+                status: 'failed',
+                message:
+                  verification?.message ||
+                  `We could not confirm this payment. Please email info@scesindia.com with reference ${response.razorpay_payment_id}.`,
+              });
+              return;
             }
+
+            paymentTracker.addUpdate('success', 'Payment completed', response.razorpay_payment_id);
+
+            setPaymentStatus({
+              status: 'success',
+              message: 'Thank you. Your donation is confirmed.',
+              transactionId: response.razorpay_payment_id,
+            });
+
+            const successUrl = new URL('/donation-success', window.location.origin);
+            successUrl.searchParams.set('token', verification.confirmationToken);
+            successUrl.searchParams.set('payment_id', response.razorpay_payment_id);
+            successUrl.searchParams.set('amount', String(verification.amount ?? amount));
+            successUrl.searchParams.set('recurring', String(formState.recurring));
+            if (formState.recurring) {
+              successUrl.searchParams.set('frequency', formState.frequency);
+            }
+
+            setTimeout(() => {
+              window.location.href = successUrl.toString();
+            }, 1200);
           } catch (error) {
             console.error('Payment verification error:', error);
             setPaymentStatus({
               status: 'failed',
-              message: 'Payment verification failed. Please contact support.',
+              message: `We could not confirm this payment. Please email info@scesindia.com with reference ${response.razorpay_payment_id}.`,
             });
           }
         },
@@ -330,32 +303,26 @@ export default function DonationForm() {
           contact: formState.donor.phone,
         },
         notes: {
-          address: 'SCES Donation',
+          cause: 'Children education',
+          wants80G: formState.wants80G ? 'yes' : 'no',
         },
-        theme: {
-          color: '#3B82F6'
-        },
+        theme: { color: '#EA580C' },
         modal: {
-          ondismiss: (): void => {
+          ondismiss: () => {
             setPaymentStatus({
               status: 'failed',
-              message: 'Payment cancelled by user',
+              message: 'Payment window closed. No money was deducted.',
             });
           },
         },
       };
 
       const rzp = new Razorpay(options);
-      
+
       rzp.on('payment.failed', (response: RazorpayError) => {
-        console.error('Payment failed:', response.error);
         const errorMessage = getPaymentErrorMessage(response);
         paymentTracker.addUpdate('failed', errorMessage, undefined, response.error?.code);
-        
-        setPaymentStatus({
-          status: 'failed',
-          message: errorMessage,
-        });
+        setPaymentStatus({ status: 'failed', message: errorMessage });
       });
 
       rzp.open();
@@ -363,7 +330,7 @@ export default function DonationForm() {
       console.error('Razorpay payment error:', error);
       setPaymentStatus({
         status: 'failed',
-        message: 'Failed to initialize payment. Please try again.',
+        message: error instanceof Error ? error.message : 'Payment could not start. Please try again.',
       });
     }
   };
@@ -371,92 +338,26 @@ export default function DonationForm() {
   const handleRetryPayment = () => {
     const currentRetryCount = paymentStatus.retryCount || 0;
     if (currentRetryCount < MAX_RETRY_ATTEMPTS) {
-      setPaymentStatus({
-        status: 'retry',
-        retryCount: currentRetryCount + 1,
-      });
-      handleSubmit();
+      setPaymentStatus({ status: 'idle', retryCount: currentRetryCount + 1 });
+      void handleRazorpayPayment(currentAmount);
     } else {
       setPaymentStatus({
         status: 'failed',
-        message: 'Maximum retry attempts reached. Please contact support.',
+        message: 'Please email info@scesindia.com and we will help you complete this donation.',
       });
     }
-  };
-
-  const handlePayPalSuccess = (transactionId: string) => {
-    paymentTracker.addUpdate('success', 'PayPal payment completed successfully', transactionId);
-    
-    setPaymentStatus({
-      status: 'success',
-      message: 'PayPal payment successful! Redirecting to confirmation page...',
-      transactionId: transactionId,
-    });
-
-    // Redirect to success page with donation details
-    const successUrl = new URL('/donation-success', window.location.origin);
-    successUrl.searchParams.set('transaction_id', transactionId);
-    successUrl.searchParams.set('amount', (formState.amount || parseFloat(formState.customAmount)).toString());
-    successUrl.searchParams.set('donor_name', formState.donor.name);
-    successUrl.searchParams.set('donor_email', formState.donor.email);
-    successUrl.searchParams.set('recurring', formState.recurring.toString());
-    successUrl.searchParams.set('payment_method', 'paypal');
-    if (formState.recurring) {
-      successUrl.searchParams.set('frequency', formState.frequency);
-    }
-    
-    // Redirect after a short delay to show success message
-    setTimeout(() => {
-      window.location.href = successUrl.toString();
-    }, 2000);
-  };
-
-  const handlePayPalError = (error: PayPalError) => {
-    console.error('PayPal payment error:', error);
-    const errorMessage = getPaymentErrorMessage(error, 'paypal');
-    paymentTracker.addUpdate('failed', errorMessage, undefined, error.originalError?.name);
-    
-    setPaymentStatus({
-      status: 'failed',
-      message: errorMessage,
-    });
-  };
-
-  const handlePayPalCancel = () => {
-    setPaymentStatus({
-      status: 'failed',
-      message: 'PayPal payment was cancelled',
-    });
   };
 
   const handleSubmit = async () => {
     if (!validateStep(formState.step)) return;
-
-    // For PayPal, we don't need to handle submission here as PayPal button handles it
-    if (formState.paymentMethod === 'paypal') {
-      return;
-    }
-
     setIsLoading(true);
     setErrors({});
 
     try {
-      const amount = formState.amount || parseFloat(formState.customAmount);
-      
-      if (formState.paymentMethod === 'razorpay') {
-        await handleRazorpayPayment(amount);
-      } else {
-        setPaymentStatus({
-          status: 'failed',
-          message: 'Unsupported payment method selected.',
-        });
-      }
+      await handleRazorpayPayment(currentAmount);
     } catch (error) {
       console.error('Payment error:', error);
-      setPaymentStatus({
-        status: 'failed',
-        message: 'Payment failed. Please try again.',
-      });
+      setPaymentStatus({ status: 'failed', message: 'Payment failed. Please try again.' });
     } finally {
       setIsLoading(false);
     }
@@ -464,58 +365,53 @@ export default function DonationForm() {
 
   const renderProgressIndicator = () => (
     <div className="mb-8">
-      <div className="flex items-center justify-center space-x-4">
+      <ol className="flex items-center justify-center gap-2" aria-label="Donation progress">
         {Array.from({ length: TOTAL_STEPS }, (_, index) => {
           const stepNumber = index + 1;
           const isActive = stepNumber === formState.step;
           const isCompleted = stepNumber < formState.step;
-          
           return (
-            <div key={stepNumber} className="flex items-center">
-              <div
-                className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-colors ${
+            <li key={stepNumber} className="flex items-center">
+              <span
+                className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold ${
                   isActive
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-orange-600 text-white'
                     : isCompleted
-                    ? 'bg-green-500 text-white'
+                    ? 'bg-green-600 text-white'
                     : 'bg-gray-200 text-gray-600'
                 }`}
+                aria-current={isActive ? 'step' : undefined}
               >
                 {isCompleted ? '✓' : stepNumber}
-              </div>
+              </span>
               {stepNumber < TOTAL_STEPS && (
-                <div
-                  className={`w-16 h-1 mx-2 transition-colors ${
-                    isCompleted ? 'bg-green-500' : 'bg-gray-200'
-                  }`}
+                <span
+                  aria-hidden="true"
+                  className={`mx-2 h-1 w-10 sm:w-16 ${isCompleted ? 'bg-green-600' : 'bg-gray-200'}`}
                 />
               )}
-            </div>
+            </li>
           );
         })}
-      </div>
-      <div className="text-center mt-4">
-        <span className="text-sm text-gray-700">
-          Step {formState.step} of {TOTAL_STEPS}
-        </span>
-      </div>
+      </ol>
+      <p className="mt-4 text-center text-sm text-gray-700">
+        Step {formState.step} of {TOTAL_STEPS}
+      </p>
     </div>
   );
 
   const renderAmountStep = () => (
-    <Card className="max-w-2xl mx-auto p-8">
-      <h2 className="text-2xl font-bold text-center mb-6 text-gray-900">Choose Your Donation Amount</h2>
-      
-      {/* Recurring Toggle */}
-      <div className="mb-6 text-center">
-        <div className="inline-flex items-center bg-gray-100 rounded-lg p-1">
+    <Card className="mx-auto max-w-2xl p-6 sm:p-8">
+      <h2 className="mb-6 text-center text-2xl font-bold text-gray-900">Choose your donation amount</h2>
+
+      <div className="mb-6 flex justify-center">
+        <div className="inline-flex rounded-full bg-gray-100 p-1" role="group" aria-label="Donation frequency">
           <button
             type="button"
             onClick={() => updateFormState({ recurring: false })}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              !formState.recurring
-                ? 'bg-white text-gray-900 shadow-sm'
-                : 'text-gray-700 hover:text-gray-900'
+            aria-pressed={!formState.recurring}
+            className={`rounded-full px-4 py-2 text-sm font-semibold ${
+              !formState.recurring ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-700'
             }`}
           >
             One-time
@@ -523,10 +419,9 @@ export default function DonationForm() {
           <button
             type="button"
             onClick={() => updateFormState({ recurring: true })}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              formState.recurring
-                ? 'bg-white text-gray-900 shadow-sm'
-                : 'text-gray-700 hover:text-gray-900'
+            aria-pressed={formState.recurring}
+            className={`rounded-full px-4 py-2 text-sm font-semibold ${
+              formState.recurring ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-700'
             }`}
           >
             Monthly
@@ -534,16 +429,18 @@ export default function DonationForm() {
         </div>
       </div>
 
-      {/* Frequency Selection for Recurring */}
       {formState.recurring && (
         <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Donation Frequency
+          <label htmlFor="frequency" className="mb-2 block text-sm font-medium text-gray-700">
+            Donation frequency
           </label>
           <select
+            id="frequency"
             value={formState.frequency}
-            onChange={(e) => updateFormState({ frequency: e.target.value as any })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
+            onChange={(event) =>
+              updateFormState({ frequency: event.target.value as FormState['frequency'] })
+            }
+            className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
           >
             <option value="monthly">Monthly</option>
             <option value="quarterly">Quarterly</option>
@@ -552,318 +449,385 @@ export default function DonationForm() {
         </div>
       )}
 
-      {/* Preset Amounts */}
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        {DONATION_PRESETS.map((preset) => (
-          <button
-            key={preset.amount}
-            type="button"
-            onClick={() => handleAmountSelect(preset.amount)}
-            className={`p-4 border-2 rounded-lg text-center transition-all hover:shadow-md ${
-              formState.amount === preset.amount
-                ? 'border-blue-500 bg-blue-50 text-blue-700'
-                : 'border-gray-200 hover:border-gray-300 text-gray-900 bg-white'
-            }`}
-          >
-            <div className="text-2xl font-bold">{formatCurrency(preset.amount)}</div>
-            <div className="text-sm text-gray-700 mt-1">{preset.label}</div>
-            <div className="text-xs text-gray-800 mt-1">{preset.description}</div>
-          </button>
-        ))}
+      <div className="mb-6 grid gap-4 sm:grid-cols-2">
+        {PRESET_AMOUNTS.map((preset) => {
+          const tier = DONATION_TIERS.find((entry) => entry.amount === preset);
+          const isActive = !formState.customAmount && formState.amount === preset;
+          return (
+            <button
+              key={preset}
+              type="button"
+              onClick={() => updateFormState({ amount: preset, customAmount: '' })}
+              aria-pressed={isActive}
+              className={`rounded-lg border-2 p-4 text-center transition-all hover:shadow-md ${
+                isActive
+                  ? 'border-orange-500 bg-orange-50 text-orange-800'
+                  : 'border-gray-200 bg-white text-gray-900 hover:border-gray-300'
+              }`}
+            >
+              <span className="block text-2xl font-bold">{formatCurrency(preset)}</span>
+              <span className="mt-1 block text-sm font-semibold">{tier?.title ?? 'Custom impact'}</span>
+              {tier && <span className="mt-1 block text-xs text-gray-700">{tier.description}</span>}
+            </button>
+          );
+        })}
       </div>
 
-      {/* Custom Amount */}
       <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Or enter custom amount
+        <label htmlFor="donation-amount" className="mb-2 block text-sm font-medium text-gray-700">
+          Or enter a custom amount (₹)
         </label>
         <div className="relative">
-          <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-700">₹</span>
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-700">₹</span>
           <input
+            id="donation-amount"
             type="text"
+            inputMode="numeric"
             value={formState.customAmount}
-            onChange={(e) => handleCustomAmountChange(e.target.value)}
-            placeholder="Enter amount"
-            className={`w-full pl-8 pr-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder-gray-500 ${
+            onChange={(event) => {
+              updateFormState({ customAmount: event.target.value.replace(/[^0-9]/g, '') });
+              setErrors((prev) => ({ ...prev, amount: undefined }));
+            }}
+            placeholder="Enter amount above ₹100"
+            aria-invalid={Boolean(errors.amount)}
+            className={`w-full rounded-lg border py-3 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
               errors.amount ? 'border-red-500' : 'border-gray-300'
             }`}
           />
         </div>
-        {errors.amount && (
-          <p className="mt-1 text-sm text-red-600">{errors.amount}</p>
-        )}
+        {errors.amount && <p className="mt-1 text-sm text-red-600">{errors.amount}</p>}
       </div>
 
-      {/* Impact Message */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
-        <p className="text-sm text-amber-800">
-          <strong>Your Impact:</strong> ₹{(formState.amount || parseFloat(formState.customAmount) || 0).toLocaleString()} 
-          {formState.recurring ? ` per ${formState.frequency.replace('ly', '')}` : ''} can help provide educational resources to children in need.
+      <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4">
+        <p className="text-sm text-amber-900">
+          <strong>Your impact:</strong> {formatCurrency(currentAmount)}
+          {formState.recurring ? ` per ${formState.frequency.replace('ly', '')}` : ''} goes directly to
+          children&apos;s education in Delhi. 65% funds classrooms and school kits, 15% trains teachers.
         </p>
       </div>
 
-      <Button
-        onClick={handleNext}
-        className="w-full"
-        disabled={!formState.amount && !formState.customAmount}
-      >
-        Continue to Donor Information
+      <Button onClick={handleNext} className="w-full" disabled={!currentAmount || currentAmount < 100}>
+        Continue
       </Button>
     </Card>
   );
 
   const renderDonorInfoStep = () => (
-    <Card className="max-w-2xl mx-auto p-8">
-      <h2 className="text-2xl font-bold text-center mb-6 text-gray-900">Donor Information</h2>
-      
+    <Card className="mx-auto max-w-2xl p-6 sm:p-8">
+      <h2 className="mb-2 text-center text-2xl font-bold text-gray-900">Your details</h2>
+      <p className="mb-6 text-center text-sm text-gray-600">
+        We only ask for what is needed to send your receipt. It takes about 30 seconds.
+      </p>
+
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Full Name *
+          <label htmlFor="donor-name" className="mb-1 block text-sm font-medium text-gray-700">
+            Full name <span className="text-red-600">*</span>
           </label>
           <input
+            id="donor-name"
             type="text"
+            autoComplete="name"
             value={formState.donor.name}
-            onChange={(e) => handleDonorInfoChange('name', e.target.value)}
-            className={`w-full px-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder-gray-500 ${
+            onChange={(event) => {
+              updateFormState({ donor: { ...formState.donor, name: event.target.value } });
+              setErrors((prev) => ({ ...prev, name: undefined }));
+            }}
+            aria-invalid={Boolean(errors.name)}
+            className={`w-full rounded-lg border px-3 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
               errors.name ? 'border-red-500' : 'border-gray-300'
             }`}
-            placeholder="Enter your full name"
+            placeholder="Name as you want it on the receipt"
           />
-          {errors.name && (
-            <p className="mt-1 text-sm text-red-600">{errors.name}</p>
-          )}
+          {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Email Address *
+          <label htmlFor="donor-email" className="mb-1 block text-sm font-medium text-gray-700">
+            Email address <span className="text-red-600">*</span>
           </label>
           <input
+            id="donor-email"
             type="email"
+            autoComplete="email"
             value={formState.donor.email}
-            onChange={(e) => handleDonorInfoChange('email', e.target.value)}
-            className={`w-full px-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder-gray-500 ${
+            onChange={(event) => {
+              updateFormState({ donor: { ...formState.donor, email: event.target.value } });
+              setErrors((prev) => ({ ...prev, email: undefined }));
+            }}
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby="email-help"
+            className={`w-full rounded-lg border px-3 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
               errors.email ? 'border-red-500' : 'border-gray-300'
             }`}
-            placeholder="Enter your email address"
+            placeholder="Your receipt is emailed here"
           />
-          {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email}</p>
-          )}
+          <p id="email-help" className="mt-1 text-xs text-gray-500">
+            Your 80G receipt arrives here within 7 working days.
+          </p>
+          {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Phone Number (Optional)
+          <label htmlFor="donor-phone" className="mb-1 block text-sm font-medium text-gray-700">
+            Phone number (optional)
           </label>
           <input
+            id="donor-phone"
             type="tel"
+            autoComplete="tel"
             value={formState.donor.phone}
-            onChange={(e) => handleDonorInfoChange('phone', e.target.value)}
-            className={`w-full px-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder-gray-500 ${
-              errors.phone ? 'border-red-500' : 'border-gray-300'
-            }`}
-            placeholder="Enter your phone number"
+            onChange={(event) =>
+              updateFormState({ donor: { ...formState.donor, phone: event.target.value } })
+            }
+            className="w-full rounded-lg border border-gray-300 px-3 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            placeholder="For payment issues only"
           />
-          {errors.phone && (
-            <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
+        </div>
+
+        <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+          <label className="flex items-start gap-3">
+            <input
+              type="checkbox"
+              checked={formState.wants80G}
+              onChange={(event) => updateFormState({ wants80G: event.target.checked })}
+              className="mt-1 h-4 w-4 rounded border-gray-300 text-orange-600 focus:ring-orange-500"
+            />
+            <span>
+              <span className="block text-sm font-semibold text-gray-900">
+                Send me an 80G tax exemption certificate
+              </span>
+              <span className="block text-xs text-gray-600">
+                Section 80G of the Income Tax Act allows a 50% deduction on your taxable income. You
+                need to file under the old tax regime to claim it.
+              </span>
+            </span>
+          </label>
+
+          {formState.wants80G && (
+            <div className="mt-4 space-y-3">
+              <div>
+                <label htmlFor="donor-pan" className="mb-1 block text-sm font-medium text-gray-700">
+                  PAN <span className="text-red-600">*</span>
+                </label>
+                <input
+                  id="donor-pan"
+                  type="text"
+                  maxLength={10}
+                  value={formState.donor.pan}
+                  onChange={(event) => {
+                    updateFormState({
+                      donor: { ...formState.donor, pan: event.target.value.toUpperCase() },
+                    });
+                    setErrors((prev) => ({ ...prev, pan: undefined }));
+                  }}
+                  aria-invalid={Boolean(errors.pan)}
+                  className={`w-full rounded-lg border px-3 py-2 uppercase text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
+                    errors.pan ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  placeholder="ABCDE1234F"
+                />
+                {errors.pan && <p className="mt-1 text-sm text-red-600">{errors.pan}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="donor-address" className="mb-1 block text-sm font-medium text-gray-700">
+                  Address <span className="text-red-600">*</span>
+                </label>
+                <textarea
+                  id="donor-address"
+                  rows={2}
+                  value={formState.donor.address}
+                  onChange={(event) =>
+                    updateFormState({ donor: { ...formState.donor, address: event.target.value } })
+                  }
+                  aria-invalid={Boolean(errors.pincode)}
+                  className={`w-full rounded-lg border px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
+                    errors.pincode ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  placeholder="House, street, area"
+                />
+                {errors.pincode && <p className="mt-1 text-sm text-red-600">{errors.pincode}</p>}
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label htmlFor="donor-city" className="mb-1 block text-sm font-medium text-gray-700">
+                    City
+                  </label>
+                  <input
+                    id="donor-city"
+                    type="text"
+                    value={formState.donor.city}
+                    onChange={(event) =>
+                      updateFormState({ donor: { ...formState.donor, city: event.target.value } })
+                    }
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    placeholder="New Delhi"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="donor-pincode" className="mb-1 block text-sm font-medium text-gray-700">
+                    PIN code
+                  </label>
+                  <input
+                    id="donor-pincode"
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={6}
+                    value={formState.donor.pincode}
+                    onChange={(event) =>
+                      updateFormState({
+                        donor: { ...formState.donor, pincode: event.target.value.replace(/[^0-9]/g, '') },
+                      })
+                    }
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    placeholder="110030"
+                  />
+                </div>
+              </div>
+            </div>
           )}
         </div>
+
+        <label className="flex items-start gap-3 text-sm text-gray-700">
+          <input
+            type="checkbox"
+            checked={formState.wantsUpdates}
+            onChange={(event) => updateFormState({ wantsUpdates: event.target.checked })}
+            className="mt-1 h-4 w-4 rounded border-gray-300 text-orange-600 focus:ring-orange-500"
+          />
+          <span>Send me occasional updates on how my donation is being used.</span>
+        </label>
       </div>
 
-      {/* Donation Summary */}
-      <div className="mt-6 bg-gray-50 rounded-lg p-4">
-        <h3 className="font-semibold text-gray-900 mb-2">Donation Summary</h3>
-        <div className="flex justify-between items-center">
-          <span className="text-gray-700">Amount:</span>
-          <span className="font-semibold text-gray-900">₹{(formState.amount || parseFloat(formState.customAmount) || 0).toLocaleString()}</span>
-        </div>
-        <div className="flex justify-between items-center">
-          <span className="text-gray-700">Type:</span>
-          <span className="font-semibold text-gray-900">
-            {formState.recurring ? `Recurring (${formState.frequency})` : 'One-time'}
-          </span>
-        </div>
+      <div className="mt-6 rounded-lg bg-gray-50 p-4">
+        <h3 className="mb-2 font-semibold text-gray-900">Donation summary</h3>
+        <dl className="space-y-1 text-sm">
+          <div className="flex justify-between">
+            <dt className="text-gray-700">Amount</dt>
+            <dd className="font-semibold text-gray-900">{formatCurrency(currentAmount)}</dd>
+          </div>
+          <div className="flex justify-between">
+            <dt className="text-gray-700">Type</dt>
+            <dd className="font-semibold text-gray-900">
+              {formState.recurring ? `Recurring (${formState.frequency})` : 'One-time'}
+            </dd>
+          </div>
+        </dl>
       </div>
 
-      <div className="flex space-x-4 mt-6">
-        <Button
-          variant="outline"
-          onClick={handlePrevious}
-          className="flex-1"
-        >
+      <div className="mt-6 flex gap-4">
+        <Button variant="outline" onClick={handlePrevious} className="flex-1">
           Back
         </Button>
-        <Button
-          onClick={handleNext}
-          className="flex-1"
-        >
-          Continue to Payment
+        <Button onClick={handleNext} className="flex-1">
+          Continue to payment
         </Button>
       </div>
     </Card>
   );
 
   const renderPaymentStep = () => (
-    <Card className="max-w-2xl mx-auto p-8">
-      <h2 className="text-2xl font-bold text-center mb-6 text-gray-900">Payment Method</h2>
-      
-      {/* Payment Method Selection */}
-      <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-3">
-          Choose Payment Method
-        </label>
-        <div className="space-y-3">
-          {SUPPORTED_PAYMENT_METHODS.map((method) => {
-            const amount = formState.amount || parseFloat(formState.customAmount) || 0;
-            const showCurrencyInfo = method.id === 'paypal' && amount > 0;
-            const usdAmount = showCurrencyInfo ? convertCurrency(amount, 'INR', 'USD') : 0;
-            
-            return (
-              <label 
-                key={method.id}
-                className={`flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors ${
-                  formState.paymentMethod === method.id ? 'border-blue-500 bg-blue-50' : 'border-gray-200'
-                } ${!method.enabled ? 'opacity-50 cursor-not-allowed' : ''}`}
-              >
-                <input
-                  type="radio"
-                  name="paymentMethod"
-                  value={method.id}
-                  checked={formState.paymentMethod === method.id}
-                  onChange={(e) => updateFormState({ paymentMethod: e.target.value })}
-                  disabled={!method.enabled}
-                  className="mr-3"
-                />
-                <div className="flex-1">
-                  <div className="font-semibold text-gray-900">{method.name}</div>
-                  <div className="text-sm text-gray-700">{method.description}</div>
-                  {showCurrencyInfo && (
-                    <div className="text-xs text-blue-600 mt-1">
-                      Amount will be converted to ${usdAmount.toFixed(2)} USD
-                    </div>
-                  )}
-                </div>
-                {method.recommended && method.enabled && (
-                  <div className="text-xs text-green-600 font-medium">Recommended</div>
-                )}
-                {!method.enabled && (
-                  <div className="text-xs text-gray-800">Coming Soon</div>
-                )}
-              </label>
-            );
-          })}
+    <Card className="mx-auto max-w-2xl p-6 sm:p-8">
+      <h2 className="mb-2 text-center text-2xl font-bold text-gray-900">Secure payment</h2>
+      <p className="mb-6 text-center text-sm text-gray-600">
+        Pay by UPI, debit card, credit card, net banking or wallet. Razorpay handles the transaction and
+        we never see your card number.
+      </p>
+
+      <div className="mb-6 rounded-lg border-2 border-orange-500 bg-orange-50 p-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="font-semibold text-gray-900">Razorpay checkout</p>
+            <p className="text-sm text-gray-700">UPI, cards, net banking, wallets</p>
+          </div>
+          <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-800">
+            Recommended
+          </span>
         </div>
       </div>
 
-      {/* Payment Status */}
       {paymentStatus.status !== 'idle' && (
-        <div className="mb-6">
+        <div className="mb-6" role="status" aria-live="polite">
           {paymentStatus.status === 'processing' && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
               <div className="flex items-center">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600 mr-3"></div>
+                <span className="mr-3 h-4 w-4 animate-spin rounded-full border-b-2 border-blue-600" />
                 <span className="text-blue-800">{paymentStatus.message}</span>
               </div>
             </div>
           )}
-          
+
           {paymentStatus.status === 'success' && (
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="rounded-lg border border-green-200 bg-green-50 p-4">
               <div className="text-green-800">
-                <div className="font-semibold">✓ {paymentStatus.message}</div>
+                <p className="font-semibold">✓ {paymentStatus.message}</p>
                 {paymentStatus.transactionId && (
-                  <div className="text-sm mt-1">Transaction ID: {paymentStatus.transactionId}</div>
+                  <p className="mt-1 text-sm">Reference: {paymentStatus.transactionId}</p>
                 )}
               </div>
             </div>
           )}
-          
+
           {paymentStatus.status === 'failed' && (
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <div className="rounded-lg border border-red-200 bg-red-50 p-4">
               <div className="text-red-800">
-                <div className="font-semibold">✗ {paymentStatus.message}</div>
-                {paymentStatus.retryCount && paymentStatus.retryCount < MAX_RETRY_ATTEMPTS && (
-                  <button
-                    onClick={handleRetryPayment}
-                    className="mt-2 text-sm underline hover:no-underline"
-                  >
-                    Try Again ({MAX_RETRY_ATTEMPTS - paymentStatus.retryCount} attempts left)
-                  </button>
-                )}
+                <p className="font-semibold">{paymentStatus.message}</p>
+                <button
+                  type="button"
+                  onClick={handleRetryPayment}
+                  className="mt-2 text-sm underline hover:no-underline"
+                >
+                  Try again
+                </button>
               </div>
             </div>
           )}
         </div>
       )}
 
-      {/* Donation Summary */}
-      <div className="bg-gray-50 rounded-lg p-4 mb-6">
-        <h3 className="font-semibold text-gray-900 mb-2">Final Summary</h3>
-        <div className="space-y-1 text-sm">
+      <div className="mb-6 rounded-lg bg-gray-50 p-4">
+        <h3 className="mb-2 font-semibold text-gray-900">Final summary</h3>
+        <dl className="space-y-1 text-sm">
           <div className="flex justify-between">
-            <span className="text-gray-700">Amount:</span>
-            <span className="font-semibold text-gray-900">₹{(formState.amount || parseFloat(formState.customAmount) || 0).toLocaleString()}</span>
+            <dt className="text-gray-700">Amount</dt>
+            <dd className="font-semibold text-gray-900">{formatCurrency(currentAmount)}</dd>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-700">Type:</span>
-            <span className="text-gray-900">{formState.recurring ? `Recurring (${formState.frequency})` : 'One-time'}</span>
+            <dt className="text-gray-700">Type</dt>
+            <dd className="text-gray-900">
+              {formState.recurring ? `Recurring (${formState.frequency})` : 'One-time'}
+            </dd>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-700">Donor:</span>
-            <span className="text-gray-900">{formState.donor.name}</span>
+            <dt className="text-gray-700">Donor</dt>
+            <dd className="text-gray-900">{formState.donor.name}</dd>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-700">Email:</span>
-            <span className="text-gray-900">{formState.donor.email}</span>
+            <dt className="text-gray-700">Email</dt>
+            <dd className="text-gray-900">{formState.donor.email}</dd>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-700">Payment Method:</span>
-            <span className="capitalize text-gray-900">{formState.paymentMethod}</span>
+            <dt className="text-gray-700">80G certificate</dt>
+            <dd className="text-gray-900">{formState.wants80G ? 'Yes' : 'No'}</dd>
           </div>
-        </div>
+        </dl>
       </div>
 
-      {errors.payment && (
-        <div className="mb-4 text-sm text-red-600 text-center">
-          {errors.payment}
-        </div>
-      )}
-
-      {/* Payment Buttons */}
       <div className="space-y-4">
-        {formState.paymentMethod === 'razorpay' && (
-          <Button
-            onClick={handleSubmit}
-            className="w-full"
-            loading={isLoading || paymentStatus.status === 'processing'}
-            disabled={paymentStatus.status === 'success'}
-          >
-            {paymentStatus.status === 'success' 
-              ? 'Payment Complete' 
-              : isLoading || paymentStatus.status === 'processing'
-              ? 'Processing...' 
-              : 'Pay with Razorpay'
-            }
-          </Button>
-        )}
-
-        {formState.paymentMethod === 'paypal' && (
-          <div className="relative">
-            <PayPalButton
-              amount={formState.amount || parseFloat(formState.customAmount) || 0}
-              currency="INR"
-              donor={formState.donor}
-              recurring={formState.recurring}
-              frequency={formState.frequency}
-              onSuccess={handlePayPalSuccess}
-              onError={handlePayPalError}
-              onCancel={handlePayPalCancel}
-              disabled={paymentStatus.status === 'success' || paymentStatus.status === 'processing'}
-            />
-          </div>
-        )}
+        <Button
+          onClick={handleSubmit}
+          className="w-full"
+          loading={isLoading || paymentStatus.status === 'processing'}
+          disabled={paymentStatus.status === 'success'}
+        >
+          {paymentStatus.status === 'success'
+            ? 'Payment complete'
+            : isLoading || paymentStatus.status === 'processing'
+            ? 'Processing...'
+            : `Donate ${formatCurrency(currentAmount)}`}
+        </Button>
 
         <Button
           variant="outline"
@@ -871,16 +835,27 @@ export default function DonationForm() {
           className="w-full"
           disabled={paymentStatus.status === 'processing'}
         >
-          Back to Donor Information
+          Back
         </Button>
       </div>
+
+      <p className="mt-4 text-center text-xs text-gray-500">
+        By donating you agree to our{' '}
+        <Link href="/terms" className="text-orange-700 underline">
+          terms
+        </Link>{' '}
+        and{' '}
+        <Link href="/privacy" className="text-orange-700 underline">
+          privacy policy
+        </Link>
+        . For NRI and international donations, email info@scesindia.com.
+      </p>
     </Card>
   );
 
   return (
     <div className="py-8">
       {renderProgressIndicator()}
-      
       {formState.step === 1 && renderAmountStep()}
       {formState.step === 2 && renderDonorInfoStep()}
       {formState.step === 3 && renderPaymentStep()}

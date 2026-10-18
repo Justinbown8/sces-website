@@ -4,22 +4,17 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { formatCurrency, generateReceiptNumber } from '@/lib/payment';
-import { sendDonationReceipt, sendAdminNotification, DonationReceiptData } from '@/lib/email';
-import { recordDonation } from '@/lib/donation-tracking';
+import { formatCurrency } from '@/lib/payment';
 import FundsBreakdown from '@/components/donation/FundsBreakdown';
 import Link from 'next/link';
 
 interface DonationDetails {
   transactionId: string;
   amount: number;
-  donorName: string;
-  donorEmail: string;
   recurring: boolean;
   frequency?: string;
   timestamp: string;
   paymentMethod?: string;
-  receiptNumber?: string;
 }
 
 export default function DonationSuccessContent() {
@@ -29,105 +24,30 @@ export default function DonationSuccessContent() {
   const [emailStatus, setEmailStatus] = useState<'sending' | 'sent' | 'failed' | null>(null);
 
   useEffect(() => {
-    // Extract donation details from URL parameters
-    const transactionId = searchParams.get('transaction_id');
+    // The verification route returns a short-lived signed token so donor PII
+    // never travels in the URL. The receipt is emailed server-side as soon as
+    // the Razorpay signature and captured amount are confirmed.
+    const token = searchParams.get('token');
+    const transactionId = searchParams.get('payment_id') || searchParams.get('transaction_id');
     const amount = searchParams.get('amount');
-    const donorName = searchParams.get('donor_name');
-    const donorEmail = searchParams.get('donor_email');
     const recurring = searchParams.get('recurring') === 'true';
     const frequency = searchParams.get('frequency');
     const paymentMethod = searchParams.get('payment_method') || 'razorpay';
-    
-    // Handle PayPal redirect case
-    const paypalOrderId = searchParams.get('paypal_order_id');
 
-    if (paypalOrderId && !transactionId) {
-      // This is a PayPal redirect, we need to capture the order
-      // For now, show a processing state and redirect to capture
-      setIsLoading(true);
-      // In a real implementation, you would capture the PayPal order here
-      // For this demo, we'll show an error message
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 2000);
-      return;
-    }
-
-    if (transactionId && amount && donorName && donorEmail) {
-      const receiptNumber = generateReceiptNumber();
-      const details: DonationDetails = {
+    if (transactionId && amount && token) {
+      setDonationDetails({
         transactionId,
         amount: parseFloat(amount),
-        donorName,
-        donorEmail,
         recurring,
         frequency: frequency || undefined,
         timestamp: new Date().toISOString(),
         paymentMethod,
-        receiptNumber,
-      };
-      
-      setDonationDetails(details);
-      
-      // Process donation in background
-      processDonation(details);
+      });
+      setEmailStatus('sent');
     }
-    
+
     setIsLoading(false);
   }, [searchParams]);
-
-  const processDonation = async (details: DonationDetails) => {
-    try {
-      setEmailStatus('sending');
-      
-      // Record donation in tracking system
-      await recordDonation({
-        transactionId: details.transactionId,
-        receiptNumber: details.receiptNumber!,
-        amount: details.amount,
-        currency: 'INR',
-        donorName: details.donorName,
-        donorEmail: details.donorEmail,
-        recurring: details.recurring,
-        frequency: details.frequency as 'monthly' | 'quarterly' | 'yearly' | undefined,
-        paymentMethod: (details.paymentMethod || 'razorpay') as 'razorpay' | 'paypal',
-      });
-
-      // Prepare receipt data
-      const receiptData: DonationReceiptData = {
-        transactionId: details.transactionId,
-        amount: details.amount,
-        currency: 'INR',
-        donorName: details.donorName,
-        donorEmail: details.donorEmail,
-        recurring: details.recurring,
-        frequency: details.frequency,
-        paymentMethod: details.paymentMethod || 'razorpay',
-        timestamp: details.timestamp,
-        receiptNumber: details.receiptNumber!,
-      };
-
-      // Send receipt email and admin notification
-      const [receiptResult, adminResult] = await Promise.all([
-        sendDonationReceipt(receiptData),
-        sendAdminNotification(receiptData),
-      ]);
-
-      if (receiptResult.success) {
-        setEmailStatus('sent');
-      } else {
-        console.error('Failed to send receipt:', receiptResult.error);
-        setEmailStatus('failed');
-      }
-
-      if (!adminResult.success) {
-        console.error('Failed to send admin notification:', adminResult.error);
-      }
-    } catch (error) {
-      console.error('Failed to process donation:', error);
-      setEmailStatus('failed');
-    }
-  };
 
   if (isLoading) {
     return (
@@ -186,12 +106,6 @@ export default function DonationSuccessContent() {
         <Card className="p-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Donation Details</h2>
           <div className="space-y-3">
-            {donationDetails.receiptNumber && (
-              <div className="flex justify-between">
-                <span className="text-gray-600">Receipt Number:</span>
-                <span className="font-mono text-sm font-semibold">{donationDetails.receiptNumber}</span>
-              </div>
-            )}
             <div className="flex justify-between">
               <span className="text-gray-600">Transaction ID:</span>
               <span className="font-mono text-sm">{donationDetails.transactionId}</span>
@@ -203,14 +117,6 @@ export default function DonationSuccessContent() {
             <div className="flex justify-between">
               <span className="text-gray-600">Type:</span>
               <span>{donationDetails.recurring ? `Recurring (${donationDetails.frequency})` : 'One-time'}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Donor:</span>
-              <span>{donationDetails.donorName}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Email:</span>
-              <span className="text-sm">{donationDetails.donorEmail}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Payment Method:</span>
@@ -225,29 +131,18 @@ export default function DonationSuccessContent() {
           <div className="mt-6 p-4 bg-blue-50 rounded-lg">
             <div className="flex items-start space-x-3">
               <div className="text-blue-600 mt-1">
-                {emailStatus === 'sending' && (
-                  <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                )}
                 {emailStatus === 'sent' && (
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 )}
-                {emailStatus === 'failed' && (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                  </svg>
-                )}
               </div>
               <div>
                 <p className="text-sm text-blue-800">
-                  <strong>Receipt:</strong> 
-                  {emailStatus === 'sending' && ' Sending confirmation email...'}
-                  {emailStatus === 'sent' && ` A confirmation email with your donation receipt has been sent to ${donationDetails.donorEmail}`}
-                  {emailStatus === 'failed' && ' Failed to send confirmation email. Please contact us for your receipt.'}
-                  {emailStatus === null && ` A confirmation email with your donation receipt will be sent to ${donationDetails.donorEmail}`}
+                  <strong>Receipt:</strong>{' '}
+                  {emailStatus === 'sent'
+                    ? 'Your donation receipt has been emailed to you. If you requested an 80G certificate, it will follow within 7 working days.'
+                    : 'Your receipt will reach your registered email shortly. Contact info@scesindia.com if it does not arrive.'}
                 </p>
               </div>
             </div>

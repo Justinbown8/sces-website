@@ -55,10 +55,12 @@ export const SUPPORTED_PAYMENT_METHODS = [
     methods: ['upi', 'card', 'netbanking', 'wallet'],
   },
   {
+    // Disabled until /api/payment/paypal/create-order and /capture-order exist.
+    // Offering a button that always fails costs donor trust on the last step.
     id: 'paypal',
     name: 'PayPal',
     description: 'International payments',
-    enabled: true,
+    enabled: false,
     recommended: false,
     methods: ['paypal', 'card'],
   },
