@@ -101,6 +101,8 @@ function getFilterDescription(category: GalleryCategory): string {
       return 'Learning environments and educational activities';
     case 'Field Visits':
       return 'Educational trips and outdoor learning experiences';
+    case 'Posts & Activities':
+      return 'Social media posts and snapshots from our activities';
     default:
       return '';
   }

@@ -29,6 +29,9 @@ export default function GalleryPage() {
                 🌍 Field Visits
               </div>
               <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                🖼️ Posts &amp; Activities
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 🎥 Videos
               </div>
             </div>

@@ -1,10 +1,16 @@
+export type GalleryUsage = 'gallery' | 'blog' | 'print' | 'social';
+
 export interface GalleryImage {
   id: string;
   filename: string;
+  /** Public path override. Defaults to `/gallery/<filename>`. */
+  src?: string;
   alt: string;
-  category: 'Events' | 'Classrooms' | 'Field Visits';
+  category: 'Events' | 'Classrooms' | 'Field Visits' | 'Posts & Activities';
   caption?: string;
   featured?: boolean;
+  /** Where this image is cleared to be reused. */
+  usage?: GalleryUsage[];
 }
 
 export const galleryImages: GalleryImage[] = [
@@ -183,10 +189,238 @@ export const galleryImages: GalleryImage[] = [
     alt: 'Cultural heritage site visit for historical education',
     category: 'Field Visits',
     caption: 'Preserving cultural heritage through educational visits'
+  },
+
+  // Posts & Activities Category
+  // usage tags mark where each asset may be reused: 'gallery', 'blog', 'social', 'print'.
+  {
+    id: 'post-1',
+    filename: 'Untitled - September 20, 2026 at 13.20.45.png',
+    src: '/images/Posts and Activities/Untitled - September 20, 2026 at 13.20.45.png',
+    alt: 'SCES branded social media poster from September 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, September 20, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-2',
+    filename: 'Untitled - September 20, 2026 at 13.20.45-2.png',
+    src: '/images/Posts and Activities/Untitled - September 20, 2026 at 13.20.45-2.png',
+    alt: 'SCES branded social media poster variation from September 2026',
+    category: 'Posts & Activities',
+    caption: 'Alternate version of the SCES post from September 20, 2026',
+    usage: ['social', 'blog']
+  },
+  {
+    id: 'post-3',
+    filename: 'Untitled - September 20, 2026 at 15.04.16.png',
+    src: '/images/Posts and Activities/Untitled - September 20, 2026 at 15.04.16.png',
+    alt: 'SCES branded social media poster from September 20, 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, September 20, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-4',
+    filename: 'Untitled - September 22, 2026 at 14.10.38.png',
+    src: '/images/Posts and Activities/Untitled - September 22, 2026 at 14.10.38.png',
+    alt: 'SCES branded social media poster from September 22, 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, September 22, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-5',
+    filename: 'Untitled - September 25, 2026 at 12.14.28.png',
+    src: '/images/Posts and Activities/Untitled - September 25, 2026 at 12.14.28.png',
+    alt: 'SCES branded social media poster from September 25, 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, September 25, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-6',
+    filename: 'Untitled - September 27, 2026 at 18.04.50.png',
+    src: '/images/Posts and Activities/Untitled - September 27, 2026 at 18.04.50.png',
+    alt: 'SCES branded social media poster from September 27, 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, September 27, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-7',
+    filename: 'Untitled - October 01, 2026 at 11.11.35 (2).png',
+    src: '/images/Posts and Activities/Untitled - October 01, 2026 at 11.11.35 (2).png',
+    alt: 'SCES branded social media poster from October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, October 1, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-8',
+    filename: 'Untitled - October 09, 2026 at 15.20.00.png',
+    src: '/images/Posts and Activities/Untitled - October 09, 2026 at 15.20.00.png',
+    alt: 'SCES branded social media poster from October 9, 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, October 9, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-9',
+    filename: 'Untitled - October 10, 2026 at 13.54.38.png',
+    src: '/images/Posts and Activities/Untitled - October 10, 2026 at 13.54.38.png',
+    alt: 'SCES branded social media poster from October 10, 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, October 10, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-10',
+    filename: 'Untitled - October 12, 2026 at 14.32.49.png',
+    src: '/images/Posts and Activities/Untitled - October 12, 2026 at 14.32.49.png',
+    alt: 'SCES branded social media poster from October 12, 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, October 12, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-11',
+    filename: 'Untitled - October 15, 2026 at 12.55.32.png',
+    src: '/images/Posts and Activities/Untitled - October 15, 2026 at 12.55.32.png',
+    alt: 'SCES branded social media poster from October 15, 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, October 15, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-12',
+    filename: 'Untitled - October 15, 2026 at 13.19.45.png',
+    src: '/images/Posts and Activities/Untitled - October 15, 2026 at 13.19.45.png',
+    alt: 'SCES branded social media poster from October 15, 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES post shared on social media, October 15, 2026',
+    usage: ['social', 'blog', 'print']
+  },
+  {
+    id: 'post-13',
+    filename: 'Untitled - October 15, 2026 at 13.19.45 (1).png',
+    src: '/images/Posts and Activities/Untitled - October 15, 2026 at 13.19.45 (1).png',
+    alt: 'SCES branded social media poster variation from October 15, 2026',
+    category: 'Posts & Activities',
+    caption: 'Alternate version of the SCES post from October 15, 2026',
+    usage: ['social', 'blog']
+  },
+  {
+    id: 'activity-1',
+    filename: 'WhatsApp Image 2026-10-.jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-.jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-2',
+    filename: 'WhatsApp Image 2026-10-06 a.jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06 a.jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-3',
+    filename: 'WhatsApp Image 2026-10-06 at 8.19..jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06 at 8.19..jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-4',
+    filename: 'WhatsApp Image 2026-10-06 at 8.19.37 PM.jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06 at 8.19.37 PM.jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-5',
+    filename: 'WhatsApp Image 2026-10-06 at 8.19.4.jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06 at 8.19.4.jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-6',
+    filename: 'WhatsApp Image 2026-10-06 at 8.19.42 PM.jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06 at 8.19.42 PM.jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-7',
+    filename: 'WhatsApp Image 2026-10-06 at 8.19.43 .jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06 at 8.19.43 .jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-8',
+    filename: 'WhatsApp Image 2026-10-06 at 8.19.43 PM.jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06 at 8.19.43 PM.jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-9',
+    filename: 'WhatsApp Image 2026-10-06 at 8.19.52 .jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06 at 8.19.52 .jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-10',
+    filename: 'WhatsApp Image 2026-10-06 at 8.19.52 PM.jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06 at 8.19.52 PM.jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-11',
+    filename: 'WhatsApp Image 2026-10-06 at 8.jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06 at 8.jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
+  },
+  {
+    id: 'activity-12',
+    filename: 'WhatsApp Image 2026-10-06.jpeg',
+    src: '/images/Posts and Activities/WhatsApp Image 2026-10-06.jpeg',
+    alt: 'Photo from SCES activities, October 2026',
+    category: 'Posts & Activities',
+    caption: 'SCES activities, October 6, 2026',
+    usage: ['gallery', 'blog', 'social']
   }
 ];
 
-export const galleryCategories = ['All', 'Events', 'Classrooms', 'Field Visits'] as const;
+export const galleryCategories = ['All', 'Events', 'Classrooms', 'Field Visits', 'Posts & Activities'] as const;
 
 export type GalleryCategory = typeof galleryCategories[number];
 
@@ -194,6 +428,14 @@ export type GalleryCategory = typeof galleryCategories[number];
 export const getImagesByCategory = (category: GalleryCategory): GalleryImage[] => {
   if (category === 'All') return galleryImages;
   return galleryImages.filter(image => image.category === category);
+};
+
+export const getImagesByUsage = (usage: GalleryUsage): GalleryImage[] => {
+  return galleryImages.filter(image => image.usage?.includes(usage));
+};
+
+export const getImageSrc = (image: GalleryImage): string => {
+  return image.src ?? `/gallery/${image.filename}`;
 };
 
 export const getFeaturedImages = (): GalleryImage[] => {

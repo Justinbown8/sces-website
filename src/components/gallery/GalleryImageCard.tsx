@@ -50,7 +50,7 @@ export function GalleryImageCard({
       <div className="relative aspect-auto">
         {!imageError ? (
           <Image
-            src={getOptimizedImageUrl(image.filename)}
+            src={getOptimizedImageUrl(image)}
             alt={getImageAlt(image)}
             width={400}
             height={300}

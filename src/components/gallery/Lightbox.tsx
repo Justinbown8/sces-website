@@ -430,7 +430,7 @@ export function Lightbox({
             transition={{ duration: 0.3 }}
           >
             <Image
-              src={getOptimizedImageUrl(currentImage.filename)}
+              src={getOptimizedImageUrl(currentImage)}
               alt={getImageAlt(currentImage)}
               width={1200}
               height={800}

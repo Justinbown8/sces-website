@@ -55,7 +55,7 @@ export function ImagePreloader({
 
     // Preload each image
     uniqueImages.forEach(image => {
-      const imageUrl = getOptimizedImageUrl(image.filename);
+      const imageUrl = getOptimizedImageUrl(image);
       
       // Skip if already loaded
       if (loadedImages.has(imageUrl)) {

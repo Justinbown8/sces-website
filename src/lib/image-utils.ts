@@ -36,12 +36,16 @@ export const generateSizes = (): string => {
 
 // Get optimized image URL
 export const getOptimizedImageUrl = (
-  filename: string, 
+  image: string | Pick<GalleryImage, 'filename' | 'src'>,
   size: ImageSize = 'medium'
 ): string => {
   // For Next.js Image component, we'll use the original path
   // Next.js will handle optimization automatically
-  return `/gallery/${filename}`;
+  const path = typeof image === 'string'
+    ? (image.startsWith('/') ? image : `/gallery/${image}`)
+    : (image.src ?? `/gallery/${image.filename}`);
+
+  return encodeURI(path);
 };
 
 // Get image dimensions for a specific size
