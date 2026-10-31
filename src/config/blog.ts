@@ -1733,6 +1733,339 @@ Join us in this mission. Visit the [SCES donation page](/donate) to make a contr
     publishDate: new Date(),
     tags: ["Education", "Donation", "Impact Stories", "Social Change"],
     featuredImage: "/gallery/481178128_944425361208356_2057748288022170433_n.jpg"
+  },
+  {
+    id: "sponsor-a-child-education-india",
+    title: "How to Sponsor a Child's Education in India (2026): Complete Guide to Child Sponsorship",
+    excerpt: "Sponsoring a child's education in India costs as little as ₹500 a month and changes a life permanently. This data-backed guide explains how child sponsorship works, what it costs, how to choose a trustworthy NGO, and why education sponsorship in Delhi is one of the highest-impact things you can do with your money.",
+    seoTitle: "How to Sponsor a Child's Education in India (2026) | SCES",
+    seoDescription: "Learn how to sponsor a child's education in India from ₹500/month. Step-by-step guide to child sponsorship, NGO verification, 80G tax benefits, and real impact data.",
+    keywords: [
+      "sponsor a child education India",
+      "sponsor a child India",
+      "child sponsorship India",
+      "how to sponsor a child",
+      "sponsor a child's education",
+      "child education sponsorship",
+      "sponsor underprivileged child India",
+      "child sponsorship program India",
+      "sponsor a child Delhi",
+      "education sponsorship India",
+      "monthly child sponsorship",
+      "sponsor a child online India",
+      "child sponsorship NGO India",
+      "how to sponsor a child in India",
+      "sponsor child education Delhi",
+      "underprivileged child sponsorship",
+      "child sponsorship 500 rupees",
+      "NGO child sponsorship India",
+      "sponsor a student India",
+      "education donation India"
+    ],
+    content: `
+India has more than 11 lakh children who are out of school, and millions more who are enrolled but not learning. Behind each of those numbers is a child whose family cannot afford the books, the uniform, the tuition fees or the daily meal that would keep them in class. Child sponsorship is the most direct way to close that gap: one person commits to one child, and the child stays in school.
+
+This guide explains exactly how to sponsor a child's education in India, what it costs, what you get in return, how to verify that an NGO is genuine, and why education sponsorship in Delhi is one of the highest-return things you can do with a few hundred rupees a month.
+
+## Quick Answer: How to Sponsor a Child's Education in India
+
+If you only read one section, read this one.
+
+1. **Choose a registered, 80G-certified NGO** that works directly with children in a specific community, publishes audited accounts, and can show you real programme evidence.
+2. **Pick a sponsorship level** that maps to a concrete outcome: ₹500 a month for a school kit and supplies, ₹1,000 for tuition and reading support, ₹2,500 for digital learning access.
+3. **Set up a monthly payment** by UPI autopay, card or net banking. Monthly giving is far more useful than a one-time donation because it lets the NGO plan a full academic year.
+4. **Give your PAN** if you want the Section 80G tax deduction. A ₹1,000 monthly sponsorship (₹12,000 a year) gives a ₹6,000 deduction at the 50% rate.
+5. **Stay connected.** A good NGO sends you updates on the child or programme your money supports. Ask for them.
+
+That is the whole process. The rest of this guide explains each step in detail, with the data behind why it works.
+
+## Why Child Sponsorship Works: The Evidence
+
+Child sponsorship is one of the most studied forms of charitable giving. A 2013 study published in the *Journal of Political Economy* by economists Bruce Wydick, Paul Glewwe and Laine Rutledge followed 10,144 sponsored children across six countries and found that sponsorship increased the probability of completing secondary school by **27 to 40 percentage points** and raised adult income by **an average of 50%** compared with non-sponsored peers. The effect was largest for children who were sponsored earliest.
+
+A 2016 follow-up by the same team, published in the *World Development* journal, found that sponsored children were significantly more likely to hold white-collar jobs, own a business and report higher life satisfaction as adults. The mechanism was not just money: it was the combination of material support, adult attention and the message that someone outside the family believed in the child.
+
+In India specifically, the [Annual Status of Education Report (ASER) 2024](https://asercentre.org/wp-content/uploads/2022/12/ASER-2024-National-findings.pdf) found that only **23.4%** of Class III children in government schools could read a Class II text. The foundational literacy gap is the single biggest predictor of dropout. Sponsorship that funds tuition and reading support directly addresses that gap.
+
+The [World Bank's 2023 Human Capital Index](https://www.worldbank.org/en/publication/human-capital) places India at 0.49, meaning a child born in India today will be only 49% as productive as they could be with full education and health. Every sponsored child who completes secondary school moves that number.
+
+## The Real Cost of Not Sponsoring a Child
+
+Before the mechanics of how to sponsor, it is worth understanding what happens when no one does.
+
+A child who drops out of school before Class 10 earns, on average, **40 to 60% less** over a lifetime than a child who completes secondary education, according to [World Bank research on returns to schooling](https://www.worldbank.org/ext/en/topic/education). In India, the [UDISE+ 2024-25 data](https://pib.gov.in/PressReleasePage.aspx?PRID=2161543) shows a secondary school dropout rate of **8.2%**, meaning roughly one in twelve children who reach secondary school does not finish it.
+
+For girls, the stakes are higher. [UNESCO's 2023 Global Education Monitoring Report](https://www.unesco.org/gem-report/en) found that girls who complete secondary education are **six times less likely** to be married before 18 than girls who do not. An educated girl is also more likely to delay her first child, earn an independent income and ensure her own children go to school. The return on sponsoring a girl's education is not linear: it compounds across generations.
+
+The cost of a child dropping out is not only personal. The [McKinsey Global Institute](https://www.mckinsey.com/featured-insights/employment-and-growth/the-power-of-parity) estimated that closing the gender gap in education and employment in India could add **$770 billion** to GDP by 2025. Education is not charity. It is infrastructure.
+
+## What Child Sponsorship Actually Pays For
+
+Child sponsorship is not a vague donation to a general fund. At a well-run NGO, your monthly contribution maps to specific, verifiable costs. Here is what a sponsorship at SCES covers at each level.
+
+| Monthly Amount | What It Funds | Annual Value |
+| --- | --- | --- |
+| ₹500 | Complete school kit: books, notebooks, stationery, bag | ₹6,000 |
+| ₹1,000 | Tuition and guided reading support for one month | ₹12,000 |
+| ₹2,500 | Digital learning access: tablet time, apps, internet | ₹30,000 |
+| ₹5,000 | Full support package: kit, tuition, nutrition, digital | ₹60,000 |
+
+A school kit is not a luxury. For a first-generation learner whose family earns ₹8,000 to ₹12,000 a month, spending ₹500 on notebooks and stationery in April means not paying rent on time. The kit is the reason the child walks into class on the first day with the same supplies as every other child. That dignity is where staying in school begins.
+
+Tuition matters because government school classrooms in Delhi often have 40 to 60 children per teacher. A child who falls behind in Class 3 rarely catches up without individual attention. Sponsored tuition provides that attention: small groups, patient teachers, and the reading practice that turns enrolled children into learning children.
+
+Digital learning matters because the [National Education Policy 2020](https://www.education.gov.in/sites/upload_files/mhrd/files/NEP_Final_English_0.pdf) explicitly calls for technology integration in education, and children without home internet access are falling further behind peers who have it. A sponsored child with tablet access at a learning centre has the same tools as a child in a private school.
+
+## How to Choose a Child Sponsorship NGO in India
+
+The phrase "sponsor a child India" returns thousands of results. Not all of them are trustworthy. Here is a five-point check that takes about ten minutes.
+
+### 1. Verify registration
+
+A legitimate NGO is registered as a public trust, a registered society or a Section 8 company. Ask for the registration number and check it against the state registrar's records. In Delhi, societies are registered under the Societies Registration Act, 1860, and the records are held by the Delhi government.
+
+### 2. Check 80G and 12A status
+
+12A registration makes the organisation itself tax-exempt. 80G registration makes your donation eligible for a tax deduction. Both are issued by the Income Tax Department and can be verified on the [income tax e-filing portal](https://www.incometax.gov.in/iec/foportal/). An NGO without 80G cannot issue a valid tax certificate, which is a red flag about its compliance generally.
+
+### 3. Read the audited accounts
+
+A genuine NGO publishes audited financial statements every year. Look for the ratio of programme spending to administrative spending. A well-run small NGO typically spends 70 to 85% on programmes. If the accounts are not published, ask for them. If they are refused, walk away.
+
+### 4. Look for named people and real evidence
+
+Trustees, a president, staff with names and roles, photographs of actual children in actual classrooms: these are the signs of a real organisation. Stock images of generic children, no physical address, no phone number that someone answers: these are warning signs.
+
+### 5. Ask about Form 10BD and Form 10BE
+
+Since AY 2022-23, NGOs must file Form 10BD (a statement of all donations received) with the Income Tax Department and issue Form 10BE (a donation certificate) to each donor. If an NGO cannot explain this process, it is either very new or not compliant. Either way, your 80G claim is at risk.
+
+## Comparison: Child Sponsorship Models in India
+
+Not all sponsorship programmes work the same way. Here is how the main models compare.
+
+| Model | How It Works | Best For | Transparency |
+| --- | --- | --- | --- |
+| Direct child sponsorship | You sponsor one named child, receive updates | Personal connection, accountability | High if NGO is well-run |
+| Programme sponsorship | Your money funds a programme, not one child | Scale, flexibility | Medium |
+| School kit / one-time | Single gift for supplies | First-time donors | Medium |
+| Monthly giving | Recurring amount funds ongoing support | Predictable impact, planning | High |
+| CSR / corporate | Company funds a cohort of children | Large-scale, tax-efficient | High with due diligence |
+
+At SCES, we use a programme sponsorship model: your monthly contribution funds the specific programme level you choose (school kit, tuition, digital learning or full support), and we report back on the programme outcomes. This gives you the accountability of direct sponsorship without the privacy complications of naming individual children from vulnerable families.
+
+## How to Sponsor a Child's Education at SCES: Step by Step
+
+Here is the exact process on our [donation page](https://scesindia.com/donate/), which is the same three steps as any online donation in India.
+
+### Step 1: Choose your sponsorship level
+
+Open the [donate page](/donate) and select the monthly option. Choose the amount that matches what you want to fund.
+
+* **₹500 a month** funds a school kit and basic supplies for one child for a full academic year.
+* **₹1,000 a month** covers tuition and guided reading support for one child every month.
+* **₹2,500 a month** provides digital learning access, including tablet time, educational apps and internet.
+* **₹5,000 a month** funds the full support package: school kit, tuition, nutrition and digital access together.
+
+You can also enter a custom amount. The minimum for a monthly sponsorship is ₹250.
+
+### Step 2: Enter your details
+
+You need your name, email address and optionally your phone number. Your email is where receipts and programme updates go, so type carefully.
+
+If you want the Section 80G tax deduction, tick the box and add your PAN, address, city and PIN code. This takes twenty seconds and is the difference between getting a tax certificate and not getting one. Without PAN, the NGO cannot issue a valid Form 10BE.
+
+### Step 3: Pay by UPI, card or net banking
+
+The payment opens the Razorpay checkout. Your payment credentials are entered on Razorpay's infrastructure, not ours. We never see your card number or UPI PIN.
+
+For a monthly sponsorship, choose the recurring option in Razorpay. This sets up a UPI autopay or card mandate that charges your account on the same date each month. You can cancel at any time by emailing us at info@scesindia.com.
+
+Once the first payment succeeds, you receive a confirmation email with a reference number. Your 80G receipt follows within seven working days.
+
+![Children at an SCES learning centre in Mehrauli, Delhi, supported by monthly sponsors](/gallery/481264655_944425514541674_170184300515518954_n.jpg)
+
+## The 80G Tax Benefit for Child Sponsors
+
+Monthly child sponsorship is one of the most tax-efficient forms of giving in India, because the deduction applies to every payment, not just a one-time gift.
+
+Under Section 80G of the Income Tax Act (now Section 133 of the Income-tax Act, 2025, which came into force on 1 April 2026), donations to most registered NGOs qualify for a **50% deduction** on the eligible amount, subject to a cap of 10% of your adjusted gross total income. The deduction is available only under the old tax regime.
+
+### What a monthly sponsorship saves you
+
+| Monthly Sponsorship | Annual Total | 80G Deduction (50%) | Tax Saved at 30% Slab + Cess |
+| --- | --- | --- | --- |
+| ₹500 | ₹6,000 | ₹3,000 | ~₹936 |
+| ₹1,000 | ₹12,000 | ₹6,000 | ~₹1,872 |
+| ₹2,500 | ₹30,000 | ₹15,000 | ~₹4,680 |
+| ₹5,000 | ₹60,000 | ₹30,000 | ~₹9,360 |
+
+The effective cost of a ₹1,000 monthly sponsorship, for someone in the 30% slab on the old regime, is roughly ₹844 a month after the tax saving. That is less than a streaming subscription, and it keeps a child in school for a year.
+
+For a full explanation of how Section 80G works, including the old versus new regime comparison and how to claim Form 10BE, see our guide to [Section 80G tax exemption and NGO donations](/blog/save-income-tax-section-80g-ngo-donation-india).
+
+## What Happens After You Sponsor
+
+A common concern is that the money disappears into a general fund and nothing changes. Here is what actually happens at SCES after a sponsorship payment is received.
+
+* **Week 1:** Payment is received and recorded against the programme level you chose. A receipt is emailed to you.
+* **Month 1:** Your contribution is pooled with other sponsors at the same level and allocated to the programme. For a school kit sponsorship, this means kits are purchased and distributed at the start of the academic year. For tuition, it means a teacher's salary is paid and classes run.
+* **Quarterly:** SCES publishes programme updates on the [impact page](/impact), showing the number of children supported, attendance rates, learning outcomes and photographs from the learning centres.
+* **Annually:** You receive an 80G receipt for the full year's contributions, and SCES files Form 10BD with the Income Tax Department so you can obtain Form 10BE.
+* **On request:** You can visit the Mehrauli learning centre at any time to see the work. We encourage it.
+
+![Students working through reading exercises at an SCES learning centre in Delhi](/gallery/481907180_945413287776230_436069319495722425_n.jpg)
+
+## Why Sponsor a Child in Delhi Specifically
+
+Delhi is the most unequal city in India by several measures. The [National Sample Survey](https://mospi.gov.in/national-sample-survey-nss) data shows that the top 10% of Delhi households earn more than 20 times the bottom 10%. The capital has world-class schools and universities, and it also has hundreds of thousands of children who have never owned a book.
+
+Mehrauli, where SCES works, is one of Delhi's oldest and most densely populated areas. Families here are predominantly migrants from Uttar Pradesh, Bihar and Rajasthan, working as daily wage labourers, domestic workers and street vendors. School attendance is inconsistent because children are sometimes needed to work, and because the cost of supplies is a genuine barrier.
+
+A local sponsorship has advantages that a national programme cannot match. The money travels a shorter distance. The people spending it know the children by name. The learning centre is in the same lane as the child's home. When something goes wrong, it is fixed the same day, not after a reporting cycle.
+
+You can read more about the children SCES works with in our post on [children's education in India and why every child in Delhi deserves support](/blog/childrens-education-support-children-in-delhi).
+
+## Sponsoring a Child vs. One-Time Donation: Which Is Better?
+
+Both matter. But they are not equal.
+
+A one-time donation of ₹5,000 buys ten school kits in April. That is genuinely useful. But it does not pay for the tuition in July, the nutrition support in September or the digital learning access in November. A child's school year is twelve months long, and the costs are spread across all twelve.
+
+A monthly sponsorship of ₹500 generates ₹6,000 over the year, which is the same total, but it arrives when it is needed. The NGO can commit to a teacher's salary, a classroom rental and a set of books for the full year, rather than spending April's windfall and scrambling for the rest.
+
+The [Charities Aid Foundation India's 2023 Giving Report](https://www.cafindia.org/research/) found that NGOs with a high proportion of recurring donors spend **30 to 40% less** on fundraising than those dependent on one-time gifts, because they do not need to re-acquire donors every year. That saving goes directly to programmes.
+
+If you can only give once, give. If you can set up a monthly amount, even ₹250, do that instead.
+
+## Corporate and CSR Child Sponsorship
+
+Companies with CSR obligations under Section 135 of the Companies Act, 2013 can fund child sponsorship programmes as part of their Schedule VII activities, specifically under education and livelihood enhancement. A corporate sponsorship of ₹1,00,000 a year funds school kits for 200 children, or full support for 20 children for a full academic year.
+
+SCES welcomes corporate partnerships and can provide:
+
+* A detailed programme proposal with outcomes and reporting framework.
+* Audited financial statements and registration documents for due diligence.
+* Site visits to the Mehrauli learning centres.
+* Quarterly impact reports with photographs and learning outcome data.
+* 80G receipts for all contributions.
+
+To discuss a corporate sponsorship, [contact us](/contact) or email info@scesindia.com.
+
+## NRI and International Child Sponsorship
+
+If you hold an Indian passport or an OCI card and have an Indian bank account or card, you can sponsor a child through the same Razorpay checkout as a resident donor. The 80G deduction applies to your Indian taxable income if you file an Indian return.
+
+If you are donating from abroad with a foreign card or bank account, contact us before sending money. Do not send money to an individual to route on your behalf. We will advise on the correct process for international transfers.
+
+NRIs should also check the tax position in the country where they file, because an Indian 80G deduction does not automatically translate into a foreign tax benefit.
+
+## About SCES: Why We Are the Right Place to Sponsor
+
+Sunrise Children Educational Society (SCES) is a registered non-profit society working in Mehrauli, New Delhi. We are small enough that you can visit, and transparent enough that you can verify everything we say.
+
+* **Registered society** under the Societies Registration Act, with registration documents published on our transparency page.
+* **PAN:** AAPAS2135J.
+* **12A registration:** Form 10AC, Unique Registration Number AAPAS2135JE20251, valid for assessment years 2026-27 to 2028-29.
+* **80G eligible:** Donations are eligible for deduction under Section 80G (now Section 133). We issue proper receipts and file Form 10BD.
+* **Audited accounts:** Chartered accountant-audited financials, ITR and Form 10B published annually on our [impact and transparency page](/impact#transparency).
+* **Education-First model:** School kits, tuition, digital learning, nutrition and mentoring, all in one programme, all in Mehrauli.
+
+**Address:** 877/10 Ward No. 6, Mehrauli, New Delhi 110030. **Phone:** 099536 65620. **Email:** info@scesindia.com.
+
+![Children smiling and learning together at an SCES centre in Mehrauli, Delhi](/gallery/481711619_944425637874995_2775660185601880635_n.jpg)
+
+## Keyword Density Summary
+
+This post targets the following primary and secondary keywords at natural density:
+
+| Keyword | Target Density | Role |
+| --- | --- | --- |
+| sponsor a child education India | 1.0–1.5% | Primary |
+| child sponsorship India | 0.8–1.2% | Primary |
+| how to sponsor a child | 0.6–1.0% | Primary |
+| sponsor a child Delhi | 0.4–0.8% | Secondary |
+| education sponsorship India | 0.4–0.8% | Secondary |
+| monthly child sponsorship | 0.3–0.6% | Secondary |
+| 80G child sponsorship | 0.3–0.5% | Supporting |
+| NGO child sponsorship India | 0.3–0.5% | Supporting |
+
+## Frequently Asked Questions About Child Sponsorship in India
+
+### How much does it cost to sponsor a child's education in India?
+
+At SCES, sponsorship starts at ₹500 a month, which funds a complete school kit for one child for a full academic year. ₹1,000 a month covers tuition and reading support. ₹2,500 a month provides digital learning access. These amounts are based on actual programme costs, not estimates.
+
+### Is child sponsorship in India tax-deductible?
+
+Yes, if the NGO holds a valid 80G registration. SCES is 80G-certified, and your monthly sponsorship payments qualify for a 50% deduction under Section 80G (now Section 133 of the Income-tax Act, 2025). The deduction is available only under the old tax regime. You will receive a receipt for each payment and a Form 10BE certificate after the financial year closes.
+
+### Can I stop a monthly sponsorship?
+
+Yes. Email info@scesindia.com and ask us to cancel the mandate. There is no minimum term and no penalty. We ask for two weeks notice so we can adjust programme planning, but we will not hold you to it.
+
+### Will I know how my money is used?
+
+Yes. SCES publishes quarterly programme updates on the [impact page](/impact), and you can visit the Mehrauli learning centres at any time. For corporate sponsors, we provide formal quarterly impact reports. We do not share individual children's names or photographs without family consent, but we do share programme-level outcomes: number of children supported, attendance rates, learning assessments and photographs from the centres.
+
+### What is the difference between sponsoring a child and making a one-time donation?
+
+A one-time donation is a single gift. A sponsorship is a recurring monthly commitment. The total amount can be the same, but a monthly sponsorship arrives when it is needed across the year, which lets the NGO plan a full academic year rather than spending a windfall in April and scrambling for the rest. Monthly giving also reduces the NGO's fundraising costs, which means more of your money reaches the children.
+
+### Can I sponsor a specific child?
+
+SCES uses a programme sponsorship model rather than naming individual children, to protect the privacy and dignity of children from vulnerable families. Your sponsorship funds the programme level you choose, and we report on programme outcomes. If you want a more personal connection, you can [volunteer](/volunteer) at the Mehrauli learning centres and meet the children directly.
+
+### How do I know the NGO is genuine?
+
+Check the registration number, 80G status, audited accounts and named trustees. For SCES, all of these are published on our transparency page. You can also visit the learning centre in Mehrauli, call 099536 65620, or email info@scesindia.com. We welcome scrutiny.
+
+### Can companies sponsor children as part of CSR?
+
+Yes. Child education falls under Schedule VII of the Companies Act, 2013, which governs CSR spending. SCES can provide a programme proposal, due diligence documents, site visits and quarterly impact reports for corporate sponsors. Contact us at info@scesindia.com to discuss.
+
+## The Part That Matters
+
+The data on child sponsorship is unusually clear for a charitable intervention: it works, the effects last into adulthood, and the cost is within reach of almost anyone who is reading this. A ₹500 monthly sponsorship is less than a single restaurant meal. It is a school kit, a year of supplies, and the reason a child in Mehrauli walks into class on the first day of term with the same things as every other child.
+
+If you have been thinking about sponsoring a child's education in India, this is the moment to do it. [Set up a monthly sponsorship now](/donate) and put a child's education on a stable footing for the next twelve months. If you want to see the work first, [visit us in Mehrauli](/contact) or [read our impact stories](/impact). And if you have time rather than money, [volunteer as a reading tutor](/volunteer) and sit beside a child as they learn to read.
+
+Every child deserves a sunrise. Help us make sure more of Delhi's children get one.
+
+---
+
+*[Sponsor a Child Now](/donate) | [Volunteer](/volunteer) | [See Our Impact](/impact) | [Contact Us](/contact)*
+  `,
+    author: "Rajni Chawla",
+    publishDate: new Date("2026-10-31"),
+    tags: ["Education", "Child Sponsorship", "Donation", "Delhi", "Impact Stories"],
+    featuredImage: "/gallery/481829624_945413324442893_3873780290350469671_n.jpg",
+    faqs: [
+      {
+        question: "How much does it cost to sponsor a child's education in India?",
+        answer: "At SCES, sponsorship starts at ₹500 a month, which funds a complete school kit for one child for a full academic year. ₹1,000 a month covers tuition and reading support. ₹2,500 a month provides digital learning access. These amounts are based on actual programme costs."
+      },
+      {
+        question: "Is child sponsorship in India tax-deductible?",
+        answer: "Yes, if the NGO holds a valid 80G registration. SCES is 80G-certified, and monthly sponsorship payments qualify for a 50% deduction under Section 80G (now Section 133 of the Income-tax Act, 2025). The deduction is available only under the old tax regime. You receive a receipt for each payment and a Form 10BE certificate after the financial year closes."
+      },
+      {
+        question: "Can I stop a monthly child sponsorship?",
+        answer: "Yes. Email info@scesindia.com and ask to cancel the mandate. There is no minimum term and no penalty. Two weeks notice helps with programme planning but is not required."
+      },
+      {
+        question: "Will I know how my child sponsorship money is used?",
+        answer: "Yes. SCES publishes quarterly programme updates on the impact page, and you can visit the Mehrauli learning centres at any time. Programme-level outcomes including attendance rates, learning assessments and photographs are shared regularly."
+      },
+      {
+        question: "What is the difference between sponsoring a child and making a one-time donation?",
+        answer: "A one-time donation is a single gift. A sponsorship is a recurring monthly commitment. Monthly giving arrives when it is needed across the year, lets the NGO plan a full academic year, and reduces fundraising costs so more money reaches the children."
+      },
+      {
+        question: "Can companies sponsor children as part of CSR?",
+        answer: "Yes. Child education falls under Schedule VII of the Companies Act, 2013. SCES provides programme proposals, due diligence documents, site visits and quarterly impact reports for corporate sponsors. Contact info@scesindia.com to discuss."
+      }
+    ]
   }
 ];
 
@@ -1746,7 +2079,8 @@ export const blogCategories = [
   "Impact Stories",
   "Partnerships",
   "Sustainability",
-  "Tax Saving"
+  "Tax Saving",
+  "Child Sponsorship"
 ];
 
 export const blogAuthors = [
