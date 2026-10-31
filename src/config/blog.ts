@@ -1975,21 +1975,6 @@ Sunrise Children Educational Society (SCES) is a registered non-profit society w
 
 ![Children smiling and learning together at an SCES centre in Mehrauli, Delhi](/gallery/481711619_944425637874995_2775660185601880635_n.jpg)
 
-## Keyword Density Summary
-
-This post targets the following primary and secondary keywords at natural density:
-
-| Keyword | Target Density | Role |
-| --- | --- | --- |
-| sponsor a child education India | 1.0–1.5% | Primary |
-| child sponsorship India | 0.8–1.2% | Primary |
-| how to sponsor a child | 0.6–1.0% | Primary |
-| sponsor a child Delhi | 0.4–0.8% | Secondary |
-| education sponsorship India | 0.4–0.8% | Secondary |
-| monthly child sponsorship | 0.3–0.6% | Secondary |
-| 80G child sponsorship | 0.3–0.5% | Supporting |
-| NGO child sponsorship India | 0.3–0.5% | Supporting |
-
 ## Frequently Asked Questions About Child Sponsorship in India
 
 ### How much does it cost to sponsor a child's education in India?
