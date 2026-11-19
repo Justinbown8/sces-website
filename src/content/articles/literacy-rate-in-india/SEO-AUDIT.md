@@ -1,6 +1,6 @@
 # Literacy Rate in India: Editorial and SEO Audit
 
-Research check: 19 November 2026. Publication authorized: 19 November 2026. Status: public article configuration activated; final deployment verification follows the publication push.
+Research check: 19 November 2026. Publication authorized: 19 November 2026. Status: published and verified live on SCES India.
 
 This report preserves the original keyword/research audit and records the authorized publication update. The user approved making the article public, pushing publication changes to main, and using Sunrise Children Educational Society as the Organization byline. No individual author or credential is invented. The first publication and modification dates are 19 November 2026.
 
@@ -297,4 +297,13 @@ Final local publication acceptance: **12 tests passed, zero failures**, includin
 
 Publication screenshot/metrics evidence: `C:\Users\Asus\AppData\Local\Temp\kilo\literacy-browser-Af69TO\`. The sharing controls wrap on narrow screens; no article/page horizontal overflow or browser exception remained. MoSPI links recovered and returned200 in the final full link run.
 
-Live deployment evidence follows the publication push and deployed-URL check.
+## Live Deployment Evidence
+
+- Publication commit: `62b2494a52a8310c6cdb98733d48c75a09b727be`, pushed to `origin/main`.
+- Vercel commit status: success, `Deployment has completed`, **19 November 2026 at 13:01:13 UTC**.
+- GitHub Production deployment: `7913823587`; successful deployment status recorded at **13:01:14 UTC**.
+- Deployment dashboard: `https://vercel.com/hemant-sambarias-projects/sces-website-dh58/DtGnyRyXaFPVtkpJeUkksoBeWUuw`.
+- Live canonical: `https://scesindia.com/blog/literacy-rate-in-india-state-wise/`, returned **200** with the full article, all 36 rows, eight FAQs, Organization byline and publication date.
+- The live public PNG returned200. The live blog/sitemap include the article and exact canonical; private preview/image endpoints remain404.
+- Live acceptance command: `node "tests/literacy-article.test.mjs" --source-workbook "C:\Users\Asus\AppData\Local\Temp\kilo\literacy_PLFS_2025_Table_7_official.xlsx" --production-url "https://scesindia.com"`: **10 tests passed, zero failures**.
+- Live checks validated one canonical, index/follow metadata, no accidental noindex header, one Article/BreadcrumbList graph, genuine Organization author, accurate dates, public image and discoverability. No Google ranking or rich-result guarantee is claimed.

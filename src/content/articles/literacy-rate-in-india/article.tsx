@@ -335,7 +335,7 @@ export default function LiteracyArticle({
           <p>
             <a href={literacySources[8].url}>NEP 2020</a> prioritises foundational reading, writing and numeracy and adult education.
             Its original universal-FLN goal for 2025 is a policy target, not confirmation of achievement.
-            {' '}<a href={literacySources[13].url}>NIPUN Bharat</a> supports early-years foundational learning under Samagra Shiksha.
+            {' '}<a href={literacySources[13].url}>NIPUN Bharat</a>{' '}supports early-years foundational learning under Samagra Shiksha.
             A population literacy percentage and a child&apos;s assessed foundational proficiency should not be treated as the same result.
           </p>
           <h3>ULLAS / New India Literacy Programme</h3>

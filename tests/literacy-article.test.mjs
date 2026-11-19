@@ -131,6 +131,7 @@ test('semantic tables, heading hierarchy, unique IDs, working TOC and follow lin
     assert.notEqual(anchor.getAttribute('target'), '_blank');
   }
   assert.equal(document.querySelectorAll('#literacy-faqs h3').length, 8);
+  assert.match(document.getElementById('government-initiatives').closest('section').textContent, /NIPUN Bharat\s+supports/);
 });
 
 test('SEO intent/placement, precise title lengths, accurate draft schema and no FAQ markup', () => {
