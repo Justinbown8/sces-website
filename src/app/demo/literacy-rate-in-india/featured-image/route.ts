@@ -8,7 +8,7 @@ export async function GET(request: Request) {
     return new Response(null, { status: 404 });
   }
 
-  const image = await readFile(join(process.cwd(), 'src/content/drafts/literacy-rate-in-india/literacy-rate-in-india-state-wise-plfs-2025.png'));
+  const image = await readFile(join(process.cwd(), 'public/images/literacy-rate-in-india-state-wise-plfs-2025.png'));
   return new Response(new Uint8Array(image), {
     headers: {
       'Content-Type': 'image/png',

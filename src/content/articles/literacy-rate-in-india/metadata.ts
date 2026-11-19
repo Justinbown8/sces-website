@@ -1,0 +1,22 @@
+export const literacySEO = {
+  title: 'Literacy Rate in India: State-Wise Rankings & Data | SCES',
+  description: 'Explore the literacy rate in India with verified state and UT rankings, male-female comparisons, rural-urban gaps and clear Census versus survey sources.',
+  headline: 'Literacy Rate in India: State-Wise Literacy Rates and Rankings',
+  slug: 'literacy-rate-in-india-state-wise',
+  canonical: 'https://scesindia.com/blog/literacy-rate-in-india-state-wise/',
+  previewPath: '/demo/literacy-rate-in-india/',
+  previewImagePath: '/demo/literacy-rate-in-india/featured-image/',
+  publicationImage: 'https://scesindia.com/images/literacy-rate-in-india-state-wise-plfs-2025.png',
+  imageAlt: 'Open book and zero-based bars comparing literacy rates in six Indian states using PLFS 2025 estimates for people aged seven and above',
+  imageTitle: 'Literacy in Indian states: PLFS 2025 comparison',
+  imageCaption: 'Three highest and three lowest state point estimates in PLFS 2025, age seven and above, rural and urban combined. Bars start at zero; this is not Census data.',
+  siteName: 'Sunrise Children Educational Society',
+  siteUrl: 'https://scesindia.com',
+  keywords: [
+    'literacy rate in India', 'state wise literacy rate in India', 'literacy rate of Indian states',
+    'Indian states literacy ranking', 'literacy rate by state', 'highest literacy rate in India',
+    'lowest literacy rate in India', 'female literacy rate in India', 'male literacy rate in India',
+    'literacy rate of Union Territories', 'India literacy statistics', 'education statistics in India',
+    'rural urban literacy gap', 'PLFS 2025 literacy',
+  ],
+} as const;

@@ -16,22 +16,23 @@ async function previewOrigin() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const origin = await previewOrigin();
-  const { createLiteracyMetadata } = await import('@/content/drafts/literacy-rate-in-india/seo');
+  const { createLiteracyMetadata } = await import('@/content/articles/literacy-rate-in-india/seo');
   return createLiteracyMetadata({ mode: 'preview', origin });
 }
 
 export default async function LiteracyDraftPreview() {
   const origin = await previewOrigin();
-  const { default: LiteracyArticle } = await import('@/content/drafts/literacy-rate-in-india/article');
-  const { literacySEO, serializeLiteracySchema } = await import('@/content/drafts/literacy-rate-in-india/seo');
+  const { default: LiteracyArticle } = await import('@/content/articles/literacy-rate-in-india/article');
+  const { literacySEO, serializeLiteracySchema } = await import('@/content/articles/literacy-rate-in-india/seo');
+  const { literacyPublication } = await import('@/content/articles/literacy-rate-in-india/publication');
 
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-5xl px-5 pt-8">
         <p className="rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm leading-relaxed text-amber-950" role="note">
-          <strong>Local Editorial Draft, Not Published.</strong> AI-assisted research and preparation; human author/reviewer
-          approval and first publication date are pending. This preview and its image return 404 in production and are not
-          included in the public blog or sitemap.
+          <strong>Private Development Preview.</strong> This is the editable preview of the published literacy article.
+          This preview and its image endpoint remain unavailable in production. The public article is registered in the blog
+          and sitemap with the approved society byline.
         </p>
         <nav aria-label="Breadcrumb" className="mt-5 text-sm text-gray-600">
           <ol className="flex flex-wrap items-center gap-2">
@@ -44,7 +45,7 @@ export default async function LiteracyDraftPreview() {
         </nav>
       </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeLiteracySchema({ mode: 'preview', origin }) }} />
-      <LiteracyArticle imagePath={literacySEO.previewImagePath} />
+      <LiteracyArticle imagePath={literacySEO.previewImagePath} publication={literacyPublication} />
     </div>
   );
 }

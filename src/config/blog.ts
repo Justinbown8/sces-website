@@ -1,6 +1,8 @@
 import { BlogPost } from '@/types';
+import { literacyBlogPost } from '@/content/articles/literacy-rate-in-india/publication';
 
 export const blogPosts: BlogPost[] = [
+  literacyBlogPost,
   {
     id: "how-to-donate-online-india-why-donate-education",
     title: "How to Donate Online in India (2026): A Step-by-Step Guide and Why Education Is the Cause Worth Your Money",

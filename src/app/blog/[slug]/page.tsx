@@ -10,9 +10,9 @@ import { Breadcrumb } from '@/components/seo/Breadcrumb';
 import { escapeHtml, extractHeadings, slugifyHeading } from '@/lib/markdown';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -21,6 +21,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   
   if (!post) {
     notFound();
+  }
+
+  if (post.id === 'literacy-rate-in-india-state-wise') {
+    const { default: PublishedLiteracyPage } = await import('@/content/articles/literacy-rate-in-india/published-page');
+    return <PublishedLiteracyPage />;
   }
 
   const author = blogAuthors.find(a => a.name === post.author);
@@ -392,6 +397,12 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     return {
       title: 'Post Not Found | SCES Blog',
     };
+  }
+
+  if (post.id === 'literacy-rate-in-india-state-wise') {
+    const { createLiteracyMetadata } = await import('@/content/articles/literacy-rate-in-india/seo');
+    const { literacyPublication } = await import('@/content/articles/literacy-rate-in-india/publication');
+    return createLiteracyMetadata({ mode: 'publication', publication: literacyPublication });
   }
 
   const { generateBlogMetadata } = await import('@/lib/seo');

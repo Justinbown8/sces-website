@@ -104,7 +104,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Dynamic blog pages
   const blogPages = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.id}`,
+    url: post.canonicalUrl ?? `${baseUrl}/blog/${post.id}`,
     lastModified: post.updatedAt ?? post.publishDate,
     changeFrequency: 'monthly' as const,
     priority: 0.7,

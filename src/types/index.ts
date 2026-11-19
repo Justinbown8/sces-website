@@ -81,6 +81,8 @@ export interface BlogPost {
   updatedAt?: Date;
   tags: string[];
   featuredImage?: string;
+  /** Explicit canonical for a post rendered by its own server-side article component. */
+  canonicalUrl?: string;
   /** Optional custom meta title (falls back to `title`). Keep ~55-60 chars. */
   seoTitle?: string;
   /** Optional custom meta description (falls back to `excerpt`). Keep <=160 chars. */

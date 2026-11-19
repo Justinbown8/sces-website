@@ -14,10 +14,9 @@ export default function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
   const normalised = pathname.replace(/\/+$/, '') || '/';
   const preview = normalised === '/demo/literacy-rate-in-india' || normalised.startsWith('/demo/literacy-rate-in-india/');
-  const reservedArticle = normalised === '/blog/literacy-rate-in-india-state-wise' || normalised.startsWith('/blog/literacy-rate-in-india-state-wise/');
 
   // Reject drafts before rendering: streamed notFound() responses can otherwise be HTTP 200.
-  if (reservedArticle || (preview && (process.env.NODE_ENV !== 'development' || !['localhost', '127.0.0.1', '[::1]'].includes(request.nextUrl.hostname)))) {
+  if (preview && (process.env.NODE_ENV !== 'development' || !['localhost', '127.0.0.1', '[::1]'].includes(request.nextUrl.hostname))) {
     return new NextResponse(null, {
       status: 404,
       headers: { 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex,noimageindex' },
@@ -40,6 +39,6 @@ export default function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     '/donate-now/:path*', '/donate-online/:path*', '/donation/:path*',
-    '/demo/literacy-rate-in-india/:path*', '/blog/literacy-rate-in-india-state-wise/:path*',
+    '/demo/literacy-rate-in-india/:path*',
   ],
 };

@@ -13,7 +13,7 @@ import { JSDOM } from 'jsdom';
 import ts from 'typescript';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const directory = join(root, 'src/content/drafts/literacy-rate-in-india');
+const directory = join(root, 'src/content/articles/literacy-rate-in-india');
 const data = JSON.parse(readFileSync(join(directory, 'data.json'), 'utf8'));
 const load = createRequire(import.meta.url);
 const argument = name => process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : undefined;
@@ -29,6 +29,7 @@ load.extensions['.css'] = module => {
 };
 const article = load(join(directory, 'article.tsx'));
 const seo = load(join(directory, 'seo.ts'));
+const { literacyPublication, literacyBlogPost } = load(join(directory, 'publication.ts'));
 const document = new JSDOM(renderToStaticMarkup(React.createElement(article.default, { imagePath: seo.literacySEO.previewImagePath }))).window.document;
 const copy = document.querySelector('[data-article-copy]');
 const preview = { mode: 'preview', origin: 'http://127.0.0.1:3100' };
@@ -180,15 +181,19 @@ test('publication factory needs explicit dates and author; canonical/schema/imag
   const escaped = seo.serializeLiteracySchema({ ...context, publication: { ...context.publication, author: { ...context.publication.author, name: '</script><script>fixture</script>' } } });
   assert.ok(!escaped.includes('</script>'));
   assert.equal(JSON.parse(escaped)['@graph'][0].author.name, '</script><script>fixture</script>');
+  assert.equal(literacyPublication.author.type, 'Organization');
+  assert.equal(literacyPublication.author.name, seo.literacySEO.siteName);
+  assert.equal(literacyBlogPost.canonicalUrl, seo.literacySEO.canonical);
+  assert.equal(literacyBlogPost.publishDate.toISOString().slice(0, 10), literacyPublication.datePublished);
 });
 
 test('featured raster/SVG dimensions, same six figures and zero-based chart scale', () => {
-  const png = readFileSync(join(directory, 'literacy-rate-in-india-state-wise-plfs-2025.png'));
+  const png = readFileSync(join(root, 'public', new URL(seo.literacySEO.publicationImage).pathname));
   assert.equal(png.subarray(1, 4).toString(), 'PNG');
   assert.equal(png.readUInt32BE(16), 1200);
   assert.equal(png.readUInt32BE(20), 630);
   assert.ok(png.length < 100000);
-  assert.ok(!existsSync(join(root, 'public/images/blog/literacy-rate-in-india-state-wise-plfs-2025.png')));
+  assert.ok(existsSync(join(root, 'public', new URL(seo.literacySEO.publicationImage).pathname)));
   const svg = new JSDOM(readFileSync(join(directory, 'literacy-rate-in-india-state-wise-plfs-2025.svg'), 'utf8'), { contentType: 'image/svg+xml' }).window.document;
   article.comparisonStates.forEach(row => {
     const rect = svg.querySelector(`rect[data-state="${row.name}"]`);
@@ -203,7 +208,10 @@ test('featured raster/SVG dimensions, same six figures and zero-based chart scal
 
 test('article word count and percentage whitelist', () => {
   const count = words(copy);
-  console.log(`WORD_COUNT body/headings/tables/FAQs, excluding TOC/byline/bibliography: ${count}; narrative excluding tables/chart: ${words(copy, 'table, figure')}; full article excluding TOC: ${words(document.querySelector('article'))}.`);
+  const publishedDocument = new JSDOM(renderToStaticMarkup(React.createElement(article.default, {
+    imagePath: new URL(seo.literacySEO.publicationImage).pathname, publication: literacyPublication,
+  }))).window.document;
+  console.log(`WORD_COUNT body/headings/tables/FAQs, excluding TOC/byline/bibliography: ${count}; narrative excluding tables/chart: ${words(copy, 'table, figure')}; full published article excluding TOC: ${words(publishedDocument.querySelector('article'))}.`);
   assert.ok(count >= 2000 && count <= 3200, `Useful article body is ${count} words.`);
   const allowed = new Set([95, 100, 94, 61.8, ...data.rows.flatMap(row => [...row.combined, ...(row.rural || []), ...row.urban]), ...Object.values(data.all_india).flat(), ...data.census_2011_reference_not_mixed_into_main_dataset.final_pca_rates_percent.combined, ...data.census_2011_reference_not_mixed_into_main_dataset.provisional_2011_rates_percent]);
   for (const match of readableText(copy).matchAll(/\b(\d+(?:\.\d+)?)%/g)) assert.ok(allowed.has(Number(match[1])), `Untracked percentage ${match[1]}%.`);
@@ -257,8 +265,9 @@ if (argument('--source-workbook')) test('independent original XLSX hash and all 
   console.log('PRIMARY_SOURCE_CHECK: official workbook SHA-256 and 330 age-7-plus numeric cells match; rural Chandigarh remains blank.');
 });
 
-if (argument('--base-url')) test('rendered draft metadata, mobile scrolling, image, anchors and desktop layout', async () => {
+if (argument('--base-url')) test('private preview metadata and public article mobile/desktop layout', async () => {
   const base = argument('--base-url');
+  const browserBase = argument('--production-url') || base;
   const response = await fetch(new URL(seo.literacySEO.previewPath, base));
   assert.equal(response.status, 200);
   const pageDocument = new JSDOM(await response.text()).window.document;
@@ -309,7 +318,7 @@ if (argument('--base-url')) test('rendered draft metadata, mobile scrolling, ima
     const layouts = [];
     for (const width of [320, 375, 1440]) {
       await page.setViewport({ width, height: 900 });
-      await page.goto(new URL(seo.literacySEO.previewPath, base).href, { waitUntil: 'networkidle0', timeout: 60000 });
+      await page.goto(new URL(new URL(seo.literacySEO.canonical).pathname, browserBase).href, { waitUntil: 'networkidle0', timeout: 60000 });
       const layout = await page.evaluate(() => {
         const article = document.getElementById('literacy-article');
         const regions = [...article.querySelectorAll('[role="region"]')];
@@ -319,10 +328,11 @@ if (argument('--base-url')) test('rendered draft metadata, mobile scrolling, ima
           articleCount: document.querySelectorAll('#literacy-article').length, h1Count: document.querySelectorAll('h1').length,
           regions: regions.map(region => ({ width: region.getBoundingClientRect().width, client: region.clientWidth, scroll: region.scrollWidth })),
           imageWidth: image.naturalWidth, imageHeight: image.naturalHeight,
+          overflowing: [...document.body.querySelectorAll('*')].filter(element => !element.closest('[role="region"]') && element.getBoundingClientRect().right > innerWidth + 1).slice(0, 6).map(element => ({ tag: element.tagName, className: element.className, width: element.getBoundingClientRect().width, right: element.getBoundingClientRect().right })),
         };
       });
       assert.ok(layout.articleWidth <= width + 1);
-      assert.ok(layout.pageWidth <= width + 1);
+      assert.ok(layout.pageWidth <= width + 1, JSON.stringify(layout));
       assert.equal(layout.articleCount, 1);
       assert.equal(layout.h1Count, 1);
       assert.equal(layout.imageWidth, 1200);
@@ -354,17 +364,49 @@ if (argument('--base-url')) test('rendered draft metadata, mobile scrolling, ima
   }
 });
 
-if (argument('--production-url')) test('production denies draft/image/public slug and omits content from blog, sitemap and browser JS', async () => {
+if (argument('--production-url')) test('public article is indexable and discoverable while editorial preview remains private', async () => {
   const base = argument('--production-url');
-  for (const path of [seo.literacySEO.previewPath, seo.literacySEO.previewImagePath, `/blog/${seo.literacySEO.slug}/`]) {
+  for (const path of [seo.literacySEO.previewPath, seo.literacySEO.previewImagePath]) {
     const response = await fetch(new URL(path, base));
     assert.equal(response.status, 404, path);
     assert.ok(!(await response.text()).includes(seo.literacySEO.headline));
   }
+  const response = await fetch(new URL(`/blog/${seo.literacySEO.slug}/`, base));
+  assert.equal(response.status, 200);
+  assert.ok(!/noindex|nofollow/.test(response.headers.get('x-robots-tag') || ''));
+  const publicDocument = new JSDOM(await response.text()).window.document;
+  assert.equal(publicDocument.title, seo.literacySEO.title);
+  assert.equal(publicDocument.querySelectorAll('h1').length, 1);
+  assert.equal(publicDocument.querySelectorAll('link[rel="canonical"]').length, 1);
+  assert.equal(publicDocument.querySelector('link[rel="canonical"]').href, seo.literacySEO.canonical);
+  assert.ok(!/noindex|nofollow/.test(publicDocument.querySelector('meta[name="robots"]').content));
+  assert.equal(publicDocument.querySelector('meta[property="og:image"]').content, seo.literacySEO.publicationImage);
+  assert.equal(publicDocument.querySelector('meta[property="article:published_time"]').content, literacyPublication.datePublished);
+  assert.equal(publicDocument.querySelector('meta[name="author"]').content, literacyPublication.author.name);
+  assert.equal(publicDocument.querySelectorAll('#state-literacy-table tbody tr').length, 36);
+  assert.equal(publicDocument.querySelectorAll('#literacy-faqs h3').length, 8);
+  const schemas = [...publicDocument.querySelectorAll('script[type="application/ld+json"]')].flatMap(script => {
+    const parsed = JSON.parse(script.textContent);
+    return parsed['@graph'] || [parsed];
+  });
+  const publishedArticle = schemas.filter(node => node['@type'] === 'Article');
+  assert.equal(publishedArticle.length, 1);
+  assert.equal(publishedArticle[0].author['@type'], 'Organization');
+  assert.equal(publishedArticle[0].author.name, literacyPublication.author.name);
+  assert.equal(publishedArticle[0].datePublished, literacyPublication.datePublished);
+  assert.equal(publishedArticle[0].url, seo.literacySEO.canonical);
+  assert.equal(publishedArticle[0].creativeWorkStatus, 'Published');
+  assert.equal(schemas.filter(node => node['@type'] === 'BreadcrumbList').length, 1);
+  assert.equal(schemas.filter(node => node['@type'] === 'FAQPage' || node['@type'] === 'Person').length, 0);
+  const image = await fetch(new URL(new URL(seo.literacySEO.publicationImage).pathname, base));
+  assert.equal(image.status, 200);
+  assert.match(image.headers.get('content-type'), /image\/png/);
   for (const path of ['/blog/', '/sitemap.xml']) {
     const response = await fetch(new URL(path, base));
     assert.equal(response.status, 200);
-    assert.ok(!(await response.text()).includes(seo.literacySEO.slug));
+    const body = await response.text();
+    assert.ok(body.includes(seo.literacySEO.slug));
+    if (path === '/sitemap.xml') assert.ok(body.includes(`<loc>${seo.literacySEO.canonical}</loc>`));
   }
   const published = await fetch(new URL('/blog/international-literacy-day-help-a-child-learn-to-read/', base));
   assert.equal(published.status, 200);
@@ -390,12 +432,12 @@ if (argument('--production-url')) test('production denies draft/image/public slu
       if (entry.isDirectory()) pending.push(path);
       else if (entry.name.endsWith('.js')) {
         const source = await readFile(path, 'utf8');
-        assert.ok(!source.includes(seo.literacySEO.headline) && !source.includes(data.dataset_id), path);
+        assert.ok(!source.includes(data.dataset_id) && !source.includes('final_national_total_counts'), path);
         chunks++;
       }
     }
   }
-  console.log(`PRODUCTION_EXCLUSION: 404 draft/image/public slug; absent blog/sitemap and ${chunks} browser JS chunks; existing article indexing unchanged.`);
+  console.log(`PUBLICATION_AUDIT: public article/image200, canonical/indexability/Organization byline/dates valid, listed in blog/sitemap; private preview/image404; ${chunks} browser chunks contain no full research dataset; existing indexing/redirects preserved.`);
 });
 
 if (process.argv.includes('--check-links')) test('HTTP-check every distinct editorial citation and internal destination', async () => {
@@ -417,7 +459,8 @@ if (process.argv.includes('--check-links')) test('HTTP-check every distinct edit
             response = await fetch(url, { headers: { Range: 'bytes=0-1023' }, redirect: 'follow', signal: AbortSignal.timeout(20000) });
             await response.body?.cancel();
           }
-          return { url, method, status: response.status, finalUrl: response.url, result: response.ok ? 'reachable' : [401, 403, 429, 503].includes(response.status) ? 'blocked-or-unavailable' : 'http-error' };
+          if (response.status >= 500 && attempt === 0) continue;
+          return { url, method, status: response.status, finalUrl: response.url, result: response.ok ? 'reachable' : [401, 403, 429, 500, 502, 503, 504].includes(response.status) ? 'blocked-or-unavailable' : 'http-error' };
         } catch (error) {
           failure = error.message;
         }

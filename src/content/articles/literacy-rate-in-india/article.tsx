@@ -419,6 +419,7 @@ export default function LiteracyArticle({
           Kerala and Bihar&apos;s final PCA counts were checked using a <a href={census.historical_state_extrema.retrieval_archive_url}>preserved copy of the exact official workbook</a>,
           {' '}with archive-digest and national-count cross-checks. The capture date is not a publication or statistical reference date.
         </p>
+        <p>Editorial method: this article was prepared with AI-assisted research and writing, with statistics cross-checked against the official sources listed above.</p>
       </section>
     </article>
   );

@@ -1,19 +1,31 @@
 # Literacy Rate in India: Editorial and SEO Audit
 
-Research check: 19 November 2026. Status: local editorial draft, not published.
+Research check: 19 November 2026. Publication authorized: 19 November 2026. Status: public article configuration activated; final deployment verification follows the publication push.
 
-This report records keyword decisions made before article drafting and the completed implementation/verification results. The article is prepared in the project as a local editorial draft. No production deployment, named-author approval, or original publication date is claimed.
+This report preserves the original keyword/research audit and records the authorized publication update. The user approved making the article public, pushing publication changes to main, and using Sunrise Children Educational Society as the Organization byline. No individual author or credential is invented. The first publication and modification dates are 19 November 2026.
+
+## Publication Update
+
+- Public URL: `https://scesindia.com/blog/literacy-rate-in-india-state-wise/`.
+- Approved organization author: Sunrise Children Educational Society, `https://scesindia.com/about/`.
+- Date published / modified: `2026-11-19`; a calendar date is used rather than inventing an exact deployment time.
+- Public image: `https://scesindia.com/images/literacy-rate-in-india-state-wise-plfs-2025.png`.
+- The article is registered in `src/config/blog.ts`; the existing `[slug]` route loads its accessible server renderer, and the sitemap uses its explicit canonical.
+- The former public-URL block has been removed. Production denial remains only for the development preview and preview image endpoint.
+- Article source is now under `src/content/articles/literacy-rate-in-india/`. Client listings import only a small publication summary, not the full research data/body.
+- Organization author, real date, publication canonical, index/follow directives, OG/X metadata and Article/BreadcrumbList schema are activated by the public renderer.
+- The initial draft was deliberately protected until the user explicitly approved publication. Publication-specific checks now cover the indexable public page and continued private-preview protections.
 
 ## Delivery Summary
 
 - Article body: **2,710 words**, including headings, tables, comparison chart labels and eight FAQs; excluding TOC, byline and bibliography.
 - Narrative: **2,230 words**, additionally excluding tables and the chart.
-- Full visible article: **3,128 words**, including source bibliography, byline and featured-image caption, but excluding TOC. The primary-source bibliography accounts for useful additional length rather than padded prose.
+- Full visible published article: **3,151 words**, including source bibliography, approved organization byline/dates, editorial AI-assistance disclosure and featured-image caption, but excluding TOC. The primary-source bibliography accounts for useful additional length rather than padded prose.
 - Counts use rendered text nodes and the reproducible word tokenizer in `tests/literacy-article.test.mjs`; numbers and hyphenated terms count as words.
 - Primary keyword: **literacy rate in India**. Secondary/long-tail/semantic mapping is recorded below.
 - Local preview: `http://127.0.0.1:3100/demo/literacy-rate-in-india/`.
 - Final full acceptance run: **12 tests passed, zero failures**.
-- Files: **11 created and one existing file modified**; detailed inventory appears at the end.
+- The source was promoted from `content/drafts` to `content/articles`; publication-specific file changes are listed at the end.
 
 ## Keyword Strategy
 
@@ -64,7 +76,7 @@ No arbitrary keyword-density target is used. Exact primary-keyword placement is 
 - Open Graph: article type, title, description, URL, real 1200 x 630 raster image, image alt, and SCES organization site name.
 - X/Twitter: summary-large-image card, title, description, image and alt; no unverified social handle.
 
-The public URL and public image URL are reserved publication targets, not existing live resources. Publication metadata/schema factories implement the canonical above and `https://scesindia.com/images/blog/literacy-rate-in-india-state-wise-plfs-2025.png`, but require explicit author and publication/modification inputs. The public article URL currently returns 404 by design.
+The public renderer implements the canonical above and `https://scesindia.com/images/literacy-rate-in-india-state-wise-plfs-2025.png`. Approved author and date inputs are stored in `publication.ts`. Local production checks require both article and image to return 200; the article is no longer reserved or blocked.
 
 The local preview explicitly clears the inherited home-page canonical and uses its actual loopback URL/image endpoint for Open Graph and Article schema. It is intentionally `noindex,follow,noimageindex`; ordinary citations remain follow links. Publication-mode metadata is `index,follow`. No shared SEO settings were overwritten.
 
@@ -111,15 +123,15 @@ Recency research also inspected PLFS 2023-24 (July 2023-June 2024, released 23 S
 - No microdata re-estimation is claimed. No unverified literacy-specific confidence interval, population headcount, causal programme effect, growth-series subtraction or forecast year is published.
 - Both the narrative and FAQ now disclose PLFS's exclusion of not-reported cases. Survey rates are weighted estimates, not sample headcounts or unweighted state averages.
 
-## Architecture and Draft Safety
+## Architecture and Publication
 
 The project is Next.js App Router with a hard-coded public blog array in `src/config/blog.ts`, not WordPress or an external CMS. Its client listings import the whole array, and the detail route/static parameters/sitemap include all entries. There is no existing draft flag.
 
-The article stays in this separate source directory, outside the public array and outside public assets. A development-only server preview and guarded image endpoint load it only after development-mode checks. The local preview server is bound to `127.0.0.1`.
+The public blog array now includes a small publication summary. Full article content and research data remain server-rendered rather than being imported into every client-side listing. The public PNG is in `public/images/`. A separate development-only preview and guarded preview-image endpoint remain available only after development/loopback checks.
 
-Production testing caught Next.js's streamed `notFound()` soft-404 behavior: the body was hidden, but a page response could still be HTTP 200. A narrowly scoped guard in the existing `src/proxy.ts` now rejects the draft preview and reserved public article path before rendering. The preview, image and public article URL all returned actual **404** responses in the final local production-mode audit.
+Initial draft testing caught Next.js's streamed `notFound()` soft-404 behavior. The proxy continues to reject the development preview and preview-image path before rendering, with actual 404 responses. Only the former public-article reservation was removed after authorization. The canonical public article and public image must return 200.
 
-The public blog, sitemap and existing static-article list remain unchanged. The audit scanned **90 production browser JS chunks** without finding the draft headline or dataset ID. The original donation alias's 308 redirect chain and query preservation passed regression checks. Host checks are defense in depth; loopback binding is the actual local-network restriction, not a substitute for a general CMS authentication system.
+The canonical article is included in the blog, generated static article parameters and sitemap, with matching dates and a trailing-slash canonical. Browser-bundle checks prevent the full research dataset from being shipped with the client listing. Existing article indexing and the original donation alias's 308 redirect/query preservation remain regression checks. Host checks are defense in depth; loopback binding is not a substitute for a general CMS authentication system.
 
 The existing root NGO/WebSite schema and global metadata were not rewritten. There is no existing Organization `@id`; none was invented. The new Article's minimal embedded publisher identity matches the real NGO's name and URL, without copying unrelated addresses, founding dates or social values. No person, qualification, author approval or publication date was fabricated. This is not a general cleanup of pre-existing site-wide schema.
 
@@ -154,21 +166,21 @@ These are proposed supporting articles, not current URLs or links in the article
 
 ## Image and Schema Decisions
 
-No existing image-generation workflow was found. An original open-book/statistical-bar visual was created and rasterized using the already-installed Sharp tooling. It is **1200 x 630 pixels, 34,297 bytes**, with six verified state bars on a zero-to-100 scale and the verified national 81.1% estimate. The PNG stays outside `public`; a guarded development endpoint serves it.
+No existing image-generation workflow was found. An original open-book/statistical-bar visual was created and rasterized using the already-installed Sharp tooling. It is **1200 x 630 pixels, 34,297 bytes**, with six verified state bars on a zero-to-100 scale and the verified national 81.1% estimate. The PNG is now a public asset; only the development preview endpoint remains guarded.
 
 The featured alt text is `Open book and zero-based bars comparing literacy rates in six Indian states using PLFS 2025 estimates for people aged seven and above`. Its title is `Literacy in Indian states: PLFS 2025 comparison`. The visible caption identifies age, combined sectors, point estimates and the Census distinction. The SVG is the editable original; the PNG is the social-card asset.
 
 A map variant remains a concept requiring a rights-cleared, accurate cartographic asset. Survey of India's current copyright policy requires written reproduction permission, so no outline was copied: `https://surveyofindia.gov.in/pages/copyright-policy`. No map-generation or permission acquisition is claimed.
 
-The implemented new schemas are **Article and BreadcrumbList**, in one script-safe JSON-LD graph. The Article headline matches the H1; its preview URL and image match the actual local page. Eight FAQ answers are visible without FAQPage markup. Google's current documentation changelog records FAQ rich-result retirement from **7 May 2026** and documentation removal in June 2026; the former government/health eligibility advice is no longer current.
+The implemented schemas are **Article and BreadcrumbList**, in one script-safe JSON-LD graph. The published Article headline matches the H1; URL, image, Organization author and dates match visible page content. Eight FAQ answers are visible without FAQPage markup. Google's current documentation changelog records FAQ rich-result retirement from **7 May 2026** and documentation removal in June 2026; the former government/health eligibility advice is no longer current.
 
-Structured data is descriptive, not a rich-result or ranking guarantee. Draft creation/modification dates can be accurate without asserting a datePublished. The approved first publication date and actual responsible author/reviewer remain editorial decisions before eventual publication.
+Structured data is descriptive, not a rich-result or ranking guarantee. The user approved the society Organization byline and publication; the public page uses 19 November 2026 as its first publication and modification date. No named reviewer, person credential or exact deployment time is fabricated.
 
 JSON syntax, graph types, single-instance counts, publisher identity, headline, image URL/dimensions, dates and breadcrumb ordering passed local assertions. `<` is escaped in the JSON-LD serializer, including a tested `</script>` fixture. No new Person or standalone Organization graph was fabricated, and no FAQ graph or duplicate metadata was emitted.
 
-The preview has fixed `dateCreated`/`dateModified` of **2026-11-19**, matching the actual preparation/editing day and visible research date. It has no `datePublished` or author schema. Publication-mode factories require explicitly supplied author and dates and were tested using clearly synthetic inputs that are never used by the actual draft.
+The private preview retains its own noindex metadata. The public Article includes the actual approved Organization author, `datePublished` and `dateModified` of **2026-11-19**, and fixed research/preparation date. Separate synthetic factory-test inputs are never used as actual article dates or bylines.
 
-An external Google Rich Results Test on a live article was not run because the article is intentionally unpublished and the preview is loopback-only/noindex. Local syntax/semantic validation is not represented as a Google eligibility certification.
+An external Google Rich Results Test certification is not claimed. JSON syntax, single-instance graph/metadata counts, canonical, author type, dates and visible-content consistency are verified locally and checked again on the deployed article.
 
 Google guidance consulted:
 
@@ -207,8 +219,9 @@ These unrelated baseline issues were not silently fixed or represented as articl
 | Open Graph/X metadata and new schema instance counts | Passed; no duplicate new metadata/schema or unverified creator handle |
 | JSON-LD syntax, visibility consistency and script-safe serialization | Passed locally |
 | Every distinct editorial HTTP resource | Passed; 20/20 successful, including public GET fallback for PIB |
-| Production draft, image and reserved public URL | Actual 404, body absent |
-| Production blog/sitemap/browser JS exclusion | Passed; 90 browser chunks scanned |
+| Production development preview/image endpoints | Actual 404, body absent |
+| Public article/image and blog/sitemap registration | 200 and discoverable; correct canonical and index/follow directives |
+| Client-side bundle contents | No full research dataset bundled with listings |
 | Existing published-article indexing and donation redirect/query regression | Passed |
 | Scoped lint | Passed |
 | Local `npm run build` | Passed; TypeScript validation skipped by existing project configuration |
@@ -231,21 +244,21 @@ npm run start -- --hostname 127.0.0.1 --port 3101
 node "tests/literacy-article.test.mjs" --source-workbook "C:\Users\Asus\AppData\Local\Temp\kilo\literacy_PLFS_2025_Table_7_official.xlsx" --base-url "http://127.0.0.1:3100" --production-url "http://127.0.0.1:3101" --check-links
 ```
 
-The two servers are separate processes; the commands are listed as a workflow, not instructions to run a second server behind a foreground one. No deploy, Git commit, push, remote upload, or CMS publish command was run.
+The two servers are separate processes; the commands are listed as a workflow, not instructions to run a second server behind a foreground one. The original preparation was local-only. A separate user request authorized the initial repository push, and a subsequent explicit Publish Now approval authorized the public-page activation and publication push. Vercel's main-branch integration deploys the publication commit.
 
-## Publication Handoff
+## Publication Maintenance
 
-Still required before public publication: explicit publication/deployment authorization, the actual responsible author or genuinely approved organization byline, human editorial sign-off, the fixed first publication date and accurate modification date. Real site author profiles exist, but none was assigned without approval.
+Publication was explicitly authorized by the user on 19 November 2026, including the genuine Society organization byline. No individual author profile was assigned or fabricated. The active publication dates and author are centralized in `publication.ts`.
 
 The first release date/year of the final Census 2011 PCA was not independently established. It is explicitly marked unknown, not guessed from the archive/catalog. Its rates and reference year are verified; that metadata limitation must remain transparent unless a dated original release is obtained.
 
-After authorization, promote the server-rendered article into a canonical `/blog/literacy-rate-in-india-state-wise/` page using `createLiteracyMetadata`, `createLiteracySchema` and the same `PublicationDetails` for its visible byline/dates. Retain semantic JSX rather than routing these tables through the legacy regex Markdown parser. Place the prepared PNG at its stated public asset destination only at that stage, and supply that path to the article renderer.
+The existing `[slug]` route renders this article with `published-page.tsx`, using the same `PublicationDetails` for visible byline/dates, metadata and schema. Semantic JSX preserves the accessible tables. The public PNG destination matches its image metadata.
 
-Remove only the reserved public-article guard/matcher from `src/proxy.ts` when that real published page is ready; keep production denial for the editorial preview/image. Add the approved listing/discovery record through `src/config/blog.ts` with accurate author/date values and include the canonical in the sitemap. Recheck its single canonical, image availability, metadata, article/breadcrumb schema and actual indexability on the real URL after publication. Do not add FAQPage merely for Google rich results.
+The public-article guard has been removed while editorial-preview protection remains. Blog/sitemap registration uses the approved record and explicit canonical. Continue checking the deployed canonical, public image, metadata, Article/BreadcrumbList schema and indexability after updates. Do not add FAQPage merely for Google rich results.
 
 For future statistics updates, reverify the reference period, methodology, coverage, the unversioned government workbook URL and its hash, every table/prose/FAQ/image value and relevant policy guidance. Do not merely change the year or refresh `dateModified` without meaningful work.
 
-## File Inventory
+## Initial Draft File Inventory (Historical)
 
 All paths below are relative to `sces-website`.
 
@@ -263,3 +276,25 @@ All paths below are relative to `sces-website`.
 | Created | `scripts/prepare-literacy-image.mjs` | Reproducible raster generation with verified-data and scale assertions |
 | Created | `tests/literacy-article.test.mjs` | Source-cell, rendering, metadata/schema, browser, links and production-exclusion acceptance tests |
 | Modified | `src/proxy.ts` | Scoped pre-render draft/reserved-URL denial; original donation aliases preserved |
+
+## Publication File Changes
+
+- Article, CSS, research JSON, schema/SEO code, SVG and this audit moved to `src/content/articles/literacy-rate-in-india/`.
+- `metadata.ts` contains lightweight shared SEO fields for listings; `publication.ts` centralizes approved dates, Organization author and blog-summary record.
+- `published-page.tsx` renders the public article, truthful Organization byline, breadcrumb/schema and responsive sharing controls.
+- `public/images/literacy-rate-in-india-state-wise-plfs-2025.png` is the generated public asset; the obsolete private PNG was removed.
+- `src/config/blog.ts`, `src/app/blog/[slug]/page.tsx`, `src/app/sitemap.ts` and `src/types/index.ts` activate the server-rendered post and explicit canonical discovery record.
+- `src/proxy.ts` now protects only the development preview, not the public post.
+- Preview routes, image-generation script and acceptance tests use the promoted source/public image paths.
+
+## Publication Verification
+
+Local publication build succeeded and generated the canonical article as a static blog route. Source/hash checks, 36-area/108-cell tables, Organization author/date/canonical/schema, public image, blog/sitemap registration, private-preview404 and existing-redirect checks are required by the updated suite. Public article mobile checks include the responsive sharing-controls adjustment.
+
+A temporary MoSPI server502 affected one publication-stage link recheck; these exact primary resources had previously returned200 and their downloaded data/hashes remained verified. A subsequent direct government-workbook GET succeeded. This is recorded as transient source availability, not hidden or used to substitute unverified statistics.
+
+Final local publication acceptance: **12 tests passed, zero failures**, including the actual production-mode public page, all 20 editorial resources, source/hash verification, tables, metadata/schema, public image, Organization byline/date, blog/sitemap registration, 320/375/1440-pixel layouts, 14 TOC anchors, private-preview404 and existing donation redirects. Final production build and scoped lint passed. Type checking retained the same 29 pre-existing diagnostics with no publication-file diagnostics.
+
+Publication screenshot/metrics evidence: `C:\Users\Asus\AppData\Local\Temp\kilo\literacy-browser-Af69TO\`. The sharing controls wrap on narrow screens; no article/page horizontal overflow or browser exception remained. MoSPI links recovered and returned200 in the final full link run.
+
+Live deployment evidence follows the publication push and deployed-URL check.
